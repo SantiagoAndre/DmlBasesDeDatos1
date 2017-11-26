@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Datos.cs" />
     <Compile Include="Logica\Diplomado.cs" />
     <Compile Include="Logica\Estilista.cs" />
+    <Compile Include="Logica\Inscripcion.cs" />
     <Compile Include="Properties\Datos.cs" />
     <Compile Include="Interfaz\FormDiplomado.cs">
       <SubType>Form</SubType>
@@ -100,9 +102,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Datos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

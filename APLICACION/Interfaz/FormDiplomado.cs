@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FINALBASES.Interfaz
+namespace APLICACION.Interfaz
 {
     public partial class FromDiplomado : Form
     {
-        public FromDiplomado(Logica.Diplomado dip)
-        {
-            setDiplomado(dip);
-
+        public FromDiplomado()
+        { 
             InitializeComponent();
-        }
-        public void setDiplomado(Logica.Diplomado dip)
-        {
-            this.aDiplomado = dip;
         }
         public void setModo(string nuevoModo)
         {
@@ -74,7 +68,6 @@ namespace FINALBASES.Interfaz
         {
             clearComponents();
         }
-        private Logica.Diplomado aDiplomado;
         private string modo;
         public static string MODO_REGISTRAR = "REGISTRAR";
         public static string MODO_ACTUALIZAR ="ACTUAIZAR";

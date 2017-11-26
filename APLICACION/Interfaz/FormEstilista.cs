@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FINALBASES.Interfaz
+namespace APLICACION.Interfaz
 {
     public partial class FormEstilista : Form
     {
-        public FormEstilista(Logica.Estilista est)
+        public FormEstilista()
         {
-            setEstilita(est);
-            InitializeComponent();
-        }
-        public void setEstilita(Logica.Estilista est)
-        {
-            this.aEstilista = est;
+           InitializeComponent();
         }
         public void setModo(string nuevoModo)
         {
@@ -83,7 +78,6 @@ namespace FINALBASES.Interfaz
         }
 
        
-        private Logica.Estilista aEstilista;
         private string modo;
 
         private void FormEstilista_VisibleChanged(object sender, EventArgs e)

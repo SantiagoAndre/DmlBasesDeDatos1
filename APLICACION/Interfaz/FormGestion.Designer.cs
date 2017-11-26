@@ -1,6 +1,6 @@
 ﻿
 
-namespace FINALBASES.Interfaz
+namespace APLICACION.Interfaz
 {
     partial class FormGestion
     {

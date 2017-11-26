@@ -1,5 +1,4 @@
 ﻿
-using FINALBASES.Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,22 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FINALBASES.Interfaz
+namespace APLICACION.Interfaz
 {
     public partial class FormGestion : Form
     {
-        public FormGestion( Datos.Datos datos) 
+        public FormGestion( ) 
         {
             InitializeComponent();
             
-            initChildren(datos);
+            initChildren();
         }
-        public void initChildren(Datos.Datos datos)
+        public void initChildren()
         {
-            Diplomado diplomado = new Diplomado(datos);
-            Estilista estilista = new Estilista(datos);
-            this.childDiplomado = new FromDiplomado(diplomado);
-            this.childEstilista = new Interfaz.FormEstilista(estilista);
+            this.childDiplomado = new FromDiplomado();
+            this.childEstilista = new Interfaz.FormEstilista();
 
         }
         private void pasarAForm(Form form)

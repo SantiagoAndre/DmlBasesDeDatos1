@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FINALBASES.Interfaz;
+using APLICACION.Interfaz;
 
 
-namespace FINALBASES.Interfaz
+namespace APLICACION.Interfaz
 {
     public partial class FormPrincipal : Form
     {
@@ -19,7 +19,7 @@ namespace FINALBASES.Interfaz
         public FormPrincipal()
         {
             InitializeComponent();
-            aFormGestion = new Interfaz.FormGestion(new Datos.Datos());
+            aFormGestion = new Interfaz.FormGestion();
             
 
         }

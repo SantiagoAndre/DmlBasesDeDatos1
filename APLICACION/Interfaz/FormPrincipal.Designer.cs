@@ -1,4 +1,4 @@
-﻿namespace FINALBASES.Interfaz
+﻿namespace APLICACION.Interfaz
 {
     partial class FormPrincipal
     {
@@ -30,9 +30,9 @@
         {
             this.btnDiplomado = new System.Windows.Forms.Button();
             this.btnEstilista = new System.Windows.Forms.Button();
-            this.btnRegistra = new System.Windows.Forms.Button();
-            this.btnSowInfo = new System.Windows.Forms.Button();
-            this.btnFindRegistro = new System.Windows.Forms.Button();
+            this.btnInscribe = new System.Windows.Forms.Button();
+            this.btnSowInscripciones = new System.Windows.Forms.Button();
+            this.btnFindInscripcion = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -69,50 +69,50 @@
             this.btnEstilista.UseVisualStyleBackColor = false;
             this.btnEstilista.Click += new System.EventHandler(this.btnEstilista_Click);
             // 
-            // btnRegistra
+            // btnInscribe
             // 
-            this.btnRegistra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
-            this.btnRegistra.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnRegistra.FlatAppearance.BorderSize = 3;
-            this.btnRegistra.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRegistra.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistra.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistra.Location = new System.Drawing.Point(280, 105);
-            this.btnRegistra.Name = "btnRegistra";
-            this.btnRegistra.Size = new System.Drawing.Size(200, 45);
-            this.btnRegistra.TabIndex = 2;
-            this.btnRegistra.Text = "REGISTRAR ESTILIST EN DIPLOMADO";
-            this.btnRegistra.UseVisualStyleBackColor = false;
+            this.btnInscribe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnInscribe.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnInscribe.FlatAppearance.BorderSize = 3;
+            this.btnInscribe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInscribe.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInscribe.ForeColor = System.Drawing.Color.Black;
+            this.btnInscribe.Location = new System.Drawing.Point(40, 105);
+            this.btnInscribe.Name = "btnInscribe";
+            this.btnInscribe.Size = new System.Drawing.Size(200, 45);
+            this.btnInscribe.TabIndex = 2;
+            this.btnInscribe.Text = "INSCRIBIR ESTILIST EN DIPLOMADO";
+            this.btnInscribe.UseVisualStyleBackColor = false;
             // 
-            // btnSowInfo
+            // btnSowInscripciones
             // 
-            this.btnSowInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
-            this.btnSowInfo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSowInfo.FlatAppearance.BorderSize = 3;
-            this.btnSowInfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSowInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSowInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnSowInfo.Location = new System.Drawing.Point(40, 105);
-            this.btnSowInfo.Name = "btnSowInfo";
-            this.btnSowInfo.Size = new System.Drawing.Size(200, 45);
-            this.btnSowInfo.TabIndex = 3;
-            this.btnSowInfo.Text = "MOSTRAR TODOS LOS REGISTROS";
-            this.btnSowInfo.UseVisualStyleBackColor = false;
+            this.btnSowInscripciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnSowInscripciones.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSowInscripciones.FlatAppearance.BorderSize = 3;
+            this.btnSowInscripciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSowInscripciones.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSowInscripciones.ForeColor = System.Drawing.Color.Black;
+            this.btnSowInscripciones.Location = new System.Drawing.Point(280, 105);
+            this.btnSowInscripciones.Name = "btnSowInscripciones";
+            this.btnSowInscripciones.Size = new System.Drawing.Size(200, 45);
+            this.btnSowInscripciones.TabIndex = 3;
+            this.btnSowInscripciones.Text = "MOSTRAR TODAS LAS INSCRIPCIONES";
+            this.btnSowInscripciones.UseVisualStyleBackColor = false;
             // 
-            // btnFindRegistro
+            // btnFindInscripcion
             // 
-            this.btnFindRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
-            this.btnFindRegistro.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFindRegistro.FlatAppearance.BorderSize = 3;
-            this.btnFindRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFindRegistro.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindRegistro.ForeColor = System.Drawing.Color.Black;
-            this.btnFindRegistro.Location = new System.Drawing.Point(40, 180);
-            this.btnFindRegistro.Name = "btnFindRegistro";
-            this.btnFindRegistro.Size = new System.Drawing.Size(200, 45);
-            this.btnFindRegistro.TabIndex = 4;
-            this.btnFindRegistro.Text = "BUSCAR REGISTRO POR FECHA DE INICIO";
-            this.btnFindRegistro.UseVisualStyleBackColor = false;
+            this.btnFindInscripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnFindInscripcion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFindInscripcion.FlatAppearance.BorderSize = 3;
+            this.btnFindInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFindInscripcion.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindInscripcion.ForeColor = System.Drawing.Color.Black;
+            this.btnFindInscripcion.Location = new System.Drawing.Point(40, 180);
+            this.btnFindInscripcion.Name = "btnFindInscripcion";
+            this.btnFindInscripcion.Size = new System.Drawing.Size(200, 45);
+            this.btnFindInscripcion.TabIndex = 4;
+            this.btnFindInscripcion.Text = "BUSCAR INSCRIPCIONPOR FECHA DE INICIO";
+            this.btnFindInscripcion.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
@@ -130,20 +130,20 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // Principal
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(520, 250);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnFindRegistro);
-            this.Controls.Add(this.btnSowInfo);
-            this.Controls.Add(this.btnRegistra);
+            this.Controls.Add(this.btnFindInscripcion);
+            this.Controls.Add(this.btnSowInscripciones);
+            this.Controls.Add(this.btnInscribe);
             this.Controls.Add(this.btnEstilista);
             this.Controls.Add(this.btnDiplomado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Principal";
+            this.Name = "FormPrincipal";
             this.Text = "Principal";
             this.ResumeLayout(false);
 
@@ -153,9 +153,9 @@
 
         private System.Windows.Forms.Button btnDiplomado;
         private System.Windows.Forms.Button btnEstilista;
-        private System.Windows.Forms.Button btnRegistra;
-        private System.Windows.Forms.Button btnSowInfo;
-        private System.Windows.Forms.Button btnFindRegistro;
+        private System.Windows.Forms.Button btnInscribe;
+        private System.Windows.Forms.Button btnSowInscripciones;
+        private System.Windows.Forms.Button btnFindInscripcion;
         private System.Windows.Forms.Button btnExit;
     }
 }
