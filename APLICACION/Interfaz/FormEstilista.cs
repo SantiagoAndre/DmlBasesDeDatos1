@@ -14,12 +14,40 @@ namespace APLICACION.Interfaz
     {
         public FormEstilista()
         {
-           InitializeComponent();
+            InitializeComponent();
         }
-        public void setModo(string nuevoModo)
+        private Boolean isInFullView()
         {
-            
-            if (nuevoModo == Interfaz.FromDiplomado.MODO_REGISTRAR)
+            return this.dtpFechaEst.Visible;
+        }
+        private void rotateView(string nuevoModo)
+        {
+
+            if (modo == null && nuevoModo == FormGestion.SUB_MODO_ACTUALIZAR)
+            {
+                showSomeComponets();
+                this.btnOkEstilista.Location = new Point(50, 88);
+                this.ClientSize = new System.Drawing.Size(284, 153);
+            }
+            else if (modo == FormGestion.SUB_MODO_ACTUALIZAR)
+            {
+                if (isInFullView())
+                {
+                    showSomeComponets();
+                    this.btnOkEstilista.Location = new Point(50, 88);
+                    this.ClientSize = new System.Drawing.Size(284, 153);
+                    this.txtCodEst.Enabled = true;
+                }
+                else
+                {
+                    showAllComponets();
+                    this.btnOkEstilista.Location = new Point(50, 213);
+                    this.ClientSize = new System.Drawing.Size(284, 278);
+                    this.txtCodEst.Enabled = false;
+                }
+            }else if (modo == nuevoModo)
+                return;
+            else if (nuevoModo == FormGestion.SUB_MODO_REGISTRAR)
             {
                 showAllComponets();
                 this.btnOkEstilista.Location = new Point(50, 213);
@@ -28,21 +56,33 @@ namespace APLICACION.Interfaz
             else
             {
                 showSomeComponets();
-                this.btnOkEstilista.Location = new Point(50, 88);
-                this.ClientSize = new System.Drawing.Size(284, 153);
+                this.ckcModeDrop.Visible = true;
+                this.ckcModeDrop.Checked = false;
+                this.btnOkEstilista.Location = new Point(50, 130);
+                this.ClientSize = new System.Drawing.Size(284, 195);
             }
+
+        }
+        public void setModo(string nuevoModo)
+        {
+            if (nuevoModo == modo)
+                return;
+            rotateView(nuevoModo);
             this.modo = nuevoModo;
             this.lblDecripcion.Text = modo + " ESTILISTA";
 
         }
         private void clearComponents()
         {
+            this.txtCodEst.Enabled = true;
             this.txtCodEst.Clear();
             this.txtNombreEst.Clear();
             this.rbtFemenino.Checked = false;
-            this.dtpFechaEst.Text ="";
+            this.dtpFechaEst.Text = "";
         }
-        private void showSomeComponets(){
+        private void showSomeComponets()
+        {
+            this.ckcModeDrop.Visible = false;
             this.lblNombreEst.Visible = false;
             this.lblSexo.Visible = false;
             this.lblFechaEst.Visible = false;
@@ -53,6 +93,7 @@ namespace APLICACION.Interfaz
         }
         private void showAllComponets()
         {
+            this.ckcModeDrop.Visible = false;
             this.lblNombreEst.Visible = true;
             this.lblSexo.Visible = true;
             this.lblFechaEst.Visible = true;
@@ -62,27 +103,47 @@ namespace APLICACION.Interfaz
             this.dtpFechaEst.Visible = true;
 
         }
+
         private void rbtFemenino_CheckedChanged(object sender, EventArgs e)
         {
             rbtMasculino.Checked = false;
         }
-
         private void rbtMasculino_CheckedChanged(object sender, EventArgs e)
         {
             rbtFemenino.Checked = false;
         }
 
-        private void btnOkDiplomado_Click(object sender, EventArgs e)
-        {
 
-        }
 
-       
-        private string modo;
+        
 
         private void FormEstilista_VisibleChanged(object sender, EventArgs e)
         {
-            clearComponents();
+            if (!Visible)
+            {
+                clearComponents();
+                modo = null;
+            }
         }
+
+        
+        private void btnOkEstilista_Click(object sender, EventArgs e)
+        {
+
+            rotateView(modo);
+        }
+
+
+
+        private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
+        {
+            char keypress = e.KeyChar;
+            if (!char.IsDigit(keypress) && e.KeyChar != Convert.ToChar(Keys.Back))
+                e.Handled = true;
+        }
+        private string modo;
     }
 }
+
+
+

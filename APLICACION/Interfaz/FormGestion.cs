@@ -41,12 +41,12 @@ namespace APLICACION.Interfaz
             Form nuevoForm;
             if (this.aModoGestion == MODO_DIPLOMADO)
             {
-                this.childDiplomado.setModo(FromDiplomado.MODO_REGISTRAR);
+                this.childDiplomado.setModo(SUB_MODO_REGISTRAR);
                 nuevoForm = this.childDiplomado;
             }
             else
             {
-                this.childEstilista.setModo(FromDiplomado.MODO_REGISTRAR);
+                this.childEstilista.setModo(SUB_MODO_REGISTRAR);
                 nuevoForm = this.childEstilista;
             }
             pasarAForm(nuevoForm);
@@ -58,12 +58,12 @@ namespace APLICACION.Interfaz
             Form nuevoForm;
             if (this.aModoGestion == MODO_DIPLOMADO)
             {
-                this.childDiplomado.setModo(FromDiplomado.MODO_ACTUALIZAR);
+                this.childDiplomado.setModo(SUB_MODO_ACTUALIZAR);
                 nuevoForm = this.childDiplomado;
             }
             else
             {
-                this.childEstilista.setModo(FromDiplomado.MODO_ACTUALIZAR);
+                this.childEstilista.setModo(SUB_MODO_ACTUALIZAR);
                 nuevoForm = this.childEstilista;
             }
             pasarAForm(nuevoForm);
@@ -73,12 +73,12 @@ namespace APLICACION.Interfaz
             Form nuevoForm;
             if (this.aModoGestion == MODO_DIPLOMADO)
             {
-                this.childDiplomado.setModo(FromDiplomado.MODO_ELIMINAR);
+                this.childDiplomado.setModo(SUB_MODO_ELIMINAR);
                 nuevoForm = this.childDiplomado;
             }
             else
             {
-                this.childEstilista.setModo(FromDiplomado.MODO_ELIMINAR);
+                this.childEstilista.setModo(SUB_MODO_ELIMINAR);
                 nuevoForm = this.childEstilista;
             }
             pasarAForm(nuevoForm);
@@ -93,6 +93,9 @@ namespace APLICACION.Interfaz
         public static string MODO_DIPLOMADO = " DIPLOMADO ";
         public static string MODODO_ESTILISTA = "ESTILISTA";
 
+        public static string SUB_MODO_REGISTRAR = "REGISTRAR";
+        public static string SUB_MODO_ACTUALIZAR = "ACTUAIZAR";
+        public static string SUB_MODO_ELIMINAR = " ELIMINAR";
 
     }
 }

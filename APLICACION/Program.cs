@@ -14,10 +14,10 @@ namespace APLICACION
         [STAThread]
         static void Main()
         {
-            // Application.EnableVisualStyles();
-            // Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Interfaz.FormPrincipal());
-            Logica.Inscripcion.buscarInscripcion("4/22/2014");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Interfaz.FormPrincipal());
+//            Logica.Inscripcion.buscarInscripcion("4/22/2014");
             
         }
     }

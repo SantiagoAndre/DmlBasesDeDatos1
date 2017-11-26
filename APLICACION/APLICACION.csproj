@@ -47,6 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Datos.cs" />
+    <Compile Include="Interfaz\FormEstilista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\FormEstilista.Designer.cs">
+      <DependentUpon>FormEstilista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz\FormInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaz\FormInscripcion.Designer.cs">
+      <DependentUpon>FormInscripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logica\Diplomado.cs" />
     <Compile Include="Logica\Estilista.cs" />
     <Compile Include="Logica\Inscripcion.cs" />
@@ -56,12 +68,6 @@
     </Compile>
     <Compile Include="Interfaz\FormDiplomado.Designer.cs">
       <DependentUpon>FormDiplomado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaz\FormEstilista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaz\FormEstilista.Designer.cs">
-      <DependentUpon>FormEstilista.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\FormGestion.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interfaz\FormDiplomado.resx">
+      <DependentUpon>FormDiplomado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\FormEstilista.resx">
+      <DependentUpon>FormEstilista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\FormInscripcion.resx">
+      <DependentUpon>FormInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

@@ -83,6 +83,7 @@
             this.btnInscribe.TabIndex = 2;
             this.btnInscribe.Text = "INSCRIBIR ESTILIST EN DIPLOMADO";
             this.btnInscribe.UseVisualStyleBackColor = false;
+            this.btnInscribe.Click += new System.EventHandler(this.btnInscribe_Click);
             // 
             // btnSowInscripciones
             // 

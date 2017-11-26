@@ -42,6 +42,7 @@ namespace APLICACION.Datos
             DataSet miDS = new DataSet();
             //Paso 2: crear un adaptador 
             SqlDataAdapter adaptador = new SqlDataAdapter(consulta, CADENA_CONECCION);
+            Console.WriteLine(consulta);
             adaptador.Fill(miDS, "ResultadoDatos");
             return miDS;
         }

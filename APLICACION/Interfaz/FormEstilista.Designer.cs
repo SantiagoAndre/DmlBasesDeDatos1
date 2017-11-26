@@ -39,6 +39,7 @@
             this.rbtMasculino = new System.Windows.Forms.RadioButton();
             this.rbtFemenino = new System.Windows.Forms.RadioButton();
             this.dtpFechaEst = new System.Windows.Forms.DateTimePicker();
+            this.ckcModeDrop = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblDecripcion
@@ -63,7 +64,7 @@
             this.btnOkEstilista.TabIndex = 33;
             this.btnOkEstilista.Text = "OK";
             this.btnOkEstilista.UseVisualStyleBackColor = false;
-            this.btnOkEstilista.Click += new System.EventHandler(this.btnOkDiplomado_Click);
+            this.btnOkEstilista.Click += new System.EventHandler(this.btnOkEstilista_Click);
             // 
             // txtNombreEst
             // 
@@ -108,6 +109,7 @@
             this.txtCodEst.Name = "txtCodEst";
             this.txtCodEst.Size = new System.Drawing.Size(162, 20);
             this.txtCodEst.TabIndex = 26;
+            this.txtCodEst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
             // lblCodEst
             // 
@@ -129,7 +131,7 @@
             this.rbtMasculino.Text = "MASCULINO";
             this.rbtMasculino.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.rbtMasculino.UseVisualStyleBackColor = true;
-            this.rbtMasculino.CheckedChanged += new System.EventHandler(this.rbtMasculino_CheckedChanged);
+            this.rbtMasculino.CheckedChanged += new System.EventHandler(this.rbtFemenino_CheckedChanged);
             // 
             // rbtFemenino
             // 
@@ -150,12 +152,24 @@
             this.dtpFechaEst.Size = new System.Drawing.Size(157, 23);
             this.dtpFechaEst.TabIndex = 38;
             // 
+            // ckcModeDrop
+            // 
+            this.ckcModeDrop.AutoSize = true;
+            this.ckcModeDrop.Location = new System.Drawing.Point(25, 90);
+            this.ckcModeDrop.Name = "ckcModeDrop";
+            this.ckcModeDrop.Size = new System.Drawing.Size(222, 17);
+            this.ckcModeDrop.TabIndex = 39;
+            this.ckcModeDrop.Text = "BORRAR INSCRIPCIONES ASOCIADAS";
+            this.ckcModeDrop.UseVisualStyleBackColor = true;
+            this.ckcModeDrop.Visible = false;
+            // 
             // FormEstilista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(284, 278);
+            this.Controls.Add(this.ckcModeDrop);
             this.Controls.Add(this.rbtFemenino);
             this.Controls.Add(this.dtpFechaEst);
             this.Controls.Add(this.rbtMasculino);
@@ -188,5 +202,6 @@
         private System.Windows.Forms.RadioButton rbtMasculino;
         private System.Windows.Forms.RadioButton rbtFemenino;
         private System.Windows.Forms.DateTimePicker dtpFechaEst;
+        private System.Windows.Forms.CheckBox ckcModeDrop;
     }
 }

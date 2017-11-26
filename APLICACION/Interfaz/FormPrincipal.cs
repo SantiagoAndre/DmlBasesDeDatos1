@@ -14,12 +14,11 @@ namespace APLICACION.Interfaz
 {
     public partial class FormPrincipal : Form
     {
-        private Interfaz.FormGestion aFormGestion;
-
         public FormPrincipal()
         {
             InitializeComponent();
-            aFormGestion = new Interfaz.FormGestion();
+            aFormGestion = new FormGestion();
+            aFormInscripcion = new formInscripcion();
             
 
         }
@@ -47,5 +46,12 @@ namespace APLICACION.Interfaz
         {
             this.Close();
         }
+
+        private void btnInscribe_Click(object sender, EventArgs e)
+        {
+            pasarAForm(aFormInscripcion);
+        }
+        private FormGestion aFormGestion;
+        private formInscripcion aFormInscripcion;
     }
 }
