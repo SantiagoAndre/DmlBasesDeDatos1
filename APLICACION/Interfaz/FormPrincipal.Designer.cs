@@ -31,7 +31,7 @@
             this.btnDiplomado = new System.Windows.Forms.Button();
             this.btnEstilista = new System.Windows.Forms.Button();
             this.btnInscribe = new System.Windows.Forms.Button();
-            this.btnSowInscripciones = new System.Windows.Forms.Button();
+            this.btnShowInscripciones = new System.Windows.Forms.Button();
             this.btnFindInscripcion = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.btnDiplomado.Name = "btnDiplomado";
             this.btnDiplomado.Size = new System.Drawing.Size(200, 45);
             this.btnDiplomado.TabIndex = 0;
-            this.btnDiplomado.Text = "GESTIONAR DIPLOMADO";
+            this.btnDiplomado.Text = "DIPLOMADO";
             this.btnDiplomado.UseVisualStyleBackColor = false;
             this.btnDiplomado.Click += new System.EventHandler(this.btnDiplomado_Click);
             // 
@@ -65,7 +65,7 @@
             this.btnEstilista.Name = "btnEstilista";
             this.btnEstilista.Size = new System.Drawing.Size(200, 45);
             this.btnEstilista.TabIndex = 1;
-            this.btnEstilista.Text = "GESTIONAR ESTILISTA";
+            this.btnEstilista.Text = "ESTILISTA";
             this.btnEstilista.UseVisualStyleBackColor = false;
             this.btnEstilista.Click += new System.EventHandler(this.btnEstilista_Click);
             // 
@@ -81,24 +81,25 @@
             this.btnInscribe.Name = "btnInscribe";
             this.btnInscribe.Size = new System.Drawing.Size(200, 45);
             this.btnInscribe.TabIndex = 2;
-            this.btnInscribe.Text = "INSCRIBIR ESTILIST EN DIPLOMADO";
+            this.btnInscribe.Text = "INSCRIPCIONES ";
             this.btnInscribe.UseVisualStyleBackColor = false;
             this.btnInscribe.Click += new System.EventHandler(this.btnInscribe_Click);
             // 
-            // btnSowInscripciones
+            // btnShowInscripciones
             // 
-            this.btnSowInscripciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
-            this.btnSowInscripciones.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSowInscripciones.FlatAppearance.BorderSize = 3;
-            this.btnSowInscripciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSowInscripciones.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSowInscripciones.ForeColor = System.Drawing.Color.Black;
-            this.btnSowInscripciones.Location = new System.Drawing.Point(280, 105);
-            this.btnSowInscripciones.Name = "btnSowInscripciones";
-            this.btnSowInscripciones.Size = new System.Drawing.Size(200, 45);
-            this.btnSowInscripciones.TabIndex = 3;
-            this.btnSowInscripciones.Text = "MOSTRAR TODAS LAS INSCRIPCIONES";
-            this.btnSowInscripciones.UseVisualStyleBackColor = false;
+            this.btnShowInscripciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnShowInscripciones.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnShowInscripciones.FlatAppearance.BorderSize = 3;
+            this.btnShowInscripciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnShowInscripciones.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowInscripciones.ForeColor = System.Drawing.Color.Black;
+            this.btnShowInscripciones.Location = new System.Drawing.Point(280, 105);
+            this.btnShowInscripciones.Name = "btnShowInscripciones";
+            this.btnShowInscripciones.Size = new System.Drawing.Size(200, 45);
+            this.btnShowInscripciones.TabIndex = 3;
+            this.btnShowInscripciones.Text = "MOSTRAR TODAS LAS INSCRIPCIONES";
+            this.btnShowInscripciones.UseVisualStyleBackColor = false;
+            this.btnShowInscripciones.Click += new System.EventHandler(this.btnShowInscripciones_Click);
             // 
             // btnFindInscripcion
             // 
@@ -114,6 +115,7 @@
             this.btnFindInscripcion.TabIndex = 4;
             this.btnFindInscripcion.Text = "BUSCAR INSCRIPCIONPOR FECHA DE INICIO";
             this.btnFindInscripcion.UseVisualStyleBackColor = false;
+            this.btnFindInscripcion.Click += new System.EventHandler(this.btnFindInscripcion_Click);
             // 
             // btnExit
             // 
@@ -139,12 +141,13 @@
             this.ClientSize = new System.Drawing.Size(520, 250);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnFindInscripcion);
-            this.Controls.Add(this.btnSowInscripciones);
+            this.Controls.Add(this.btnShowInscripciones);
             this.Controls.Add(this.btnInscribe);
             this.Controls.Add(this.btnEstilista);
             this.Controls.Add(this.btnDiplomado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormPrincipal";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Principal";
             this.ResumeLayout(false);
 
@@ -155,7 +158,7 @@
         private System.Windows.Forms.Button btnDiplomado;
         private System.Windows.Forms.Button btnEstilista;
         private System.Windows.Forms.Button btnInscribe;
-        private System.Windows.Forms.Button btnSowInscripciones;
+        private System.Windows.Forms.Button btnShowInscripciones;
         private System.Windows.Forms.Button btnFindInscripcion;
         private System.Windows.Forms.Button btnExit;
     }

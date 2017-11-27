@@ -16,45 +16,45 @@ namespace APLICACION.Interfaz
         {
             InitializeComponent();
         }
-        public void setModo(string nuevoModo)
+        public void setModo(string newMode)
         {
-            rotateView(nuevoModo);
-            this.modo = nuevoModo;
-            this.lblDecripcion.Text = modo + " DIPLOMADO";
-            this.modo = nuevoModo;
-            this.lblDecripcion.Text = modo + " DIPLOMADO";
+            rotateView(newMode);
+            this.mode = newMode;
+            this.lblDecripcion.Text = mode + " DIPLOMADO";
+            this.mode = newMode;
+            this.lblDecripcion.Text = mode + " DIPLOMADO";
         }
 
         private Boolean isInFullView()
         {
-            return this.lblModalidadDip.Visible;
+            return this.lblModalityDip.Visible;
         }
-        private void rotateView(string nuevoModo)
+        private void rotateView(string newMode)
         {
-            if(modo == null && nuevoModo == FormGestion.SUB_MODO_ACTUALIZAR)
+            if(mode == null && newMode == FormGestion.SUB_MODO_ACTUALIZAR)
             {
                 showSomeComponets();
                 this.btnOkDiplomado.Location = new Point(50, 90);
                 this.ClientSize = new System.Drawing.Size(284, 155);
-            }else if (modo == FormGestion.SUB_MODO_ACTUALIZAR)
+            }else if (mode == FormGestion.SUB_MODO_ACTUALIZAR)
             {
                 if (isInFullView())
                 {
                     showSomeComponets();
                     this.btnOkDiplomado.Location = new Point(50, 90);
                     this.ClientSize = new System.Drawing.Size(284, 155);
-                    this.txtCodDip.Enabled = true;
+                    this.txtCodeDip.Enabled = true;
                 }
                 else
                 {
                     showAllComponets();
-                    this.txtCodDip.Enabled = false;
+                    this.txtCodeDip.Enabled = false;
                     this.btnOkDiplomado.Location = new Point(50, 213);
                     this.ClientSize = new System.Drawing.Size(284, 278);
                 }
-            }else if (modo == nuevoModo)
+            }else if (mode == newMode)
                 return;
-            else if (nuevoModo == FormGestion.SUB_MODO_REGISTRAR)
+            else if (newMode == FormGestion.SUB_MODO_REGISTRAR)
             {
                 showAllComponets();
                 this.btnOkDiplomado.Location = new Point(50, 213);
@@ -72,55 +72,55 @@ namespace APLICACION.Interfaz
         }
         private void clearComponents()
         {
-            this.txtCodDip.Enabled = true;
-            this.txtCodDip.Clear();
-            this.txtNombreDip.Clear();
-            this.cbxModalidadDip.Text = "";
+            this.txtCodeDip.Enabled = true;
+            this.txtCodeDip.Clear();
+            this.txtNameDip.Clear();
+            this.cbxModalityDip.Text = "";
 
         }
         private void showSomeComponets()
         {
-            this.lblNombreDip.Visible = false;
-            this.lblHDuracion.Visible = false;
-            this.lblModalidadDip.Visible = false;
-            this.txtNombreDip.Visible = false;
-            this.txtHDuracionDip.Visible = false;
-            this.cbxModalidadDip.Visible = false;
+            this.lblNameDip.Visible = false;
+            this.lblDurationH.Visible = false;
+            this.lblModalityDip.Visible = false;
+            this.txtNameDip.Visible = false;
+            this.txtDurationH.Visible = false;
+            this.cbxModalityDip.Visible = false;
         }
         private void showAllComponets()
         {
-            this.lblNombreDip.Visible = true;
-            this.lblHDuracion.Visible = true;
-            this.lblModalidadDip.Visible = true;
-            this.txtNombreDip.Visible = true;
-            this.txtHDuracionDip.Visible = true;
-            this.cbxModalidadDip.Visible = true;
+            this.lblNameDip.Visible = true;
+            this.lblDurationH.Visible = true;
+            this.lblModalityDip.Visible = true;
+            this.txtNameDip.Visible = true;
+            this.txtDurationH.Visible = true;
+            this.cbxModalityDip.Visible = true;
             this.ckcModeDrop.Visible = false;
         }
         
-        private Boolean obtenerDatos(ref int codigo, ref string nombre, ref int horas, ref string modalidad)
+        private Boolean getData(ref int code, ref string name, ref int durationHours, ref string modality)
         {
-            codigo = obtenerCodigo();
-            if (codigo == -1)
+            code = getCode();
+            if (code == -1)
                 return false;
             try
             {
-                nombre = txtNombreDip.Text.ToString().Trim();
-                horas = Int32.Parse(txtHDuracionDip.Text);
-                modalidad = cbxModalidadDip.Text.ToString().Trim();
+                name = txtNameDip.Text.ToString().Trim();
+                durationHours = Int32.Parse(txtDurationH.Text);
+                modality = cbxModalityDip.Text.ToString().Trim();
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }
-            if ("".Equals(nombre) || "".Equals(modalidad) )
+            if ("".Equals(name) || "".Equals(modality))
                 return false;
             return true;
         }
-        private int obtenerCodigo()
+        private int getCode()
         {
             try {
-                int codigo = Int32.Parse(txtCodDip.Text);
+                int codigo = Int32.Parse(txtCodeDip.Text);
                 return codigo;
             }
             catch (Exception)
@@ -128,17 +128,17 @@ namespace APLICACION.Interfaz
                 return -1;
             }
         }
-        private string actualizarBuscarDiplomado()
+        private string updateFindDiplomado()
         {
             int codBuscar;
-            codBuscar = obtenerCodigo();
+            codBuscar = getCode();
             if (codBuscar == -1)
                 return "Tienes que digitar un codigo";
-            DataTable tabla = Logica.Diplomado.buscarDiplomado(codBuscar);
-            if (tabla != null)
+            DataTable table = Logica.Diplomado.findDiplomado(codBuscar);
+            if (table.Rows.Count != 0)
             {
-                fillOutAllInputs(tabla);
-                rotateView(modo);
+                fillOutAllInputs(table);
+                rotateView(mode);
             }
             else
             {
@@ -146,57 +146,58 @@ namespace APLICACION.Interfaz
             }
             return null;
         }
-        private string actualiarDiplomado()
+        private string updateDiplomado()
         {
             int codigo =-1, horas_duracion=-1;
             string nombre="", modalidad="";
-            if (!obtenerDatos(ref codigo, ref nombre, ref horas_duracion, ref modalidad))
+            if (!getData(ref codigo, ref nombre, ref horas_duracion, ref modalidad))
                 return "Error: todas las casillas son obligatorias";
-            return Logica.Diplomado.actualizarDiplomado(codigo, nombre, horas_duracion, modalidad);
+            rotateView(mode);
+            return Logica.Diplomado.updateDiplomado(codigo, nombre, horas_duracion, modalidad);
         }
-        private string registrarDiplomado()
+        private string recorderDiplomado()
         {
             int codigo = -1, horas_duracion = -1;
             string nombre = "", modalidad = "";
-            if (!obtenerDatos(ref codigo, ref nombre, ref horas_duracion, ref modalidad))
+            if (!getData(ref codigo, ref nombre, ref horas_duracion, ref modalidad))
                 return "Error: todas las casillas son obligatorias";
-            return Logica.Diplomado.registrarDiplomado(codigo, nombre, horas_duracion, modalidad);
+            return Logica.Diplomado.recorderDiplomado(codigo, nombre, horas_duracion, modalidad);
         }
-        private string eliminarDiplomado()
+        private string dropDiplomado()
         {
-            int codigo = obtenerCodigo();
-            Boolean borrarCascada;
+            int codigo = getCode();
+            Boolean dropCascada;
             if (ckcModeDrop.Checked)
-                borrarCascada = true;
+                dropCascada = true;
             else
-                borrarCascada = false;
+                dropCascada = false;
             
-            return Logica.Diplomado.eliminarDiplomado(codigo, borrarCascada);
+            return Logica.Diplomado.dropDiplomado(codigo, dropCascada);
         }
         private void fillOutAllInputs(DataTable tabla)
         {
-            txtCodDip.Text = tabla.Rows[0]["CODIGO"].ToString().Trim();
-            txtNombreDip.Text = tabla.Rows[0]["NOMBRE"].ToString().Trim();
-            txtHDuracionDip.Text = tabla.Rows[0]["HORAS_DURACION"].ToString().Trim();
-            cbxModalidadDip.Text = tabla.Rows[0]["MODALIDAD"].ToString().Trim();
+            txtCodeDip.Text = tabla.Rows[0]["CODIGO"].ToString().Trim();
+            txtNameDip.Text = tabla.Rows[0]["NOMBRE"].ToString().Trim();
+            txtDurationH.Text = tabla.Rows[0]["HORAS_DURACION"].ToString().Trim();
+            cbxModalityDip.Text = tabla.Rows[0]["MODALIDAD"].ToString().Trim();
         }
 
         private void btnOkDiplomado_Click(object sender, EventArgs e)
         {
             String msg = null;
-            if(modo == FormGestion.SUB_MODO_ACTUALIZAR)
+            if(mode == FormGestion.SUB_MODO_ACTUALIZAR)
             {
                 if (!isInFullView())
-                    msg = actualizarBuscarDiplomado();
+                    msg = updateFindDiplomado();
                 else
-                    msg = actualiarDiplomado(); 
-            }else if(modo == FormGestion.SUB_MODO_REGISTRAR)
+                    msg = updateDiplomado(); 
+            }else if(mode == FormGestion.SUB_MODO_REGISTRAR)
             {
-                msg = registrarDiplomado();
+                msg = recorderDiplomado();
             }
             else
             {
-                msg = eliminarDiplomado();
+                msg = dropDiplomado();
             }
             if(msg != null)
                 MessageBox.Show(msg);
@@ -207,7 +208,7 @@ namespace APLICACION.Interfaz
             if (!Visible)
             {
                 clearComponents();
-                this.modo = null;
+                this.mode = null;
             }
         }
        
@@ -220,7 +221,8 @@ namespace APLICACION.Interfaz
             if (!char.IsDigit(keypress) && e.KeyChar != Convert.ToChar(Keys.Back))
                 e.Handled = true;
         }
-        private string modo;
+        private string mode; // caundo la interfaz es visible, esta trabajando en un modo especifico
+                             // registrar, actualizar, eliminar
 
 
     }

@@ -18,8 +18,8 @@ namespace APLICACION.Interfaz
         {
             InitializeComponent();
             aFormGestion = new FormGestion();
-            aFormInscripcion = new formInscripcion();
-            
+            aFormInscripcion = new FormInscripcion();
+            aFormTable = new FormTable();
 
         }
 
@@ -51,7 +51,21 @@ namespace APLICACION.Interfaz
         {
             pasarAForm(aFormInscripcion);
         }
+
+        private void btnShowInscripciones_Click(object sender, EventArgs e)
+        {
+            DataTable dt = Logica.Inscripcion.getAllInscriptions();
+            
+            aFormTable.setTable("Inscripciones", dt);
+            pasarAForm(aFormTable);
+
+        }
+        private void btnFindInscripcion_Click(object sender, EventArgs e)
+        {
+
+        }
         private FormGestion aFormGestion;
-        private formInscripcion aFormInscripcion;
+        private FormInscripcion aFormInscripcion;
+        private FormTable aFormTable;
     }
 }

@@ -10,13 +10,25 @@ using System.Windows.Forms;
 
 namespace APLICACION.Interfaz
 {
-    public partial class formInscripcion : Form
+    public partial class FormInscripcion : Form
     {
-        public formInscripcion()
+        public FormInscripcion()
         {
             InitializeComponent();
         }
-
+        private Boolean getData(ref int codeEst, ref int codeDip, ref string startDate , ref string endDate)
+        {
+            try {
+                codeEst = Int32.Parse(txtCodeEst.Text);
+                codeDip = Int32.Parse(txtCodeDip.Text);
+                startDate = dtpStartDate.Value.ToShortDateString();
+                endDate = dtpEndDate.Value.ToShortDateString();
+                return true;
+            }catch
+            {
+                return false;
+            }
+        }
 
         private void txtOnlyNumbers(object sender, KeyPressEventArgs e)
         {
@@ -25,5 +37,16 @@ namespace APLICACION.Interfaz
                 e.Handled = true;
         }
 
+        private void btnOkInscripcion_Click(object sender, EventArgs e)
+        {
+            int codeDip = 0, codeEst = 0;
+            string startDate = "", endDate = "";
+            string msg;
+            if (getData(ref codeEst, ref codeDip, ref startDate, ref endDate))
+                msg = Logica.Inscripcion.enrollingEstilistaInDiplomado(codeEst, codeDip, startDate, endDate);
+            else
+                msg = "Error: todos los campos son obligatorios";
+            MessageBox.Show(msg);
+        }
     }
 }

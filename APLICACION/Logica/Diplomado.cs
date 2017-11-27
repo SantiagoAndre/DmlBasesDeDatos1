@@ -9,70 +9,66 @@ namespace APLICACION.Logica
 {
     public static class Diplomado
     {
-        public static string registrarDiplomado(int codigo, string nombre, int horas_duracion, string modalidad)
+        public static string recorderDiplomado(int code, string name, int hours_duration, string modality)
         {
-            string consulta = System.String.Format("INSERT INTO DIPLOMADO(dipId,dipNombre,dipHorasDuracion,dipModalidad) VALUES ({0},'{1}',{2},'{3}')",codigo,nombre,horas_duracion,modalidad);
+            string query = System.String.Format("INSERT INTO DIPLOMADO(dipId,dipNombre,dipHorasDuracion,dipModalidad) VALUES ({0},'{1}',{2},'{3}')",code,name,hours_duration,modality);
             try {
-                Datos.Datos.ejecutarDML(consulta);
-                return System.String.Format("exito se ha registrado el diplomado {0}.", codigo);
+                Datos.Datos.executeNonQuery(query);
+                return System.String.Format("Exito: se ha registrado el diplomado {0}.", code);
 
             }catch(Exception ex)
             {
-                return "Error: "+ procesarExcepcion(ex);
+                return "Error: "+ processException(ex);
             }
         }
-        public static string actualizarDiplomado(int codigo,string nombre, int horas_duracion, string modalidad)
+        public static string updateDiplomado(int code,string name, int hours_duration, string modality)
         {
-            string consulta = System.String.Format("UPDATE DIPLOMADO SET dipNombre = '{1}', dipHorasDuracion = {2}, dipModalidad = '{3}' WHERE dipId = {0}", codigo, nombre, horas_duracion, modalidad);
-            Console.WriteLine(consulta);
+            string query = System.String.Format("UPDATE DIPLOMADO SET dipNombre = '{1}', dipHorasDuracion = {2}, dipModalidad = '{3}' WHERE dipId = {0}", code, name, hours_duration, modality);
+            Console.WriteLine(query);
             try
             {
-                int filasAfectadas = Datos.Datos.ejecutarDML(consulta);
-                if (filasAfectadas == 1)
-                    return System.String.Format("Exito: se ha actualizado el diplomado {0}.", codigo);
+                int rowsAffected = Datos.Datos.executeNonQuery(query);
+                if (rowsAffected == 1)
+                    return System.String.Format("Exito: se ha actualizado el diplomado {0}.", code);
                 else
-                    return System.String.Format("Error:  el diplomado {0} no existe.", codigo);
+                    return System.String.Format("Error:  el diplomado {0} no existe.", code);
             }
             catch (Exception ex)
             {
-                return "Error: " + procesarExcepcion(ex);
+                return "Error: " + processException(ex);
             }
         }
-        public static string eliminarDiplomado(int codigo,Boolean cascada)
+        public static string dropDiplomado(int code,Boolean cascade)
         {
             try
             {
-                String respuesta;
-                if (cascada)
+                String msgDropInscriptions = "";
+                if (cascade)
                 {
-                    respuesta = Inscripcion.borrarInscripcionesEnUnDiplomado(codigo);
+                    msgDropInscriptions = Inscripcion.dropAllEstilistasFromDiplomado(code);
                 }
                 else
-                    respuesta = "";
-                string consulta = System.String.Format("DELETE FROM DIPLOMADO WHERE dipId = {0}", codigo);
-                int filasAfectadas = Datos.Datos.ejecutarDML(consulta);
-                if (filasAfectadas == 1)
-                    return respuesta+ System.String.Format("Exito se ha eliminado el diplomado {0}.", codigo);
-                return System.String.Format("Error: el diplomado {0} no existe",codigo);
+                    msgDropInscriptions = "";
+                string query = System.String.Format("DELETE FROM DIPLOMADO WHERE dipId = {0}", code);
+                int rowsAffected = Datos.Datos.executeNonQuery(query);
+                if (rowsAffected == 1)
+                    return msgDropInscriptions+ System.String.Format("Exito se ha eliminado el diplomado {0}.", code);
+                return System.String.Format("Error: el diplomado {0} no existe",code);
             }
             catch (Exception ex)
             {
-                return "Error: "+ procesarExcepcion(ex);
+                return "Error: "+ processException(ex);
             }
         }
-        public static DataTable buscarDiplomado(int codigo)
+        public static DataTable findDiplomado(int code)
         {
-            string consulta = System.String.Format("SELECT dipId AS 'CODIGO', dipNombre AS 'NOMBRE', dipHorasDuracion AS 'HORAS_DURACION',dipModalidad AS 'MODALIDAD'" +
+            string query = System.String.Format("SELECT dipId AS 'CODIGO', dipNombre AS 'NOMBRE', dipHorasDuracion AS 'HORAS_DURACION',dipModalidad AS 'MODALIDAD'" +
                                                   "FROM DIPLOMADO " +
-                                                  "WHERE dipId={0}", codigo);
-            DataSet datos = Datos.Datos.ejecutarSELECT(consulta);
-            if (datos.Tables[0].Rows.Count > 0)
-            {
-                return datos.Tables[0];
-            }
-            return null;
+                                                  "WHERE dipId={0}", code);
+            return Datos.Datos.executeQuery(query);
+
         }
-        private static string procesarExcepcion(Exception ex)
+        private static string processException(Exception ex)
         {
             string msg = ex.Message;
             if (msg.IndexOf("PRIMARY") != -1)

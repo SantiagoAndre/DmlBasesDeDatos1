@@ -17,7 +17,7 @@ namespace FINALBASES.Datos
         public int ejecutarDML(string consulta)
         {
             try {
-                int filasAfectadas;
+                int rowsAffected;
                 //Paso 1: creo una conexion
                 SqlConnection coneccion = new SqlConnection(CADENA_CONECCION);
                 //Paso 2: crear un comando
@@ -25,10 +25,10 @@ namespace FINALBASES.Datos
                 //Paso 3: abro la conexion
                 coneccion.Open();
                 //Paso 4: ejecuto el comando,este metodo devuelve el numero de filas que se afectaron
-                filasAfectadas = comando.ExecuteNonQuery();
+                rowsAffected = comando.ExecuteNonQuery();
                 //Paso 5: cerrar conexion
                 coneccion.Close();
-                return filasAfectadas;
+                return rowsAffected;
             }catch(SqlException ex)
             {
                 throw ex;

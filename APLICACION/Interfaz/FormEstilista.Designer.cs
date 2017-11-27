@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDecripcion = new System.Windows.Forms.Label();
+            this.lblDecription = new System.Windows.Forms.Label();
             this.btnOkEstilista = new System.Windows.Forms.Button();
-            this.txtNombreEst = new System.Windows.Forms.TextBox();
-            this.lblFechaEst = new System.Windows.Forms.Label();
-            this.lblSexo = new System.Windows.Forms.Label();
-            this.lblNombreEst = new System.Windows.Forms.Label();
-            this.txtCodEst = new System.Windows.Forms.TextBox();
-            this.lblCodEst = new System.Windows.Forms.Label();
-            this.rbtMasculino = new System.Windows.Forms.RadioButton();
-            this.rbtFemenino = new System.Windows.Forms.RadioButton();
-            this.dtpFechaEst = new System.Windows.Forms.DateTimePicker();
+            this.txtNameEst = new System.Windows.Forms.TextBox();
+            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblNameEst = new System.Windows.Forms.Label();
+            this.txtCodeEst = new System.Windows.Forms.TextBox();
+            this.lblCodeEst = new System.Windows.Forms.Label();
+            this.rbtMaleGender = new System.Windows.Forms.RadioButton();
+            this.rbtFemaleGender = new System.Windows.Forms.RadioButton();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.ckcModeDrop = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // lblDecripcion
+            // lblDecription
             // 
-            this.lblDecripcion.AutoSize = true;
-            this.lblDecripcion.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDecripcion.Location = new System.Drawing.Point(68, 3);
-            this.lblDecripcion.Name = "lblDecripcion";
-            this.lblDecripcion.Size = new System.Drawing.Size(70, 15);
-            this.lblDecripcion.TabIndex = 34;
-            this.lblDecripcion.Text = "ESTILISTA";
+            this.lblDecription.AutoSize = true;
+            this.lblDecription.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDecription.Location = new System.Drawing.Point(68, 3);
+            this.lblDecription.Name = "lblDecription";
+            this.lblDecription.Size = new System.Drawing.Size(70, 15);
+            this.lblDecription.TabIndex = 34;
+            this.lblDecription.Text = "ESTILISTA";
             // 
             // btnOkEstilista
             // 
@@ -66,91 +66,89 @@
             this.btnOkEstilista.UseVisualStyleBackColor = false;
             this.btnOkEstilista.Click += new System.EventHandler(this.btnOkEstilista_Click);
             // 
-            // txtNombreEst
+            // txtNameEst
             // 
-            this.txtNombreEst.Location = new System.Drawing.Point(100, 88);
-            this.txtNombreEst.Name = "txtNombreEst";
-            this.txtNombreEst.Size = new System.Drawing.Size(162, 20);
-            this.txtNombreEst.TabIndex = 30;
+            this.txtNameEst.Location = new System.Drawing.Point(100, 88);
+            this.txtNameEst.Name = "txtNameEst";
+            this.txtNameEst.Size = new System.Drawing.Size(162, 20);
+            this.txtNameEst.TabIndex = 30;
             // 
-            // lblFechaEst
+            // lblBirthdate
             // 
-            this.lblFechaEst.AutoSize = true;
-            this.lblFechaEst.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaEst.Location = new System.Drawing.Point(22, 168);
-            this.lblFechaEst.Name = "lblFechaEst";
-            this.lblFechaEst.Size = new System.Drawing.Size(77, 28);
-            this.lblFechaEst.TabIndex = 29;
-            this.lblFechaEst.Text = "FECHA\r\nNACMIENTO:";
+            this.lblBirthdate.AutoSize = true;
+            this.lblBirthdate.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthdate.Location = new System.Drawing.Point(22, 168);
+            this.lblBirthdate.Name = "lblBirthdate";
+            this.lblBirthdate.Size = new System.Drawing.Size(77, 28);
+            this.lblBirthdate.TabIndex = 29;
+            this.lblBirthdate.Text = "FECHA\r\nNACMIENTO:";
             // 
-            // lblSexo
+            // lblGender
             // 
-            this.lblSexo.AutoSize = true;
-            this.lblSexo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSexo.Location = new System.Drawing.Point(22, 128);
-            this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(49, 15);
-            this.lblSexo.TabIndex = 28;
-            this.lblSexo.Text = "SEXO: ";
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(22, 128);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(49, 15);
+            this.lblGender.TabIndex = 28;
+            this.lblGender.Text = "SEXO: ";
             // 
-            // lblNombreEst
+            // lblNameEst
             // 
-            this.lblNombreEst.AutoSize = true;
-            this.lblNombreEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreEst.Location = new System.Drawing.Point(22, 88);
-            this.lblNombreEst.Name = "lblNombreEst";
-            this.lblNombreEst.Size = new System.Drawing.Size(56, 15);
-            this.lblNombreEst.TabIndex = 27;
-            this.lblNombreEst.Text = "NOMBRE:";
+            this.lblNameEst.AutoSize = true;
+            this.lblNameEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameEst.Location = new System.Drawing.Point(22, 88);
+            this.lblNameEst.Name = "lblNameEst";
+            this.lblNameEst.Size = new System.Drawing.Size(56, 15);
+            this.lblNameEst.TabIndex = 27;
+            this.lblNameEst.Text = "NOMBRE:";
             // 
-            // txtCodEst
+            // txtCodeEst
             // 
-            this.txtCodEst.Location = new System.Drawing.Point(100, 48);
-            this.txtCodEst.Name = "txtCodEst";
-            this.txtCodEst.Size = new System.Drawing.Size(162, 20);
-            this.txtCodEst.TabIndex = 26;
-            this.txtCodEst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
+            this.txtCodeEst.Location = new System.Drawing.Point(100, 48);
+            this.txtCodeEst.Name = "txtCodeEst";
+            this.txtCodeEst.Size = new System.Drawing.Size(162, 20);
+            this.txtCodeEst.TabIndex = 26;
+            this.txtCodeEst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
-            // lblCodEst
+            // lblCodeEst
             // 
-            this.lblCodEst.AutoSize = true;
-            this.lblCodEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodEst.Location = new System.Drawing.Point(22, 48);
-            this.lblCodEst.Name = "lblCodEst";
-            this.lblCodEst.Size = new System.Drawing.Size(56, 15);
-            this.lblCodEst.TabIndex = 25;
-            this.lblCodEst.Text = "CODIGO:";
+            this.lblCodeEst.AutoSize = true;
+            this.lblCodeEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodeEst.Location = new System.Drawing.Point(22, 48);
+            this.lblCodeEst.Name = "lblCodeEst";
+            this.lblCodeEst.Size = new System.Drawing.Size(56, 15);
+            this.lblCodeEst.TabIndex = 25;
+            this.lblCodeEst.Text = "CODIGO:";
             // 
-            // rbtMasculino
+            // rbtMaleGender
             // 
-            this.rbtMasculino.AutoSize = true;
-            this.rbtMasculino.Location = new System.Drawing.Point(100, 126);
-            this.rbtMasculino.Name = "rbtMasculino";
-            this.rbtMasculino.Size = new System.Drawing.Size(88, 17);
-            this.rbtMasculino.TabIndex = 35;
-            this.rbtMasculino.Text = "MASCULINO";
-            this.rbtMasculino.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.rbtMasculino.UseVisualStyleBackColor = true;
-            this.rbtMasculino.CheckedChanged += new System.EventHandler(this.rbtFemenino_CheckedChanged);
+            this.rbtMaleGender.AutoSize = true;
+            this.rbtMaleGender.Location = new System.Drawing.Point(100, 126);
+            this.rbtMaleGender.Name = "rbtMaleGender";
+            this.rbtMaleGender.Size = new System.Drawing.Size(88, 17);
+            this.rbtMaleGender.TabIndex = 35;
+            this.rbtMaleGender.Text = "MASCULINO";
+            this.rbtMaleGender.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rbtMaleGender.UseVisualStyleBackColor = true;
             // 
-            // rbtFemenino
+            // rbtFemaleGender
             // 
-            this.rbtFemenino.AutoSize = true;
-            this.rbtFemenino.Location = new System.Drawing.Point(191, 126);
-            this.rbtFemenino.Name = "rbtFemenino";
-            this.rbtFemenino.Size = new System.Drawing.Size(81, 17);
-            this.rbtFemenino.TabIndex = 36;
-            this.rbtFemenino.Text = "FEMENINO";
-            this.rbtFemenino.UseVisualStyleBackColor = true;
-            this.rbtFemenino.CheckedChanged += new System.EventHandler(this.rbtFemenino_CheckedChanged);
+            this.rbtFemaleGender.AutoSize = true;
+            this.rbtFemaleGender.Location = new System.Drawing.Point(191, 126);
+            this.rbtFemaleGender.Name = "rbtFemaleGender";
+            this.rbtFemaleGender.Size = new System.Drawing.Size(81, 17);
+            this.rbtFemaleGender.TabIndex = 36;
+            this.rbtFemaleGender.Text = "FEMENINO";
+            this.rbtFemaleGender.UseVisualStyleBackColor = true;
             // 
-            // dtpFechaEst
+            // dtpBirthdate
             // 
-            this.dtpFechaEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEst.Location = new System.Drawing.Point(105, 170);
-            this.dtpFechaEst.Name = "dtpFechaEst";
-            this.dtpFechaEst.Size = new System.Drawing.Size(157, 23);
-            this.dtpFechaEst.TabIndex = 38;
+            this.dtpBirthdate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirthdate.Location = new System.Drawing.Point(105, 170);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(157, 23);
+            this.dtpBirthdate.TabIndex = 38;
             // 
             // ckcModeDrop
             // 
@@ -170,17 +168,17 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(284, 278);
             this.Controls.Add(this.ckcModeDrop);
-            this.Controls.Add(this.rbtFemenino);
-            this.Controls.Add(this.dtpFechaEst);
-            this.Controls.Add(this.rbtMasculino);
-            this.Controls.Add(this.lblDecripcion);
+            this.Controls.Add(this.rbtFemaleGender);
+            this.Controls.Add(this.dtpBirthdate);
+            this.Controls.Add(this.rbtMaleGender);
+            this.Controls.Add(this.lblDecription);
             this.Controls.Add(this.btnOkEstilista);
-            this.Controls.Add(this.txtNombreEst);
-            this.Controls.Add(this.lblFechaEst);
-            this.Controls.Add(this.lblSexo);
-            this.Controls.Add(this.lblNombreEst);
-            this.Controls.Add(this.txtCodEst);
-            this.Controls.Add(this.lblCodEst);
+            this.Controls.Add(this.txtNameEst);
+            this.Controls.Add(this.lblBirthdate);
+            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.lblNameEst);
+            this.Controls.Add(this.txtCodeEst);
+            this.Controls.Add(this.lblCodeEst);
             this.Name = "FormEstilista";
             this.Text = "Estilista";
             this.VisibleChanged += new System.EventHandler(this.FormEstilista_VisibleChanged);
@@ -191,17 +189,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblDecripcion;
+        private System.Windows.Forms.Label lblDecription;
         private System.Windows.Forms.Button btnOkEstilista;
-        private System.Windows.Forms.TextBox txtNombreEst;
-        private System.Windows.Forms.Label lblFechaEst;
-        private System.Windows.Forms.Label lblSexo;
-        private System.Windows.Forms.Label lblNombreEst;
-        private System.Windows.Forms.TextBox txtCodEst;
-        private System.Windows.Forms.Label lblCodEst;
-        private System.Windows.Forms.RadioButton rbtMasculino;
-        private System.Windows.Forms.RadioButton rbtFemenino;
-        private System.Windows.Forms.DateTimePicker dtpFechaEst;
+        private System.Windows.Forms.TextBox txtNameEst;
+        private System.Windows.Forms.Label lblBirthdate;
+        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblNameEst;
+        private System.Windows.Forms.TextBox txtCodeEst;
+        private System.Windows.Forms.Label lblCodeEst;
+        private System.Windows.Forms.RadioButton rbtMaleGender;
+        private System.Windows.Forms.RadioButton rbtFemaleGender;
+        private System.Windows.Forms.DateTimePicker dtpBirthdate;
         private System.Windows.Forms.CheckBox ckcModeDrop;
     }
 }

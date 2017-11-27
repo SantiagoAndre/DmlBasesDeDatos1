@@ -31,10 +31,10 @@ namespace APLICACION.Interfaz
             form.ShowDialog(this);
             this.Show();
         }
-        public void setModoGestion(string nuevoModo)
+        public void setModoGestion(string newMode)
         {
-            aModoGestion = nuevoModo;
-            this.lblModo.Text = "GESTION " + nuevoModo;
+            aModoGestion = newMode;
+            this.lblModo.Text = "GESTION " + newMode;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

@@ -28,81 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtHDuracionDip = new System.Windows.Forms.TextBox();
-            this.txtNombreDip = new System.Windows.Forms.TextBox();
-            this.lblModalidadDip = new System.Windows.Forms.Label();
-            this.lblHDuracion = new System.Windows.Forms.Label();
-            this.lblNombreDip = new System.Windows.Forms.Label();
-            this.txtCodDip = new System.Windows.Forms.TextBox();
-            this.lblCodDip = new System.Windows.Forms.Label();
+            this.txtDurationH = new System.Windows.Forms.TextBox();
+            this.txtNameDip = new System.Windows.Forms.TextBox();
+            this.lblModalityDip = new System.Windows.Forms.Label();
+            this.lblDurationH = new System.Windows.Forms.Label();
+            this.lblNameDip = new System.Windows.Forms.Label();
+            this.txtCodeDip = new System.Windows.Forms.TextBox();
+            this.lblCodeDip = new System.Windows.Forms.Label();
             this.btnOkDiplomado = new System.Windows.Forms.Button();
             this.lblDecripcion = new System.Windows.Forms.Label();
-            this.cbxModalidadDip = new System.Windows.Forms.ComboBox();
+            this.cbxModalityDip = new System.Windows.Forms.ComboBox();
             this.ckcModeDrop = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // txtHDuracionDip
+            // txtDurationH
             // 
-            this.txtHDuracionDip.Location = new System.Drawing.Point(178, 130);
-            this.txtHDuracionDip.Name = "txtHDuracionDip";
-            this.txtHDuracionDip.Size = new System.Drawing.Size(87, 20);
-            this.txtHDuracionDip.TabIndex = 21;
-            this.txtHDuracionDip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
+            this.txtDurationH.Location = new System.Drawing.Point(178, 130);
+            this.txtDurationH.Name = "txtDurationH";
+            this.txtDurationH.Size = new System.Drawing.Size(87, 20);
+            this.txtDurationH.TabIndex = 21;
+            this.txtDurationH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
-            // txtNombreDip
+            // txtNameDip
             // 
-            this.txtNombreDip.Location = new System.Drawing.Point(103, 90);
-            this.txtNombreDip.Name = "txtNombreDip";
-            this.txtNombreDip.Size = new System.Drawing.Size(162, 20);
-            this.txtNombreDip.TabIndex = 20;
+            this.txtNameDip.Location = new System.Drawing.Point(103, 90);
+            this.txtNameDip.Name = "txtNameDip";
+            this.txtNameDip.Size = new System.Drawing.Size(162, 20);
+            this.txtNameDip.TabIndex = 20;
             // 
-            // lblModalidadDip
+            // lblModalityDip
             // 
-            this.lblModalidadDip.AutoSize = true;
-            this.lblModalidadDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModalidadDip.Location = new System.Drawing.Point(25, 170);
-            this.lblModalidadDip.Name = "lblModalidadDip";
-            this.lblModalidadDip.Size = new System.Drawing.Size(77, 15);
-            this.lblModalidadDip.TabIndex = 19;
-            this.lblModalidadDip.Text = "MODALIDAD:";
+            this.lblModalityDip.AutoSize = true;
+            this.lblModalityDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModalityDip.Location = new System.Drawing.Point(25, 170);
+            this.lblModalityDip.Name = "lblModalityDip";
+            this.lblModalityDip.Size = new System.Drawing.Size(77, 15);
+            this.lblModalityDip.TabIndex = 19;
+            this.lblModalityDip.Text = "MODALIDAD:";
             // 
-            // lblHDuracion
+            // lblDurationH
             // 
-            this.lblHDuracion.AutoSize = true;
-            this.lblHDuracion.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHDuracion.Location = new System.Drawing.Point(25, 130);
-            this.lblHDuracion.Name = "lblHDuracion";
-            this.lblHDuracion.Size = new System.Drawing.Size(147, 15);
-            this.lblHDuracion.TabIndex = 18;
-            this.lblHDuracion.Text = "HORAS  DE  DURACION:";
+            this.lblDurationH.AutoSize = true;
+            this.lblDurationH.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDurationH.Location = new System.Drawing.Point(25, 130);
+            this.lblDurationH.Name = "lblDurationH";
+            this.lblDurationH.Size = new System.Drawing.Size(147, 15);
+            this.lblDurationH.TabIndex = 18;
+            this.lblDurationH.Text = "HORAS  DE  DURACION:";
             // 
-            // lblNombreDip
+            // lblNameDip
             // 
-            this.lblNombreDip.AutoSize = true;
-            this.lblNombreDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreDip.Location = new System.Drawing.Point(25, 92);
-            this.lblNombreDip.Name = "lblNombreDip";
-            this.lblNombreDip.Size = new System.Drawing.Size(56, 15);
-            this.lblNombreDip.TabIndex = 17;
-            this.lblNombreDip.Text = "NOMBRE:";
+            this.lblNameDip.AutoSize = true;
+            this.lblNameDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameDip.Location = new System.Drawing.Point(25, 92);
+            this.lblNameDip.Name = "lblNameDip";
+            this.lblNameDip.Size = new System.Drawing.Size(56, 15);
+            this.lblNameDip.TabIndex = 17;
+            this.lblNameDip.Text = "NOMBRE:";
             // 
-            // txtCodDip
+            // txtCodeDip
             // 
-            this.txtCodDip.Location = new System.Drawing.Point(103, 50);
-            this.txtCodDip.Name = "txtCodDip";
-            this.txtCodDip.Size = new System.Drawing.Size(162, 20);
-            this.txtCodDip.TabIndex = 16;
-            this.txtCodDip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
+            this.txtCodeDip.Location = new System.Drawing.Point(103, 50);
+            this.txtCodeDip.Name = "txtCodeDip";
+            this.txtCodeDip.Size = new System.Drawing.Size(162, 20);
+            this.txtCodeDip.TabIndex = 16;
+            this.txtCodeDip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
-            // lblCodDip
+            // lblCodeDip
             // 
-            this.lblCodDip.AutoSize = true;
-            this.lblCodDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodDip.Location = new System.Drawing.Point(25, 50);
-            this.lblCodDip.Name = "lblCodDip";
-            this.lblCodDip.Size = new System.Drawing.Size(56, 15);
-            this.lblCodDip.TabIndex = 15;
-            this.lblCodDip.Text = "CODIGO:";
+            this.lblCodeDip.AutoSize = true;
+            this.lblCodeDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodeDip.Location = new System.Drawing.Point(25, 50);
+            this.lblCodeDip.Name = "lblCodeDip";
+            this.lblCodeDip.Size = new System.Drawing.Size(56, 15);
+            this.lblCodeDip.TabIndex = 15;
+            this.lblCodeDip.Text = "CODIGO:";
             // 
             // btnOkDiplomado
             // 
@@ -128,17 +128,17 @@
             this.lblDecripcion.TabIndex = 24;
             this.lblDecripcion.Text = "REGISTRAR DIPLOMADO";
             // 
-            // cbxModalidadDip
+            // cbxModalityDip
             // 
-            this.cbxModalidadDip.FormattingEnabled = true;
-            this.cbxModalidadDip.Items.AddRange(new object[] {
+            this.cbxModalityDip.FormattingEnabled = true;
+            this.cbxModalityDip.Items.AddRange(new object[] {
             "presencial",
             "semipresencial",
             "virtual"});
-            this.cbxModalidadDip.Location = new System.Drawing.Point(103, 168);
-            this.cbxModalidadDip.Name = "cbxModalidadDip";
-            this.cbxModalidadDip.Size = new System.Drawing.Size(162, 21);
-            this.cbxModalidadDip.TabIndex = 25;
+            this.cbxModalityDip.Location = new System.Drawing.Point(103, 168);
+            this.cbxModalityDip.Name = "cbxModalityDip";
+            this.cbxModalityDip.Size = new System.Drawing.Size(162, 21);
+            this.cbxModalityDip.TabIndex = 25;
             // 
             // ckcModeDrop
             // 
@@ -158,18 +158,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(290, 285);
             this.Controls.Add(this.ckcModeDrop);
-            this.Controls.Add(this.cbxModalidadDip);
+            this.Controls.Add(this.cbxModalityDip);
             this.Controls.Add(this.lblDecripcion);
             this.Controls.Add(this.btnOkDiplomado);
-            this.Controls.Add(this.txtHDuracionDip);
-            this.Controls.Add(this.txtNombreDip);
-            this.Controls.Add(this.lblModalidadDip);
-            this.Controls.Add(this.lblHDuracion);
-            this.Controls.Add(this.lblNombreDip);
-            this.Controls.Add(this.txtCodDip);
-            this.Controls.Add(this.lblCodDip);
+            this.Controls.Add(this.txtDurationH);
+            this.Controls.Add(this.txtNameDip);
+            this.Controls.Add(this.lblModalityDip);
+            this.Controls.Add(this.lblDurationH);
+            this.Controls.Add(this.lblNameDip);
+            this.Controls.Add(this.txtCodeDip);
+            this.Controls.Add(this.lblCodeDip);
             this.Name = "FromDiplomado";
-            this.Text = "Form1";
+            this.Text = "Diplomado";
             this.VisibleChanged += new System.EventHandler(this.FromDiplomado_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,16 +177,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtHDuracionDip;
-        private System.Windows.Forms.TextBox txtNombreDip;
-        private System.Windows.Forms.Label lblModalidadDip;
-        private System.Windows.Forms.Label lblHDuracion;
-        private System.Windows.Forms.Label lblNombreDip;
-        private System.Windows.Forms.TextBox txtCodDip;
-        private System.Windows.Forms.Label lblCodDip;
+        private System.Windows.Forms.TextBox txtDurationH;
+        private System.Windows.Forms.TextBox txtNameDip;
+        private System.Windows.Forms.Label lblModalityDip;
+        private System.Windows.Forms.Label lblDurationH;
+        private System.Windows.Forms.Label lblNameDip;
+        private System.Windows.Forms.TextBox txtCodeDip;
+        private System.Windows.Forms.Label lblCodeDip;
         private System.Windows.Forms.Button btnOkDiplomado;
         private System.Windows.Forms.Label lblDecripcion;
-        private System.Windows.Forms.ComboBox cbxModalidadDip;
+        private System.Windows.Forms.ComboBox cbxModalityDip;
         private System.Windows.Forms.CheckBox ckcModeDrop;
     }
 }

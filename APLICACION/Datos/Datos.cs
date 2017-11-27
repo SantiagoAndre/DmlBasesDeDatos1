@@ -11,40 +11,38 @@ namespace APLICACION.Datos
 {
     public static class Datos
     {
-        //Paso 1: construir la cadena de conexion
-        public static string CADENA_CONECCION = @"Data Source=DESKTOP-HQNIK6L\SQLEXPRESS;Initial Catalog=DIPLOMADO;User ID=sa;Password='sa2016'";
-        //Metodo para insertar,actualizar  y borrar
-        public static int ejecutarDML(string consulta)
+        //the connection string contains the information necessary to connect to a database with a specific user
+        public static string CONNECTION_STRING = @"Data Source=DESKTOP-HQNIK6L\SQLEXPRESS;Initial Catalog=DIPLOMADO;User ID=sa;Password='sa2016'";
+       
+        //only insert, drop, update
+        public static int executeNonQuery(string query)
         {
-            try
-            {
-                int filasAfectadas;
-                //Paso 1: creo una conexion
-                SqlConnection coneccion = new SqlConnection(CADENA_CONECCION);
-                //Paso 2: crear un comando
-                SqlCommand comando = new SqlCommand(consulta, coneccion);
-                //Paso 3: abro la conexion
-                coneccion.Open();
-                //Paso 4: ejecuto el comando,este metodo devuelve el numero de filas que se afectaron
-                filasAfectadas = comando.ExecuteNonQuery();
-                //Paso 5: cerrar conexion
-                coneccion.Close();
-                return filasAfectadas;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            
+            int rowsAffected;
+
+            SqlConnection connection = new SqlConnection(CONNECTION_STRING);
+            //create a command
+            SqlCommand command = new SqlCommand(query, connection);
+            //open the connection
+            connection.Open();
+            //execute query, this metod return the number rows affected
+            rowsAffected = command.ExecuteNonQuery();
+            //Paso 5: close connection
+            connection.Close();
+            ;
+            return rowsAffected;
+            
         }
-        public static DataSet ejecutarSELECT(string consulta)
+        
+        //select
+        public static DataTable executeQuery(string query)
         {
-            //Paso 1: crear un dataset vacio
-            DataSet miDS = new DataSet();
-            //Paso 2: crear un adaptador 
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, CADENA_CONECCION);
-            Console.WriteLine(consulta);
-            adaptador.Fill(miDS, "ResultadoDatos");
-            return miDS;
+            //a DataTable is a tables
+            DataTable Dt = new DataTable();
+            //create a adapter
+            SqlDataAdapter adapter = new SqlDataAdapter(query, CONNECTION_STRING);
+            adapter.Fill(Dt);
+            return Dt;
         }
     }
 }
