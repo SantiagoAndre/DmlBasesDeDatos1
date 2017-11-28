@@ -18,38 +18,28 @@ namespace APLICACION.Interfaz
         {
             InitializeComponent();
             aFormGestion = new FormGestion();
-            aFormInscripcion = new FormInscripcion();
             aFormTable = new FormTable();
 
         }
 
         private void btnDiplomado_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODO_DIPLOMADO);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_DIPLOMADO);
             pasarAForm(aFormGestion);
         }
 
         private void btnEstilista_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODODO_ESTILISTA);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_ESTILISTA);
             pasarAForm(aFormGestion);
         }
 
-        private void pasarAForm(Form form)
-        {
-            this.Visible = false;
-            form.ShowDialog(this);
-            this.Show();
-        }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnInscribe_Click(object sender, EventArgs e)
         {
-            pasarAForm(aFormInscripcion);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_INSCRIBIR);
+            pasarAForm(aFormGestion);
         }
 
         private void btnShowInscripciones_Click(object sender, EventArgs e)
@@ -64,8 +54,18 @@ namespace APLICACION.Interfaz
         {
 
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void pasarAForm(Form form)
+        {
+            this.Visible = false;
+            form.ShowDialog(this);
+            this.Show();
+        }
         private FormGestion aFormGestion;
-        private FormInscripcion aFormInscripcion;
         private FormTable aFormTable;
     }
 }

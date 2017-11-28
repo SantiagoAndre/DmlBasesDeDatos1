@@ -31,12 +31,12 @@ namespace APLICACION.Interfaz
         }
         private void rotateView(string newMode)
         {
-            if(mode == null && newMode == FormGestion.SUB_MODO_ACTUALIZAR)
+            if(mode == null && newMode == FormGestion.SUB_MODE_UPDATE)
             {
                 showSomeComponets();
                 this.btnOkDiplomado.Location = new Point(50, 90);
                 this.ClientSize = new System.Drawing.Size(284, 155);
-            }else if (mode == FormGestion.SUB_MODO_ACTUALIZAR)
+            }else if (mode == FormGestion.SUB_MODE_UPDATE)
             {
                 if (isInFullView())
                 {
@@ -54,7 +54,7 @@ namespace APLICACION.Interfaz
                 }
             }else if (mode == newMode)
                 return;
-            else if (newMode == FormGestion.SUB_MODO_REGISTRAR)
+            else if (newMode == FormGestion.SUB_MODE_RECORDER)
             {
                 showAllComponets();
                 this.btnOkDiplomado.Location = new Point(50, 213);
@@ -185,13 +185,13 @@ namespace APLICACION.Interfaz
         private void btnOkDiplomado_Click(object sender, EventArgs e)
         {
             String msg = null;
-            if(mode == FormGestion.SUB_MODO_ACTUALIZAR)
+            if(mode == FormGestion.SUB_MODE_UPDATE)
             {
                 if (!isInFullView())
                     msg = updateFindDiplomado();
                 else
                     msg = updateDiplomado(); 
-            }else if(mode == FormGestion.SUB_MODO_REGISTRAR)
+            }else if(mode == FormGestion.SUB_MODE_RECORDER)
             {
                 msg = recorderDiplomado();
             }

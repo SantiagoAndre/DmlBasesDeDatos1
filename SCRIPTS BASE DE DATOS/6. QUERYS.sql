@@ -7,7 +7,6 @@ SELECT DIPLOMADO.dipId, dipNombre, dipHorasDuracion,dipModalidad, ESTILISTA.estI
  ORDER BY DIPLOMADO.dipId;
  SELECT * FROM REGISTRA;
 
-
 SELECT DIPLOMADO.dipId, dipNombre, ESTILISTA.estId,estNombre, estGenero, regFechaFin
 FROM  (DIPLOMADO  INNER JOIN REGISTRA 
  ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA 

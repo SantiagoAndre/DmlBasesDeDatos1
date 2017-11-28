@@ -11,9 +11,13 @@ namespace APLICACION.Logica
     {
         public static  string enrollingEstilistaInDiplomado(int codeEst, int codeDip, string startDate, string endDate)
         {
+            if (endDate == null)
+                endDate = "null";
+            else
+                endDate = "'" + endDate + "'";
             try
             {
-                string query = System.String.Format("INSERT INTO REGISTRA(estId,dipId,regFechaInicio,regFechaFin) VALUES ({0},{1},'{2}','{3}')", codeEst, codeDip,startDate,endDate);
+                string query = System.String.Format("INSERT INTO REGISTRA(estId,dipId,regFechaInicio,regFechaFin) VALUES ({0},{1},'{2}',{3})", codeEst, codeDip,startDate,endDate);
                 Datos.Datos.executeNonQuery(query);
                 return System.String.Format("Exito se ha registrado el estilista {0} en el diplomado {1}.", codeEst, codeDip);
             }
@@ -66,16 +70,36 @@ namespace APLICACION.Logica
         public static DataTable findInscription(string fechaInicio)
         {
             string query;
-            DataSet ds = new DataSet();
             query = System.String.Format("SELECT DIPLOMADO.dipId as 'Codigo Diplomado', dipNombre as 'Nombre Diplomado', " +
-                               "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', estGenero as 'Genero estilista', " +
-                               "regFechaFin as 'Fecha Fin Diplomado' " +
-                       "FROM  (DIPLOMADO  INNER JOIN REGISTRA " +
-                             "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
-                             "ON ESTILISTA.estId = REGISTRA.estId " +
-                       "WHERE DateDiff(dd, regFechaInicio, '{0}' ) = 0",fechaInicio);
-            Console.WriteLine(query);
+                                                "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', estGenero as 'Genero estilista', " +
+                                                "regFechaFin as 'Fecha Fin Diplomado' " +
+                                        "FROM  (DIPLOMADO  INNER JOIN REGISTRA " +
+                                                "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
+                                                "ON ESTILISTA.estId = REGISTRA.estId " +
+                                        "WHERE DateDiff(dd, regFechaInicio, '{0}' ) = 0",fechaInicio);
             return  Datos.Datos.executeQuery(query);
+        }
+        public static DataTable findInscription(int codeDip,int codeEst, string startDate, string endDate)
+        {
+            string condition = "";
+            if (codeDip != -1)
+                condition = System.String.Format("AND Diplomado.dipId = {0} ", codeDip);
+            if (codeEst != -1)
+                condition = System.String.Format("AND Estilista.estId = {0} ", codeEst);
+            if (startDate != null)
+                condition = System.String.Format("AND DateDiff(dd,regFechaInicio,'{0}') = 0  ", startDate);
+            if (endDate != null)
+                condition = System.String.Format("AND DateDiff(dd,regFechaFin,'{0}') = 0  ", endDate);
+            if (!condition.Equals(""))
+                condition = "WHERE " + condition.Substring(3);
+            string query;
+            query = "SELECT DIPLOMADO.dipId as 'Codigo Diplomado', dipNombre as 'Nombre Diplomado', " +
+                            "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', estGenero as 'Genero estilista', " +
+                            "regFechaFin as 'Fecha Fin Diplomado' " +
+                    "FROM   (DIPLOMADO  INNER JOIN REGISTRA " +
+                            "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
+                            "ON ESTILISTA.estId = REGISTRA.estId " + condition;
+            return Datos.Datos.executeQuery(query);
         }
         private static string processException(Exception ex)
         {

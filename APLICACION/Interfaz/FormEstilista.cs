@@ -12,65 +12,20 @@ namespace APLICACION.Interfaz
 {
     public partial class FormEstilista : Form
     {
-        public FormEstilista()
+        public FormEstilista(FormTable formTable)
         {
             InitializeComponent();
+            this.aFormTable = formTable;
+        }
+        private void moveToForm(Form form)
+        {
+            this.Visible = false;
+            form.ShowDialog(this);
+            this.Show();
         }
         private Boolean isInFullView()
         {
             return this.dtpBirthdate.Visible;
-        }
-        private void rotateView(string newMode)
-        {
-
-            if (mode == null && newMode == FormGestion.SUB_MODO_ACTUALIZAR)
-            {
-                showSomeComponets();
-                this.btnOkEstilista.Location = new Point(50, 88);
-                this.ClientSize = new System.Drawing.Size(284, 153);
-            }
-            else if (mode == FormGestion.SUB_MODO_ACTUALIZAR)
-            {
-                if (isInFullView())
-                {
-                    showSomeComponets();
-                    this.btnOkEstilista.Location = new Point(50, 88);
-                    this.ClientSize = new System.Drawing.Size(284, 153);
-                    this.txtCodeEst.Enabled = true;
-                }
-                else
-                {
-                    showAllComponets();
-                    this.btnOkEstilista.Location = new Point(50, 213);
-                    this.ClientSize = new System.Drawing.Size(284, 278);
-                    this.txtCodeEst.Enabled = false;
-                }
-            }else if (mode == newMode)
-                return;
-            else if (newMode == FormGestion.SUB_MODO_REGISTRAR)
-            {
-                showAllComponets();
-                this.btnOkEstilista.Location = new Point(50, 213);
-                this.ClientSize = new System.Drawing.Size(284, 278);
-            }
-            else
-            {
-                showSomeComponets();
-                this.ckcModeDrop.Visible = true;
-                this.ckcModeDrop.Checked = false;
-                this.btnOkEstilista.Location = new Point(50, 130);
-                this.ClientSize = new System.Drawing.Size(284, 195);
-            }
-
-        }
-        public void setModo(string newMode)
-        {
-            if (newMode == mode)
-                return;
-            rotateView(newMode);
-            this.mode = newMode;
-            this.lblDecription.Text = mode + " ESTILISTA";
-
         }
         private void clearComponents()
         {
@@ -82,10 +37,10 @@ namespace APLICACION.Interfaz
         }
         private void showSomeComponets()
         {
-            this.ckcModeDrop.Visible = false;
-            this.lblNameEst.Visible = false;
-            this.lblGender.Visible = false;
-            this.lblBirthdate.Visible = false;
+            this.ckcNameEst.Visible = false;
+            this.ckcNameEst.Visible = false;
+            this.ckcGenderEst.Visible = false;
+            this.ckcBirthdate.Visible = false;
             this.txtNameEst.Visible = false;
             this.rbtFemaleGender.Visible = false;
             this.rbtMaleGender.Visible = false;
@@ -93,38 +48,140 @@ namespace APLICACION.Interfaz
         }
         private void showAllComponets()
         {
-            this.ckcModeDrop.Visible = false;
-            this.lblNameEst.Visible = true;
-            this.lblGender.Visible = true;
-            this.lblBirthdate.Visible = true;
+            this.ckcNameEst.Visible = true;
+            this.ckcGenderEst.Visible = true;
+            this.ckcBirthdate.Visible = true;
             this.txtNameEst.Visible = true;
             this.rbtFemaleGender.Visible = true;
             this.rbtMaleGender.Visible = true;
             this.dtpBirthdate.Visible = true;
 
         }
+        private void setEnabledAllChecks(Boolean value)
+        {
+            this.ckcCodeEst.Enabled = value;
+            this.ckcNameEst.Enabled = value;
+            this.ckcBirthdate.Enabled = value;
+            this.ckcGenderEst.Enabled = value;
+        }
+        private void setCheckedAllChecks(Boolean value)
+        {
+            this.ckcCodeEst.Checked = value;
+            Boolean c = txtCodeEst.Enabled;
+            this.ckcNameEst.Checked = value;
+            this.ckcBirthdate.Checked = value;
+            this.ckcGenderEst.Checked = value;
+        }
+        private void viewUpdate(String  currentView)
+        {
+            if (isInFullView() || currentView == null)
+            {
+                showSomeComponets();
+                this.btnOkEstilista.Location = new Point(50, 88);
+                this.ClientSize = new System.Drawing.Size(284, 153);
+                this.txtCodeEst.Enabled = true;
+                setEnabledAllChecks(true);
+                setCheckedAllChecks(false);
+            }
+            else
+            {
+                showAllComponets();
+                setEnabledAllChecks(false);
+                setCheckedAllChecks(true);
+                this.btnOkEstilista.Location = new Point(50, 213);
+                this.ClientSize = new System.Drawing.Size(284, 278);
+                this.txtCodeEst.Enabled = false;
+            }
 
+            ckcCodeEst.Checked = true;
+            ckcCodeEst.Enabled = false;
+        }
+        private void viewDrop()
+        {
+            showSomeComponets();
+            this.ckcNameEst.Enabled = true;
+            this.ckcNameEst.Checked = false;
+            this.ckcNameEst.Visible = true;
+            this.btnOkEstilista.Location = new Point(50, 130);
+            this.ClientSize = new System.Drawing.Size(284, 195);
+        }
+        private void viewRecorder()
+        {
+            showAllComponets();
+            this.btnOkEstilista.Location = new Point(50, 213);
+            this.ClientSize = new System.Drawing.Size(284, 278);
+            setEnabledAllChecks(false);
+            setCheckedAllChecks(true);
+        }
+        private void viewFind()
+        {
+            showAllComponets();
+            this.btnOkEstilista.Location = new Point(50, 213);
+            this.ClientSize = new System.Drawing.Size(284, 278);
+            setEnabledAllChecks(true);
+            setCheckedAllChecks(false);
+        }
+        public void setModo(string newMode)
+        {
+            if (newMode == currentMode)
+                return;
+            this.currentMode = newMode;
+            this.lblDecription.Text = currentMode + " ESTILISTA";
+
+            if (newMode == FormGestion.SUB_MODE_UPDATE)
+            {
+                viewUpdate(null);
+            }
+            else if (newMode == FormGestion.SUB_MODE_DROP)
+            {
+                viewDrop();
+            }
+            else if (newMode == FormGestion.SUB_MODE_RECORDER)
+            {
+                viewRecorder();
+            }
+            else
+                viewFind();
+
+        }
+       
         private Boolean getData(ref int code, ref string name, ref char gener, ref string birthdate)
         {
-            code = getCode();
-            if (code == -1)
-                return false;
+            if (ckcCodeEst.Checked)
+            {
+                code = getCode();
+                if (code == -1)
+                    return false;
+            }
+            else
+                code = -1;
+            
             try
             {
-                name = txtNameEst.Text.ToString().Trim();
-                if (rbtFemaleGender.Checked)
-                    gener = 'F';
-                else if (rbtMaleGender.Checked)
-                    gener = 'M';
+                if (ckcNameEst.Checked)
+                    name = txtNameEst.Text.ToString().Trim();
                 else
-                    return false;
-                birthdate = dtpBirthdate.Value.ToShortDateString();
+                    name = null;
+                if (ckcGenderEst.Checked)
+                {
+                    if (rbtFemaleGender.Checked)
+                        gener = 'F';
+                    else if (rbtMaleGender.Checked)
+                        gener = 'M';
+                    else
+                        return false;
+                }else
+                    gener = ' ';
+                if (ckcBirthdate.Checked)
+                    birthdate = dtpBirthdate.Value.ToShortDateString();
+                else
+                    birthdate = null;
             }
             catch 
             {
                 return false;
             }
-            if ("".Equals(name))
+            if (name!= null && "".Equals(name) )
                 return false;
             return true;
         }
@@ -144,12 +201,12 @@ namespace APLICACION.Interfaz
         {
             txtCodeEst.Text = table.Rows[0]["CODIGO"].ToString().Trim();
             txtNameEst.Text = table.Rows[0]["NOMBRE"].ToString().Trim();
-            string sex = table.Rows[0]["GENERO"].ToString().Trim().ToUpper();
-            if (sex.Equals("F"))
+            string gender = table.Rows[0]["GENERO"].ToString().Trim().ToUpper();
+            if (gender.Equals("F"))
                 rbtFemaleGender.Checked = true;
             else
                 rbtMaleGender.Checked = true;
-            dtpBirthdate.Text = table.Rows[0]["FECHA_NACIMIENTO"].ToString().Trim();
+            dtpBirthdate.Value = Convert.ToDateTime(table.Rows[0]["FECHA_NACIMIENTO"].ToString().Trim());
         }
 
         private string updateFindEstilista()
@@ -157,12 +214,12 @@ namespace APLICACION.Interfaz
             int codigo = getCode();
             if (codigo == -1)
                 return "debe ingresar el codigo del estilista";
-            DataTable table = Logica.Estilista.buscarEstilista(codigo);
+            DataTable table = Logica.Estilista.findEstilista(codigo);
             if (table.Rows.Count!=0)
                 fillOutAllInputs(table);
             else
                 return "no existe estilista con  ese codigo";
-            rotateView(mode);
+            viewUpdate(currentMode);
             return null;
         }
         private string updateEstilista()
@@ -170,61 +227,80 @@ namespace APLICACION.Interfaz
             int code = 0;
             string name = "", fechaNacimiento="";
             char gender = ' ';
-            rotateView(mode);
             if (getData(ref code, ref name, ref gender, ref fechaNacimiento))
+            {
+                viewUpdate(currentMode);
                 return Logica.Estilista.updateEstilista(code, name, gender, fechaNacimiento);
+            }
             return "Error: todas las casillas son obligatorias";
         }
         private string recorderEstilista()
         {
-            int codigo = 0;
-            string nombre = "", birthdate = "";
-            char sex = ' ';
-            if(getData(ref codigo,ref nombre,ref sex,ref birthdate))
-                return Logica.Estilista.registrarEstilista(codigo, nombre, 'g', birthdate);
-            return "Error: todas las casillas son obligatorias";
+            int code = 0;
+            string name = "", birthdate = "";
+            char gender = ' ';
+            if(getData(ref code,ref name,ref gender,ref birthdate))
+                return Logica.Estilista.recorderEstilista(code, name, gender, birthdate);
+            return "Error: Las casillas marcadas son obligatorias";
         }
         private string dropEstilista()
         {
             int code = getCode();
+            if (code < 0)
+                return "Error: tienes que digitar un codigo";
             Boolean dropCascade;
-            dropCascade = ckcModeDrop.Checked;
+            dropCascade = ckcNameEst.Checked;
             return Logica.Estilista.dropEstilista(code, dropCascade);
         }
-    
-        private void FormEstilista_VisibleChanged(object sender, EventArgs e)
+        private string findEstilista()
         {
-            if (!Visible)
-            {
-                clearComponents();
-                mode = null;
-            }
-        }
+            int code = 0;
+            string name = "", birthdate = "";
+            char gender = ' ';
+            if (!getData(ref code, ref name, ref gender, ref birthdate))
+                return "Error: las casillas marcadas son obligatorias.";
+            DataTable dt =Logica.Estilista.findEstilista(code, name, gender, birthdate);
+            if (dt.Rows.Count == 0)
+                return "No hay ninguna coincidencia."; 
+            aFormTable.setTable("Resultado busqueda:",dt);
+            moveToForm(aFormTable);
+            return null;
 
+        }
         
         private void btnOkEstilista_Click(object sender, EventArgs e)
         {
             String msg;
-            if (mode == FormGestion.SUB_MODO_ACTUALIZAR)
+            if (currentMode == FormGestion.SUB_MODE_UPDATE)
             {
-                if (!isInFullView())
-                    msg = updateFindEstilista();
-                else
+                if (isInFullView())
                     msg = updateEstilista();
+                else
+                    msg = updateFindEstilista();
             }
-            else if (mode == FormGestion.SUB_MODO_REGISTRAR)
+            else if (currentMode == FormGestion.SUB_MODE_RECORDER)
             {
                 msg = recorderEstilista();
             }
-            else
+            else if(currentMode == FormGestion.SUB_MODE_DROP)
             {
                 msg = dropEstilista();
+            }
+            else
+            {
+                msg = findEstilista();
             }
             if (msg != null)
                 MessageBox.Show(msg);
         }
+        private void btnOkEstilista_Move(object sender, EventArgs e)
+        {
+            if (currentMode == FormGestion.SUB_MODE_DROP)
+                this.ckcNameEst.Text = "Eliminar inscripciones asociadas.";
+            else
+                this.ckcNameEst.Text = "NOMBRE";
 
-
+        }
 
         private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
         {
@@ -232,10 +308,40 @@ namespace APLICACION.Interfaz
             if (!char.IsDigit(keypress) && e.KeyChar != Convert.ToChar(Keys.Back))
                 e.Handled = true;
         }
-        private string mode;// caundo la interfaz es visible, esta trabajando en un modo especifico
+        
+        private void ckcCodeEst_CheckedChanged(object sender, EventArgs e)
+        {
+                txtCodeEst.Enabled = (ckcCodeEst.Checked);
+        }
+        private void ckcNameEst_CheckedChanged(object sender, EventArgs e)
+        {
 
+            txtNameEst.Enabled = ckcNameEst.Checked ;
+        }
+        private void ckcGenderEst_CheckedChanged(object sender, EventArgs e)
+        {
+            Boolean check = ckcGenderEst.Checked;
+            rbtFemaleGender.Enabled = check;
+            rbtMaleGender.Enabled = check;
+        }
+        private void ckcBirthdate_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpBirthdate.Enabled = ckcBirthdate.Checked;
+        }
 
-        // registrar, actualizar, eliminar
+        private void FormEstilista_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!Visible)
+            {
+                clearComponents();
+                currentMode = null;
+            }
+        }
+
+        private string currentMode;// when the interface is visible, this is working in a  specific mode
+                                   //rerecoder, update, drup, find
+        private FormTable aFormTable;
+
     }
 }
 

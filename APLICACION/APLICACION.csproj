@@ -95,6 +95,9 @@
     <EmbeddedResource Include="Interfaz\FormEstilista.resx">
       <DependentUpon>FormEstilista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaz\FormGestion.resx">
+      <DependentUpon>FormGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\FormInscripcion.resx">
       <DependentUpon>FormInscripcion.cs</DependentUpon>
     </EmbeddedResource>

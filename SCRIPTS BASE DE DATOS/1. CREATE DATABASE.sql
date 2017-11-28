@@ -23,7 +23,7 @@ CREATE TABLE REGISTRA
 	estId INT not null,
 	dipId INT not null,
 	regFechaInicio DATE not null,
-	regFechaFin DATE not null,
+	regFechaFin DATE,
 	CONSTRAINT pk_registra PRIMARY KEY (estId,dipId,regFechaInicio),
 	CONSTRAINT fk_estReg FOREIGN KEY (estId) REFERENCES ESTILISTA(estId),
 	CONSTRAINT fk_dipReg FOREIGN KEY (dipId) REFERENCES DIPLOMADO(dipId),

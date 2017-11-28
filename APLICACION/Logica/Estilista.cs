@@ -12,7 +12,7 @@ namespace APLICACION.Logica
     public  static class Estilista
     {
         
-        public static string registrarEstilista(int code, string name, char gender, string birthdate)
+        public static string recorderEstilista(int code, string name, char gender, string birthdate)
         {
             string query = System.String.Format("INSERT INTO ESTILISTA(estId,estNombre,estGenero,estFechaNacimiento) VALUES ({0},'{1}','{2}','{3}')", code,name,gender,birthdate);
             try
@@ -64,13 +64,36 @@ namespace APLICACION.Logica
                 return "Error: " + processException(ex);
             }
         }
-        public static DataTable buscarEstilista(int code)
+        public static DataTable findEstilista(int code)
         {
             string query = System.String.Format("SELECT estId AS 'CODIGO', estNombre AS 'NOMBRE', estGenero AS 'GENERO', estFechaNacimiento AS 'FECHA_NACIMIENTO' " +
                                                    "FROM ESTILISTA " +
                                                    "WHERE estId = {0}", code);
             return  Datos.Datos.executeQuery(query);
 
+        }
+        public static DataTable findEstilista(int code, string name, char gender, string birthdate)
+        {
+            string condition = "";
+            if (code != -1)
+                condition = System.String.Format("AND estId = {0} ", code);
+            if (name != null)
+                condition = condition + System.String.Format("AND estNombre like '{0}' " , name);
+            if (gender != ' ')
+                condition = condition + System.String.Format(" AND estGenero = '{0}'", gender);
+            if (birthdate != null)
+                condition = condition + System.String.Format(" AND DateDiff(dd,estFechaNacimiento,'{0}') = 0 ", birthdate);
+            if (!condition.Equals(""))
+                condition = "WHERE " + condition.Substring(3);
+            string query = "SELECT estId AS 'CODIGO', estNombre AS 'NOMBRE', "+
+                                  "CASE estGenero "+
+                                  "WHEN 'F' THEN 'FEMENINO' "+
+                                  "WHEN 'M' THEN 'MASCULINO' "+
+                                  "ELSE 'OTRO' " +
+                                  "END AS 'GENERO', "+
+	                              "estFechaNacimiento AS 'FECHA_NACIMIENTO' " +
+                            "FROM ESTILISTA " + condition;
+            return Datos.Datos.executeQuery(query);
         }
         private static string processException(Exception ex)
         {
