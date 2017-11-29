@@ -32,8 +32,10 @@ namespace APLICACION.Interfaz
         }
         private void setCheckAllChecks(Boolean value)
         {
+            Boolean antes = txtCodeDip.Enabled;
             ckcCodeDip.Checked = value;
-             ckcCodeEst.Checked = value;
+            Boolean despues = txtCodeDip.Enabled;
+            ckcCodeEst.Checked = value;
             ckcStarDate.Checked = value;
             ckcEndDate.Checked = value;
         }
@@ -41,8 +43,6 @@ namespace APLICACION.Interfaz
 
         public void setMode(string newMode)
         {
-            if (newMode == currentMode)
-                return;
             this.currentMode = newMode;
             this.lblDecription.Text = currentMode + " INSCRIPCION";
 
@@ -53,8 +53,8 @@ namespace APLICACION.Interfaz
             }
             else
             {
-                setEnabledAllChecks(true);
                 setCheckAllChecks(false);
+                setEnabledAllChecks(true);
             }
 
         }
@@ -62,7 +62,7 @@ namespace APLICACION.Interfaz
         private Boolean getData(ref int codeDip, ref int codeEst, ref string startDate , ref string endDate)
         {
             try {
-                if (true)
+                if (ckcCodeEst.Checked)
                     codeEst = Int32.Parse(txtCodeEst.Text);
                 else
                     codeEst = -1;
@@ -143,5 +143,8 @@ namespace APLICACION.Interfaz
 
         private string currentMode;
         private FormTable aFormTable;
+
+
+        
     }
 }

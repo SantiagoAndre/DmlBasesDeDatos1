@@ -67,7 +67,6 @@ namespace APLICACION.Interfaz
         private void setCheckedAllChecks(Boolean value)
         {
             this.ckcCodeEst.Checked = value;
-            Boolean c = txtCodeEst.Enabled;
             this.ckcNameEst.Checked = value;
             this.ckcBirthdate.Checked = value;
             this.ckcGenderEst.Checked = value;
@@ -316,7 +315,7 @@ namespace APLICACION.Interfaz
         private void ckcNameEst_CheckedChanged(object sender, EventArgs e)
         {
 
-            txtNameEst.Enabled = ckcNameEst.Checked ;
+            txtNameEst.Enabled = ((CheckBox)sender).Checked ;
         }
         private void ckcGenderEst_CheckedChanged(object sender, EventArgs e)
         {

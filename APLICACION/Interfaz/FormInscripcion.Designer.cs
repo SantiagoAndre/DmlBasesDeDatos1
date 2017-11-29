@@ -90,6 +90,9 @@
             // ckcEndDate
             // 
             this.ckcEndDate.AutoSize = true;
+            this.ckcEndDate.Checked = true;
+            this.ckcEndDate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckcEndDate.Enabled = false;
             this.ckcEndDate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcEndDate.Location = new System.Drawing.Point(24, 165);
             this.ckcEndDate.Name = "ckcEndDate";
@@ -102,6 +105,9 @@
             // ckcStarDate
             // 
             this.ckcStarDate.AutoSize = true;
+            this.ckcStarDate.Checked = true;
+            this.ckcStarDate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckcStarDate.Enabled = false;
             this.ckcStarDate.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcStarDate.Location = new System.Drawing.Point(24, 125);
             this.ckcStarDate.Name = "ckcStarDate";
@@ -122,6 +128,9 @@
             // ckcCodeDip
             // 
             this.ckcCodeDip.AutoSize = true;
+            this.ckcCodeDip.Checked = true;
+            this.ckcCodeDip.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckcCodeDip.Enabled = false;
             this.ckcCodeDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcCodeDip.Location = new System.Drawing.Point(24, 51);
             this.ckcCodeDip.Name = "ckcCodeDip";
@@ -134,6 +143,9 @@
             // ckcCodeEst
             // 
             this.ckcCodeEst.AutoSize = true;
+            this.ckcCodeEst.Checked = true;
+            this.ckcCodeEst.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckcCodeEst.Enabled = false;
             this.ckcCodeEst.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcCodeEst.Location = new System.Drawing.Point(24, 85);
             this.ckcCodeEst.Name = "ckcCodeEst";
