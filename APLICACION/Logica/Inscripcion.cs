@@ -59,9 +59,15 @@ namespace APLICACION.Logica
         public static DataTable getAllInscriptions()
         {
             string query;
-            query = "SELECT DIPLOMADO.dipId, dipNombre, dipHorasDuracion,dipModalidad,"+
-                           "ESTILISTA.estId, estNombre, estGenero, estFechaNacimiento, "+
-             		       "regFechaInicio, regFechaFin "+
+            query = "SELECT DIPLOMADO.dipId AS 'ID DIPLOMADO', dipNombre AS 'NOMBRE DIPLOMADO', dipHorasDuracion AS 'HORAS DURACION',dipModalidad 'MODALIDAD',"+
+                           "ESTILISTA.estId AS 'ID ESTILISTA', estNombre AS 'NOMBRE ESTILISTA', " +
+                            "CASE estGenero " +
+                                "WHEN 'F' THEN 'FEMENINO' " +
+                                "WHEN 'M' THEN 'MASCULINO' " +
+                                "ELSE 'OTRO' " +
+                            "END AS 'GENERO', " +
+                            "estFechaNacimiento 'FECHA NACIMIENTO', "+
+             		       "regFechaInicio 'FECHA INICIO', regFechaFin 'FECHA FIN'"+
                     "FROM (DIPLOMADO  INNER JOIN REGISTRA ON DIPLOMADO.dipId = REGISTRA.dipId) "+
                     "INNER JOIN ESTILISTA ON ESTILISTA.estId = REGISTRA.estId ORDER BY DIPLOMADO.dipId; ";
             return Datos.Datos.executeQuery(query);
@@ -71,8 +77,14 @@ namespace APLICACION.Logica
         {
             string query;
             query = System.String.Format("SELECT DIPLOMADO.dipId as 'Codigo Diplomado', dipNombre as 'Nombre Diplomado', " +
-                                                "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', estGenero as 'Genero estilista', " +
-                                                "regFechaFin as 'Fecha Fin Diplomado' " +
+                                                "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', "+
+                                                "CASE estGenero "+
+                                                      "WHEN 'F' THEN 'FEMENINO' " +
+                                                      "WHEN 'M' THEN 'MASCULINO' " +
+                                                      "ELSE 'OTRO' " +
+                                               "END AS 'GENERO', " +
+                                               "estFechaNacimiento AS 'FECHA_NACIMIENTO' ,"  +
+                                               "regFechaFin as 'Fecha Fin Diplomado' " +
                                         "FROM  (DIPLOMADO  INNER JOIN REGISTRA " +
                                                 "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
                                                 "ON ESTILISTA.estId = REGISTRA.estId " +
@@ -94,18 +106,24 @@ namespace APLICACION.Logica
                 condition = "WHERE " + condition.Substring(3);
             string query;
             query = "SELECT DIPLOMADO.dipId as 'Codigo Diplomado', dipNombre as 'Nombre Diplomado', " +
-                            "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', estGenero as 'Genero estilista', " +
-                            "regFechaFin as 'Fecha Fin Diplomado' " +
-                    "FROM   (DIPLOMADO  INNER JOIN REGISTRA " +
-                            "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
-                            "ON ESTILISTA.estId = REGISTRA.estId " + condition;
+                                                "ESTILISTA.estId as 'Codigo estilista',estNombre as 'Nombre estilista', " +
+                                                "CASE estGenero " +
+                                                      "WHEN 'F' THEN 'FEMENINO' " +
+                                                      "WHEN 'M' THEN 'MASCULINO' " +
+                                                      "ELSE 'OTRO' " +
+                                               "END AS 'GENERO', " +
+                                               "estFechaNacimiento AS 'FECHA_NACIMIENTO' ," +
+                                               "regFechaFin as 'Fecha Fin Diplomado' " +
+                                        "FROM  (DIPLOMADO  INNER JOIN REGISTRA " +
+                                                "ON DIPLOMADO.dipId = REGISTRA.dipId) INNER JOIN ESTILISTA " +
+                                                "ON ESTILISTA.estId = REGISTRA.estId " + condition;
             return Datos.Datos.executeQuery(query);
         }
         private static string processException(Exception ex)
         {
             string msg = ex.Message;
             if (msg.IndexOf("PRIMARY") != -1)
-                return "el estilista ya esta registrado en el diplomado con esa fecha de inicio.";
+                return "el estilista ya esta registrado en el diplomado en las fechas establecidas.";
             if (msg.IndexOf("fk_estReg") != -1)
                 return "no existe el estilista.";
             if (msg.IndexOf("fk_dipReg") != -1)

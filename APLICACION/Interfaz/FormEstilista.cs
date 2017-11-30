@@ -27,20 +27,23 @@ namespace APLICACION.Interfaz
         {
             return this.dtpBirthdate.Visible;
         }
-        private void clearComponents()
+        private void clearInputs()
         {
             this.txtCodeEst.Enabled = true;
             this.txtCodeEst.Clear();
             this.txtNameEst.Clear();
             this.rbtFemaleGender.Checked = false;
+            this.rbtMaleGender.Checked = false;
             this.dtpBirthdate.Text = "";
         }
         private void showSomeComponets()
         {
             this.ckcNameEst.Visible = false;
-            this.ckcNameEst.Visible = false;
             this.ckcGenderEst.Visible = false;
             this.ckcBirthdate.Visible = false;
+            
+            this.lblGenderEst.Visible = false;
+            this.lblBirthdate.Visible = false;
             this.txtNameEst.Visible = false;
             this.rbtFemaleGender.Visible = false;
             this.rbtMaleGender.Visible = false;
@@ -51,6 +54,9 @@ namespace APLICACION.Interfaz
             this.ckcNameEst.Visible = true;
             this.ckcGenderEst.Visible = true;
             this.ckcBirthdate.Visible = true;
+            this.lblNameEst.Visible = true;
+            this.lblGenderEst.Visible = true;
+            this.lblBirthdate.Visible = true;
             this.txtNameEst.Visible = true;
             this.rbtFemaleGender.Visible = true;
             this.rbtMaleGender.Visible = true;
@@ -59,6 +65,7 @@ namespace APLICACION.Interfaz
         }
         private void setEnabledAllChecks(Boolean value)
         {
+            this.lblEstorbo.Visible = !value;
             this.ckcCodeEst.Enabled = value;
             this.ckcNameEst.Enabled = value;
             this.ckcBirthdate.Enabled = value;
@@ -76,47 +83,50 @@ namespace APLICACION.Interfaz
             if (isInFullView() || currentView == null)
             {
                 showSomeComponets();
-                this.btnOkEstilista.Location = new Point(50, 88);
-                this.ClientSize = new System.Drawing.Size(284, 153);
+                this.lblNameEst.Visible = false;
+                this.btnOkEstilista.Location = new Point(105, 90);
+                this.ClientSize = new System.Drawing.Size(330, 145);
                 this.txtCodeEst.Enabled = true;
-                setEnabledAllChecks(true);
-                setCheckedAllChecks(false);
             }
             else
             {
                 showAllComponets();
-                setEnabledAllChecks(false);
-                setCheckedAllChecks(true);
-                this.btnOkEstilista.Location = new Point(50, 213);
-                this.ClientSize = new System.Drawing.Size(284, 278);
+                this.ClientSize = new System.Drawing.Size(330, 275);
+                this.btnOkEstilista.Location = new System.Drawing.Point(100, 210);
                 this.txtCodeEst.Enabled = false;
             }
 
+            setEnabledAllChecks(false);
             ckcCodeEst.Checked = true;
             ckcCodeEst.Enabled = false;
         }
         private void viewDrop()
         {
             showSomeComponets();
-            this.ckcNameEst.Enabled = true;
-            this.ckcNameEst.Checked = false;
-            this.ckcNameEst.Visible = true;
-            this.btnOkEstilista.Location = new Point(50, 130);
-            this.ClientSize = new System.Drawing.Size(284, 195);
+            setEnabledAllChecks(false);
+            setCheckedAllChecks(true);
+
+            lblNameEst.Visible = true;
+            ckcNameEst.Visible = true;
+            ckcNameEst.Enabled = true;
+            ckcNameEst.Checked= false;
+
+            this.btnOkEstilista.Location = new Point(105, 125);
+            this.ClientSize = new System.Drawing.Size(330, 170);
         }
         private void viewRecorder()
         {
             showAllComponets();
-            this.btnOkEstilista.Location = new Point(50, 213);
-            this.ClientSize = new System.Drawing.Size(284, 278);
+            this.ClientSize = new System.Drawing.Size(330, 275);
+            this.btnOkEstilista.Location = new System.Drawing.Point(100, 210);
             setEnabledAllChecks(false);
             setCheckedAllChecks(true);
         }
         private void viewFind()
         {
             showAllComponets();
-            this.btnOkEstilista.Location = new Point(50, 213);
-            this.ClientSize = new System.Drawing.Size(284, 278);
+            this.ClientSize = new System.Drawing.Size(330, 275);
+            this.btnOkEstilista.Location = new System.Drawing.Point(100, 210);
             setEnabledAllChecks(true);
             setCheckedAllChecks(false);
         }
@@ -263,6 +273,7 @@ namespace APLICACION.Interfaz
                 return "No hay ninguna coincidencia."; 
             aFormTable.setTable("Resultado busqueda:",dt);
             moveToForm(aFormTable);
+            setCheckedAllChecks(false);
             return null;
 
         }
@@ -273,21 +284,27 @@ namespace APLICACION.Interfaz
             if (currentMode == FormGestion.SUB_MODE_UPDATE)
             {
                 if (isInFullView())
+                {
                     msg = updateEstilista();
+                    clearInputs();
+                }
                 else
                     msg = updateFindEstilista();
             }
             else if (currentMode == FormGestion.SUB_MODE_RECORDER)
             {
                 msg = recorderEstilista();
+                clearInputs();
             }
             else if(currentMode == FormGestion.SUB_MODE_DROP)
             {
                 msg = dropEstilista();
+                clearInputs();
             }
             else
             {
                 msg = findEstilista();
+                clearInputs();
             }
             if (msg != null)
                 MessageBox.Show(msg);
@@ -295,11 +312,20 @@ namespace APLICACION.Interfaz
         private void btnOkEstilista_Move(object sender, EventArgs e)
         {
             if (currentMode == FormGestion.SUB_MODE_DROP)
-                this.ckcNameEst.Text = "Eliminar inscripciones asociadas.";
+            {
+                this.lblNameEst.Text = "Eliminar inscripciones asociadas.";
+                //this.lblNameEst.Text = "ELIMINAR INSCRIPCIONES ASOCIADAS.";
+                this.ckcNameEst.Location = new Point(38, 90);
+                this.lblNameEst.Location = new Point(58, 90);
+            }
             else
-                this.ckcNameEst.Text = "NOMBRE";
+            {
+                this.lblNameEst.Text = "NOMBRE";
+                this.ckcNameEst.Location = new Point(18, 90);
+                this.lblNameEst.Location = new Point(38, 90);
+            }
 
-        }
+            }
 
         private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
         {
@@ -332,7 +358,7 @@ namespace APLICACION.Interfaz
         {
             if (!Visible)
             {
-                clearComponents();
+                clearInputs();
                 currentMode = null;
             }
         }
@@ -341,6 +367,31 @@ namespace APLICACION.Interfaz
                                    //rerecoder, update, drup, find
         private FormTable aFormTable;
 
+        private void lblCode_Click(object sender, EventArgs e)
+        {
+            if(ckcCodeEst.Enabled)
+                ckcCodeEst.Checked = !ckcCodeEst.Checked;
+        }
+
+        private void lblNameEst_Click(object sender, EventArgs e)
+        {
+            if (ckcNameEst.Enabled)
+                ckcNameEst.Checked = !ckcNameEst.Checked;
+
+        }
+
+        private void lblGenderEst_Click(object sender, EventArgs e)
+        {
+            if (ckcGenderEst.Enabled)
+                ckcGenderEst.Checked = !ckcGenderEst.Checked;
+
+        }
+
+        private void lblBirthDateEst_Click(object sender, EventArgs e)
+        {
+            if (ckcBirthdate.Enabled)
+                ckcBirthdate.Checked = !ckcBirthdate.Checked;
+        }
     }
 }
 

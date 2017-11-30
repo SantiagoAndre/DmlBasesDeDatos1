@@ -35,18 +35,17 @@ namespace APLICACION.Interfaz
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblMode = new System.Windows.Forms.Label();
             this.btFind = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(36, 140);
+            this.btnUpdate.Location = new System.Drawing.Point(22, 102);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(200, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(143, 34);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "ACTUALIZAR";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -54,14 +53,14 @@ namespace APLICACION.Interfaz
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAdd.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(36, 65);
+            this.btnAdd.Location = new System.Drawing.Point(22, 46);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(200, 45);
+            this.btnAdd.Size = new System.Drawing.Size(143, 34);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "REGISTRAR";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -69,13 +68,13 @@ namespace APLICACION.Interfaz
             // 
             // btnRemove
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemove.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(36, 215);
+            this.btnRemove.Location = new System.Drawing.Point(191, 102);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(200, 45);
+            this.btnRemove.Size = new System.Drawing.Size(143, 34);
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "ELIMINAR";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -84,55 +83,42 @@ namespace APLICACION.Interfaz
             // lblMode
             // 
             this.lblMode.AutoSize = true;
-            this.lblMode.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(202, 20);
+            this.lblMode.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblMode.Location = new System.Drawing.Point(139, 9);
             this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(100, 22);
+            this.lblMode.Size = new System.Drawing.Size(83, 16);
             this.lblMode.TabIndex = 7;
             this.lblMode.Text = "DIPLOMADO";
             // 
             // btFind
             // 
-            this.btFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btFind.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFind.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btFind.ForeColor = System.Drawing.Color.Black;
-            this.btFind.Location = new System.Drawing.Point(275, 65);
+            this.btFind.Location = new System.Drawing.Point(191, 46);
             this.btFind.Name = "btFind";
-            this.btFind.Size = new System.Drawing.Size(200, 45);
+            this.btFind.Size = new System.Drawing.Size(143, 34);
             this.btFind.TabIndex = 8;
             this.btFind.Text = "BUSCAR";
             this.btFind.UseVisualStyleBackColor = false;
             this.btFind.Click += new System.EventHandler(this.btFind_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.Location = new System.Drawing.Point(275, 140);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(200, 120);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.Text = "VOLVER";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
-            // 
             // FormGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(510, 280);
-            this.Controls.Add(this.btnBack);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(359, 159);
             this.Controls.Add(this.btFind);
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Name = "FormGestion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GESTIONAR";
+            this.Load += new System.EventHandler(this.FormGestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +131,5 @@ namespace APLICACION.Interfaz
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Button btFind;
-        private System.Windows.Forms.Button btnBack;
     }
 }

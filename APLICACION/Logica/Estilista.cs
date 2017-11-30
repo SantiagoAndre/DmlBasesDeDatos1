@@ -80,7 +80,7 @@ namespace APLICACION.Logica
             if (name != null)
                 condition = condition + System.String.Format("AND estNombre like '{0}' " , name);
             if (gender != ' ')
-                condition = condition + System.String.Format(" AND estGenero = '{0}'", gender);
+                condition = condition + System.String.Format("AND estGenero = '{0}'", gender);
             if (birthdate != null)
                 condition = condition + System.String.Format(" AND DateDiff(dd,estFechaNacimiento,'{0}') = 0 ", birthdate);
             if (!condition.Equals(""))
@@ -95,6 +95,13 @@ namespace APLICACION.Logica
                             "FROM ESTILISTA " + condition;
             return Datos.Datos.executeQuery(query);
         }
+        public static int counterEstilistasOfMaleGender()
+        {
+            string query = "SELECT COUNT(*) as 'CANTIDAD' FROM ESTILISTA WHERE estGenero like 'M'";
+            DataTable dt = Datos.Datos.executeQuery(query);
+            string cantidad = dt.Rows[0]["CANTIDAD"].ToString();
+            return Int32.Parse(cantidad);
+        }
         private static string processException(Exception ex)
         {
             string msg = ex.Message;
@@ -106,5 +113,6 @@ namespace APLICACION.Logica
                 return "El valor en la columna genero solo puede ser 'F' o 'M'";
             return msg;
         }
+
     }
 }

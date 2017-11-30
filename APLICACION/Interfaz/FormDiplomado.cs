@@ -18,64 +18,69 @@ namespace APLICACION.Interfaz
         }
         public void setModo(string newMode)
         {
-            rotateView(newMode);
             this.mode = newMode;
             this.lblDecripcion.Text = mode + " DIPLOMADO";
-            this.mode = newMode;
-            this.lblDecripcion.Text = mode + " DIPLOMADO";
+
+            if (newMode == FormGestion.SUB_MODE_UPDATE)
+            {
+                viewUpdate(null);
+
+            }
+            else if (newMode == FormGestion.SUB_MODE_RECORDER)
+            {
+                viewRecorder();
+            }
+            else
+            {
+                viewDrop();
+            }
         }
 
         private Boolean isInFullView()
         {
             return this.lblModalityDip.Visible;
         }
-        private void rotateView(string newMode)
+        private void viewUpdate(String newView)
         {
-            if(mode == null && newMode == FormGestion.SUB_MODE_UPDATE)
+            if (isInFullView() || newView == null)
             {
                 showSomeComponets();
-                this.btnOkDiplomado.Location = new Point(50, 90);
-                this.ClientSize = new System.Drawing.Size(284, 155);
-            }else if (mode == FormGestion.SUB_MODE_UPDATE)
-            {
-                if (isInFullView())
-                {
-                    showSomeComponets();
-                    this.btnOkDiplomado.Location = new Point(50, 90);
-                    this.ClientSize = new System.Drawing.Size(284, 155);
-                    this.txtCodeDip.Enabled = true;
-                }
-                else
-                {
-                    showAllComponets();
-                    this.txtCodeDip.Enabled = false;
-                    this.btnOkDiplomado.Location = new Point(50, 213);
-                    this.ClientSize = new System.Drawing.Size(284, 278);
-                }
-            }else if (mode == newMode)
-                return;
-            else if (newMode == FormGestion.SUB_MODE_RECORDER)
-            {
-                showAllComponets();
-                this.btnOkDiplomado.Location = new Point(50, 213);
-                this.ClientSize = new System.Drawing.Size(284, 278);
+                this.btnOkDiplomado.Location = new Point(90, 90);
+                this.ClientSize = new System.Drawing.Size(300, 145);
+                this.txtCodeDip.Enabled = true;
             }
             else
             {
-                showSomeComponets();
-                this.ckcModeDrop.Visible = true;
-                this.ckcModeDrop.Checked = false;
-                this.btnOkDiplomado.Location = new Point(50, 130);
-                this.ClientSize = new System.Drawing.Size(284, 195);
-            }
+                showAllComponets();
+                this.txtCodeDip.Enabled = false;
+                this.btnOkDiplomado.Location = new System.Drawing.Point(90, 222);
+                this.ClientSize = new System.Drawing.Size(300, 265);
 
+            }
         }
-        private void clearComponents()
+        private void viewRecorder()
+        {
+            showAllComponets();
+            this.btnOkDiplomado.Location = new System.Drawing.Point(90, 222);
+            this.ClientSize = new System.Drawing.Size(300, 265);
+        }
+        private void viewDrop()
+        {
+
+            showSomeComponets();
+            this.ckcModeDrop.Visible = true;
+            this.ckcModeDrop.Checked = false;
+            this.btnOkDiplomado.Location = new Point(90, 130);
+            this.ClientSize = new System.Drawing.Size(299, 175);
+        }
+
+        private void clearAllInputs()
         {
             this.txtCodeDip.Enabled = true;
             this.txtCodeDip.Clear();
             this.txtNameDip.Clear();
-            this.cbxModalityDip.Text = "";
+            this.txtDurationH.Clear();
+            this.cbxModalityDip.SelectedItem = null;
 
         }
         private void showSomeComponets()
@@ -107,7 +112,7 @@ namespace APLICACION.Interfaz
             {
                 name = txtNameDip.Text.ToString().Trim();
                 durationHours = Int32.Parse(txtDurationH.Text);
-                modality = cbxModalityDip.Text.ToString().Trim();
+                modality = cbxModalityDip.SelectedItem.ToString();
             }
             catch 
             {
@@ -138,7 +143,7 @@ namespace APLICACION.Interfaz
             if (table.Rows.Count != 0)
             {
                 fillOutAllInputs(table);
-                rotateView(mode);
+                viewUpdate(mode);
             }
             else
             {
@@ -152,7 +157,7 @@ namespace APLICACION.Interfaz
             string nombre="", modalidad="";
             if (!getData(ref codigo, ref nombre, ref horas_duracion, ref modalidad))
                 return "Error: todas las casillas son obligatorias";
-            rotateView(mode);
+            
             return Logica.Diplomado.updateDiplomado(codigo, nombre, horas_duracion, modalidad);
         }
         private string recorderDiplomado()
@@ -166,6 +171,8 @@ namespace APLICACION.Interfaz
         private string dropDiplomado()
         {
             int codigo = getCode();
+            if (codigo == -1)
+                return "Tienes que ingresar un codigo.";
             Boolean dropCascada;
             if (ckcModeDrop.Checked)
                 dropCascada = true;
@@ -188,16 +195,24 @@ namespace APLICACION.Interfaz
             if(mode == FormGestion.SUB_MODE_UPDATE)
             {
                 if (!isInFullView())
+                {
                     msg = updateFindDiplomado();
+                }
                 else
-                    msg = updateDiplomado(); 
+                {
+                    msg = updateDiplomado();
+                    viewUpdate(mode);
+                    clearAllInputs();
+                }
             }else if(mode == FormGestion.SUB_MODE_RECORDER)
             {
                 msg = recorderDiplomado();
+                clearAllInputs();
             }
             else
             {
                 msg = dropDiplomado();
+                clearAllInputs();
             }
             if(msg != null)
                 MessageBox.Show(msg);
@@ -207,14 +222,11 @@ namespace APLICACION.Interfaz
         {
             if (!Visible)
             {
-                clearComponents();
+                clearAllInputs();
                 this.mode = null;
             }
         }
-       
-
-
-        
+              
         private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
         {
             char keypress = e.KeyChar;
@@ -222,7 +234,7 @@ namespace APLICACION.Interfaz
                 e.Handled = true;
         }
         private string mode; // caundo la interfaz es visible, esta trabajando en un modo especifico
-                             // registrar, actualizar, eliminar
+        // registrar, actualizar, eliminar
 
 
     }

@@ -139,9 +139,9 @@ namespace APLICACION.Interfaz
         public static string SUB_MODE_DROP = " ELIMINAR";
         public static string SUB_MODE_FIND = " BUSCAR";
 
-        private void btnBack_Click_1(object sender, EventArgs e)
+        private void FormGestion_Load(object sender, EventArgs e)
         {
-            Visible = false;
+
         }
     }
 }

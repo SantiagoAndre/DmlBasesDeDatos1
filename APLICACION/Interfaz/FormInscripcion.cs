@@ -23,6 +23,11 @@ namespace APLICACION.Interfaz
             form.ShowDialog(this);
             this.Show();
         }
+        private void clearInpus()
+        {
+            this.txtCodeDip.Text = string.Empty;
+            this.txtCodeEst.Text = string.Empty;
+        }
         private void setEnabledAllChecks(Boolean value)
         {
             ckcCodeDip.Enabled = value;
@@ -32,9 +37,7 @@ namespace APLICACION.Interfaz
         }
         private void setCheckAllChecks(Boolean value)
         {
-            Boolean antes = txtCodeDip.Enabled;
             ckcCodeDip.Checked = value;
-            Boolean despues = txtCodeDip.Enabled;
             ckcCodeEst.Checked = value;
             ckcStarDate.Checked = value;
             ckcEndDate.Checked = value;
@@ -44,17 +47,18 @@ namespace APLICACION.Interfaz
         public void setMode(string newMode)
         {
             this.currentMode = newMode;
-            this.lblDecription.Text = currentMode + " INSCRIPCION";
 
             if (newMode == FormGestion.SUB_MODE_RECORDER)
             {
                 setEnabledAllChecks(false);
                 setCheckAllChecks(true);
+                this.lblDecription.Text = "REALIZAR INSCRIPCION";
             }
             else
             {
                 setCheckAllChecks(false);
                 setEnabledAllChecks(true);
+                this.lblDecription.Text = currentMode + " INSCRIPCION";
             }
 
         }
@@ -88,7 +92,7 @@ namespace APLICACION.Interfaz
         {
             int codeDip = 0, codeEst = 0;
             string startDate = "", endDate = "";
-            if (getData(ref codeEst, ref codeDip, ref startDate, ref endDate))
+            if (getData(ref codeDip, ref codeEst, ref startDate, ref endDate))
                 return Logica.Inscripcion.enrollingEstilistaInDiplomado(codeEst, codeDip, startDate, endDate);
             else
                 return "Error: todos los campos checkeados son obligatorios";
@@ -111,10 +115,13 @@ namespace APLICACION.Interfaz
         {
             string msg;
             if (currentMode == FormGestion.SUB_MODE_RECORDER)
-                msg =recorderInscripcion();
+                msg = recorderInscripcion();
             else
                 msg = findInscripcion();
-            MessageBox.Show(msg);
+            if(msg != null)
+                MessageBox.Show(msg);
+            clearInpus();
+            
         }
 
         private void txtOnlyNumbers(object sender, KeyPressEventArgs e)
@@ -141,10 +148,27 @@ namespace APLICACION.Interfaz
             dtpEndDate.Enabled = ((CheckBox)sender).Checked;
         }
 
+
+        private void pcb_Click(object sender, EventArgs e)
+        {
+            string msg;
+            if (currentMode == FormGestion.SUB_MODE_RECORDER)
+                msg = descriptionRecorder;
+            else
+                msg = descriptionFind;
+            if(msg != null)
+                    MessageBox.Show(msg);
+            clearInpus();
+
+        }
         private string currentMode;
         private FormTable aFormTable;
+        private string descriptionRecorder = "ingrese el codigo del estilista, el diplomado, y las fechas de inicio y de fin.";
+        private string descriptionFind = "selecciones las casillas por las cuales quiere filtrar.";
 
-
-        
+        private void FormInscripcion_VisibleChanged(object sender, EventArgs e)
+        {
+            clearInpus();
+        }
     }
 }

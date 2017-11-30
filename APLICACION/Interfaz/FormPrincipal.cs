@@ -54,11 +54,7 @@ namespace APLICACION.Interfaz
         {
 
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
         private void pasarAForm(Form form)
         {
             this.Visible = false;
@@ -67,5 +63,21 @@ namespace APLICACION.Interfaz
         }
         private FormGestion aFormGestion;
         private FormTable aFormTable;
+
+        private void btnCoutEst_Click(object sender, EventArgs e)
+        {
+            int count = Logica.Estilista.counterEstilistasOfMaleGender();
+            string msg;
+            if (count == 0)
+                msg = "No hay estilistas de genero masculino";
+            else
+                msg = String.Format("Hay {0} estilistas de genero masculino", count);
+            MessageBox.Show(msg);
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

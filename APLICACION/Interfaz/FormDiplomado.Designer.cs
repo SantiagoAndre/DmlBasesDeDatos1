@@ -43,76 +43,79 @@
             // 
             // txtDurationH
             // 
-            this.txtDurationH.Location = new System.Drawing.Point(178, 130);
+            this.txtDurationH.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtDurationH.Location = new System.Drawing.Point(116, 130);
             this.txtDurationH.Name = "txtDurationH";
-            this.txtDurationH.Size = new System.Drawing.Size(87, 20);
+            this.txtDurationH.Size = new System.Drawing.Size(162, 22);
             this.txtDurationH.TabIndex = 21;
             this.txtDurationH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
             // txtNameDip
             // 
-            this.txtNameDip.Location = new System.Drawing.Point(103, 90);
+            this.txtNameDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtNameDip.Location = new System.Drawing.Point(116, 90);
             this.txtNameDip.Name = "txtNameDip";
-            this.txtNameDip.Size = new System.Drawing.Size(162, 20);
+            this.txtNameDip.Size = new System.Drawing.Size(162, 22);
             this.txtNameDip.TabIndex = 20;
             // 
             // lblModalityDip
             // 
             this.lblModalityDip.AutoSize = true;
-            this.lblModalityDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModalityDip.Location = new System.Drawing.Point(25, 170);
+            this.lblModalityDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblModalityDip.Location = new System.Drawing.Point(25, 171);
             this.lblModalityDip.Name = "lblModalityDip";
-            this.lblModalityDip.Size = new System.Drawing.Size(77, 15);
+            this.lblModalityDip.Size = new System.Drawing.Size(87, 16);
             this.lblModalityDip.TabIndex = 19;
             this.lblModalityDip.Text = "MODALIDAD:";
             // 
             // lblDurationH
             // 
             this.lblDurationH.AutoSize = true;
-            this.lblDurationH.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDurationH.Location = new System.Drawing.Point(25, 130);
+            this.lblDurationH.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblDurationH.Location = new System.Drawing.Point(25, 124);
             this.lblDurationH.Name = "lblDurationH";
-            this.lblDurationH.Size = new System.Drawing.Size(147, 15);
+            this.lblDurationH.Size = new System.Drawing.Size(78, 32);
             this.lblDurationH.TabIndex = 18;
-            this.lblDurationH.Text = "HORAS  DE  DURACION:";
+            this.lblDurationH.Text = "HORAS  DE  \r\nDURACION";
             // 
             // lblNameDip
             // 
             this.lblNameDip.AutoSize = true;
-            this.lblNameDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblNameDip.Location = new System.Drawing.Point(25, 92);
             this.lblNameDip.Name = "lblNameDip";
-            this.lblNameDip.Size = new System.Drawing.Size(56, 15);
+            this.lblNameDip.Size = new System.Drawing.Size(64, 16);
             this.lblNameDip.TabIndex = 17;
             this.lblNameDip.Text = "NOMBRE:";
             // 
             // txtCodeDip
             // 
-            this.txtCodeDip.Location = new System.Drawing.Point(103, 50);
+            this.txtCodeDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtCodeDip.Location = new System.Drawing.Point(116, 50);
             this.txtCodeDip.Name = "txtCodeDip";
-            this.txtCodeDip.Size = new System.Drawing.Size(162, 20);
+            this.txtCodeDip.Size = new System.Drawing.Size(162, 22);
             this.txtCodeDip.TabIndex = 16;
             this.txtCodeDip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
             // lblCodeDip
             // 
             this.lblCodeDip.AutoSize = true;
-            this.lblCodeDip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeDip.Location = new System.Drawing.Point(25, 50);
+            this.lblCodeDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblCodeDip.Location = new System.Drawing.Point(25, 53);
             this.lblCodeDip.Name = "lblCodeDip";
-            this.lblCodeDip.Size = new System.Drawing.Size(56, 15);
+            this.lblCodeDip.Size = new System.Drawing.Size(58, 16);
             this.lblCodeDip.TabIndex = 15;
             this.lblCodeDip.Text = "CODIGO:";
             // 
             // btnOkDiplomado
             // 
-            this.btnOkDiplomado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(131)))), ((int)(((byte)(143)))));
+            this.btnOkDiplomado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
             this.btnOkDiplomado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOkDiplomado.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOkDiplomado.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnOkDiplomado.ForeColor = System.Drawing.Color.Black;
-            this.btnOkDiplomado.Location = new System.Drawing.Point(52, 220);
+            this.btnOkDiplomado.Location = new System.Drawing.Point(90, 222);
             this.btnOkDiplomado.Name = "btnOkDiplomado";
-            this.btnOkDiplomado.Size = new System.Drawing.Size(200, 45);
+            this.btnOkDiplomado.Size = new System.Drawing.Size(120, 30);
             this.btnOkDiplomado.TabIndex = 23;
             this.btnOkDiplomado.Text = "OK";
             this.btnOkDiplomado.UseVisualStyleBackColor = false;
@@ -121,32 +124,35 @@
             // lblDecripcion
             // 
             this.lblDecripcion.AutoSize = true;
-            this.lblDecripcion.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDecripcion.Location = new System.Drawing.Point(71, 3);
+            this.lblDecripcion.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblDecripcion.Location = new System.Drawing.Point(72, 9);
             this.lblDecripcion.Name = "lblDecripcion";
-            this.lblDecripcion.Size = new System.Drawing.Size(140, 15);
+            this.lblDecripcion.Size = new System.Drawing.Size(156, 16);
             this.lblDecripcion.TabIndex = 24;
             this.lblDecripcion.Text = "REGISTRAR DIPLOMADO";
             // 
             // cbxModalityDip
             // 
+            this.cbxModalityDip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModalityDip.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbxModalityDip.FormattingEnabled = true;
             this.cbxModalityDip.Items.AddRange(new object[] {
             "presencial",
             "semipresencial",
             "virtual"});
-            this.cbxModalityDip.Location = new System.Drawing.Point(103, 168);
+            this.cbxModalityDip.Location = new System.Drawing.Point(116, 168);
             this.cbxModalityDip.Name = "cbxModalityDip";
-            this.cbxModalityDip.Size = new System.Drawing.Size(162, 21);
+            this.cbxModalityDip.Size = new System.Drawing.Size(162, 24);
             this.cbxModalityDip.TabIndex = 25;
             // 
             // ckcModeDrop
             // 
             this.ckcModeDrop.AutoSize = true;
+            this.ckcModeDrop.Font = new System.Drawing.Font("Crimson Text SemiBold", 9.75F, System.Drawing.FontStyle.Bold);
             this.ckcModeDrop.Location = new System.Drawing.Point(28, 92);
             this.ckcModeDrop.Name = "ckcModeDrop";
-            this.ckcModeDrop.Size = new System.Drawing.Size(222, 17);
-            this.ckcModeDrop.TabIndex = 26;
+            this.ckcModeDrop.Size = new System.Drawing.Size(246, 20);
+            this.ckcModeDrop.TabIndex = 27;
             this.ckcModeDrop.Text = "BORRAR INSCRIPCIONES ASOCIADAS";
             this.ckcModeDrop.UseVisualStyleBackColor = true;
             this.ckcModeDrop.Visible = false;
@@ -155,8 +161,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(290, 285);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(300, 265);
             this.Controls.Add(this.ckcModeDrop);
             this.Controls.Add(this.cbxModalityDip);
             this.Controls.Add(this.lblDecripcion);
@@ -169,6 +175,7 @@
             this.Controls.Add(this.txtCodeDip);
             this.Controls.Add(this.lblCodeDip);
             this.Name = "FromDiplomado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Diplomado";
             this.VisibleChanged += new System.EventHandler(this.FromDiplomado_VisibleChanged);
             this.ResumeLayout(false);
