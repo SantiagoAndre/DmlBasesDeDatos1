@@ -5,6 +5,8 @@ CREATE TABLE DIPLOMADO
 	dipHorasDuracion Int  not null,
 	dipModalidad NCHAR(16) not null,
 	CONSTRAINT pk_diplomado PRIMARY KEY (dipId),
+	CONSTRAINT ckc_dipId CHECK (dipId>=0),
+	CONSTRAINT dipHorasDuracion CHECK (dipHorasDuracion>=0),
 	CONSTRAINT ckc_dipModalidad CHECK (dipModalidad in ( 'presencial', 'semipresencial', 'virtual')),
 );
 
@@ -15,6 +17,7 @@ CREATE TABLE ESTILISTA
 	estGenero NCHAR(1) not null,
 	estFechaNacimiento DATE not null,
 	CONSTRAINT pk_estilista PRIMARY KEY (estId),
+	CONSTRAINT ckc_estId CHECK (estId>=0),
 	CONSTRAINT ckc_estGenero CHECK (estGenero in ('f','m','o'))
 );
 
