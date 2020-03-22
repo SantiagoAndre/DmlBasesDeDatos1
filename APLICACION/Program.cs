@@ -17,8 +17,9 @@ namespace APLICACION
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Interfaz.FormPrincipal());
-//            Logica.Inscripcion.buscarInscripcion("4/22/2014");
-            
+            //            Logica.Inscripcion.buscarInscripcion("4/22/2014");
+            //            Datos.Datos.executeNonQuery("INSERT INTO SADSAD(1,2,1,2)");
+//            Console.WriteLine(Logica.Ciudad.guardar(12, "ADASDA"));
         }
     }
 }

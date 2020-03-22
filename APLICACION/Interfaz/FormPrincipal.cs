@@ -18,19 +18,19 @@ namespace APLICACION.Interfaz
         {
             InitializeComponent();
             aFormGestion = new FormGestion();
+            aFromCiudad = new FromCiudad();
             aFormTable = new FormTable();
 
         }
 
         private void btnDiplomado_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_DIPLOMADO);
-            pasarAForm(aFormGestion);
+            pasarAForm(aFromCiudad);
         }
 
         private void btnEstilista_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_ESTILISTA);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MODO_KARATECA);
             pasarAForm(aFormGestion);
         }
 
@@ -38,7 +38,7 @@ namespace APLICACION.Interfaz
 
         private void btnInscribe_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODE_INSCRIBIR);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MOD0_INSCRIBIR);
             pasarAForm(aFormGestion);
         }
 
@@ -62,11 +62,12 @@ namespace APLICACION.Interfaz
             this.Show();
         }
         private FormGestion aFormGestion;
+        private FromCiudad aFromCiudad;
         private FormTable aFormTable;
 
         private void btnCoutEst_Click(object sender, EventArgs e)
         {
-            int count = Logica.Estilista.counterEstilistasOfMaleGender();
+            int count = 10; // Logica.Karateca.counterEstilistasOfMaleGender();
             string msg;
             if (count == 0)
                 msg = "No hay estilistas de genero masculino";

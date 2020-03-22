@@ -1,35 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
 
-
+// Insertar "librerias", son necesarias para que se reconozcan las palabras clave
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 namespace APLICACION.Datos
 {
     public static class Datos
     {
-        //the connection string contains the information necessary to connect to a database with a specific user
-        public static string CONNECTION_STRING = @"Data Source=DESKTOP-HQNIK6L\SQLEXPRESS;Initial Catalog=DIPLOMADO;User ID=sa;Password='sa2016'";
-       
-        //only insert, drop, update
+        //Creacion de la cadena de conexión
+        static string CONNECTION_STRING = "Data Source=localhost; User ID = system; Password=1234";
+        //solo insert, drop, update
         public static int executeNonQuery(string query)
         {
             
             int rowsAffected;
+            //1.Creación de la conexión
+            OracleConnection connection = new OracleConnection(CONNECTION_STRING);
 
-            SqlConnection connection = new SqlConnection(CONNECTION_STRING);
-            //create a command
-            SqlCommand command = new SqlCommand(query, connection);
-            //open the connection
+            //2.Creación de un objeto tipo comando || es necesario para poder ejecutar un sentencia insert, update or delete.
+            //recibe la consulta, que puede ser cualquier dml y la conexión que trabaja con la cadena de conexión
+            OracleCommand command = new OracleCommand(query, connection);
+
+
+            //3.Abrir la conexión
             connection.Open();
-            //execute query, this metod return the number rows affected
+
+            //4. Ejecución del comando, devuelve el # de filas afectadas
+            //comando.ExecuteNonQuery(); || Método: algo que no es select.
             rowsAffected = command.ExecuteNonQuery();
-            //Paso 5: close connection
+
+            //5.Cerrar conexión
             connection.Close();
-            ;
+
+
             return rowsAffected;
             
         }
@@ -37,12 +45,16 @@ namespace APLICACION.Datos
         //select
         public static DataTable executeQuery(string query)
         {
-            //a DataTable is a tables
-            DataTable Dt = new DataTable();
-            //create a adapter
-            SqlDataAdapter adapter = new SqlDataAdapter(query, CONNECTION_STRING);
-            adapter.Fill(Dt);
-            return Dt;
+             //Creacion de DataSet vacio
+            DataTable ds = new DataTable();
+
+            //Creación de adaptador || se usa pa ejecutar consultas de tipo Select
+
+            OracleDataAdapter adapter = new OracleDataAdapter(query, CONNECTION_STRING);
+            Console.WriteLine(query);
+            //Llenar el dataset a traves del adaptador ||fill: llena con registros el dataSet
+            adapter.Fill(ds);
+            return ds;
         }
     }
 }

@@ -33,7 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.19.6.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,11 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Datos.cs" />
-    <Compile Include="Interfaz\FormEstilista.cs">
+    <Compile Include="Interfaz\FormKarateca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\FormEstilista.Designer.cs">
-      <DependentUpon>FormEstilista.cs</DependentUpon>
+    <Compile Include="Interfaz\FormKarateca.Designer.cs">
+      <DependentUpon>FormKarateca.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\FormInscripcion.cs">
       <SubType>Form</SubType>
@@ -65,15 +79,15 @@
     <Compile Include="Interfaz\FormTable.Designer.cs">
       <DependentUpon>FormTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logica\Diplomado.cs" />
-    <Compile Include="Logica\Estilista.cs" />
+    <Compile Include="Logica\Ciudad.cs" />
+    <Compile Include="Logica\Karateca.cs" />
     <Compile Include="Logica\Inscripcion.cs" />
     <Compile Include="Properties\Datos.cs" />
-    <Compile Include="Interfaz\FormDiplomado.cs">
+    <Compile Include="Interfaz\FormCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz\FormDiplomado.Designer.cs">
-      <DependentUpon>FormDiplomado.cs</DependentUpon>
+    <Compile Include="Interfaz\FormCiudad.Designer.cs">
+      <DependentUpon>FormCiudad.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaz\FormGestion.cs">
       <SubType>Form</SubType>
@@ -89,11 +103,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Interfaz\FormDiplomado.resx">
-      <DependentUpon>FormDiplomado.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz\FormCiudad.resx">
+      <DependentUpon>FormCiudad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz\FormEstilista.resx">
-      <DependentUpon>FormEstilista.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaz\FormKarateca.resx">
+      <DependentUpon>FormKarateca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaz\FormGestion.resx">
       <DependentUpon>FormGestion.cs</DependentUpon>
@@ -117,6 +131,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

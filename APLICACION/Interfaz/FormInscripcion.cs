@@ -44,11 +44,11 @@ namespace APLICACION.Interfaz
         }
 
 
-        public void setMode(string newMode)
+        public void setModo(string newMode)
         {
             this.currentMode = newMode;
 
-            if (newMode == FormGestion.SUB_MODE_RECORDER)
+            if (newMode == FormGestion.OPCION_CREAR)
             {
                 setEnabledAllChecks(false);
                 setCheckAllChecks(true);
@@ -114,7 +114,7 @@ namespace APLICACION.Interfaz
         private void btnOkInscripcion_Click(object sender, EventArgs e)
         {
             string msg;
-            if (currentMode == FormGestion.SUB_MODE_RECORDER)
+            if (currentMode == FormGestion.OPCION_CREAR)
                 msg = recorderInscripcion();
             else
                 msg = findInscripcion();
@@ -152,7 +152,7 @@ namespace APLICACION.Interfaz
         private void pcb_Click(object sender, EventArgs e)
         {
             string msg;
-            if (currentMode == FormGestion.SUB_MODE_RECORDER)
+            if (currentMode == FormGestion.OPCION_CREAR)
                 msg = descriptionRecorder;
             else
                 msg = descriptionFind;

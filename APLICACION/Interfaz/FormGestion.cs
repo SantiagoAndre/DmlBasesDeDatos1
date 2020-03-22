@@ -22,8 +22,8 @@ namespace APLICACION.Interfaz
         public void initChildren()
         { 
             FormTable formTable = new FormTable();
-            this.childDiplomado = new FromDiplomado();
-            this.childEstilista = new Interfaz.FormEstilista(formTable);
+            this.childDiplomado = new FromCiudad();
+            this.childKarateca = new Interfaz.FormKarateca(formTable);
             this.childnscripcion = new FormInscripcion(formTable);
         }
         private void pasarAForm(Form form)
@@ -38,7 +38,7 @@ namespace APLICACION.Interfaz
                 return;
             aModoGestion = newMode;
             this.lblMode.Text =  newMode;
-            if(aModoGestion == MODE_INSCRIBIR)
+            if(aModoGestion == MOD0_INSCRIBIR)
             {
                 this.btnUpdate.Enabled = false;
                 this.btnRemove.Enabled = false;
@@ -53,19 +53,14 @@ namespace APLICACION.Interfaz
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Form nuevoForm;
-            if (this.aModoGestion == MODE_DIPLOMADO)
+            if(aModoGestion == MODO_KARATECA)
             {
-                this.childDiplomado.setModo(SUB_MODE_RECORDER);
-                nuevoForm = this.childDiplomado;
-            }
-            else if(aModoGestion == MODE_ESTILISTA)
-            {
-                this.childEstilista.setModo(SUB_MODE_RECORDER);
-                nuevoForm = this.childEstilista;
+                this.childKarateca.setModo(OPCION_CREAR);
+                nuevoForm = this.childKarateca;
             }
             else
             {
-                this.childnscripcion.setMode(SUB_MODE_RECORDER);
+                this.childnscripcion.setModo(OPCION_CREAR);
                 nuevoForm = this.childnscripcion;
             }
             pasarAForm(nuevoForm);
@@ -74,31 +69,21 @@ namespace APLICACION.Interfaz
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Form nuevoForm;
-            if (this.aModoGestion == MODE_DIPLOMADO)
+            Form nuevoForm= null;
+            if (aModoGestion == MODO_KARATECA)
             {
-                this.childDiplomado.setModo(SUB_MODE_UPDATE);
-                nuevoForm = this.childDiplomado;
-            }
-            else
-            {
-                this.childEstilista.setModo(SUB_MODE_UPDATE);
-                nuevoForm = this.childEstilista;
+                this.childKarateca.setModo(OPCION_ACTUALIZAR);
+                nuevoForm = this.childKarateca;
             }
             pasarAForm(nuevoForm);
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            Form nuevoForm;
-            if (this.aModoGestion == MODE_DIPLOMADO)
+            Form nuevoForm= null;
+            if (aModoGestion == MODO_KARATECA)
             {
-                this.childDiplomado.setModo(SUB_MODE_DROP);
-                nuevoForm = this.childDiplomado;
-            }
-            else
-            {
-                this.childEstilista.setModo(SUB_MODE_DROP);
-                nuevoForm = this.childEstilista;
+                this.childKarateca.setModo(OPCION_ELIMINAR);
+                nuevoForm = this.childKarateca;
             }
             pasarAForm(nuevoForm);
         }
@@ -108,36 +93,17 @@ namespace APLICACION.Interfaz
         }
         
 
-        private void btFind_Click(object sender, EventArgs e)
-        {
-            Form nuevoForm;
-            if (this.aModoGestion == MODE_DIPLOMADO)
-            {
-            }
-            else if (aModoGestion == MODE_ESTILISTA)
-            {
-                childEstilista.setModo(SUB_MODE_FIND);
-                nuevoForm = childEstilista;
-                pasarAForm(nuevoForm);
-            }else
-            {
-                childnscripcion.setMode(SUB_MODE_FIND);
-                nuevoForm = childnscripcion;
-                pasarAForm(nuevoForm);
-            }
-        }
-        private FromDiplomado childDiplomado;
-        private Interfaz.FormEstilista childEstilista;
+     
+        private FromCiudad childDiplomado;
+        private Interfaz.FormKarateca childKarateca;
         private FormInscripcion childnscripcion;
         private string aModoGestion;
-        public static string MODE_DIPLOMADO = "DIPLOMADO";
-        public static string MODE_ESTILISTA = "ESTILISTA";
-        public static string MODE_INSCRIBIR=  "INSCRIBIR";
+        public static string MODO_KARATECA = "ESTILISTA";
+        public static string MOD0_INSCRIBIR=  "INSCRIBIR";
 
-        public static string SUB_MODE_RECORDER = "REGISTRAR";
-        public static string SUB_MODE_UPDATE = "ACTUAIZAR";
-        public static string SUB_MODE_DROP = " ELIMINAR";
-        public static string SUB_MODE_FIND = " BUSCAR";
+        public static string OPCION_CREAR = "REGISTRAR";
+        public static string OPCION_ACTUALIZAR = "ACTUAIZAR";
+        public static string OPCION_ELIMINAR = " ELIMINAR";
 
         private void FormGestion_Load(object sender, EventArgs e)
         {
