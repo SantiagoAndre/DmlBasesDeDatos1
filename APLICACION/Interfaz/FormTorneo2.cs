@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace APLICACION.Interfaz
 {
-    public partial class FormKarateca : Form
+    public partial class FormTorneo2: Form
     {
-        public FormKarateca(FormTable formTable)
+        public FormTorneo2(FormTable formTable)
         {
             InitializeComponent();
             this.aFormTable = formTable;
@@ -34,8 +34,8 @@ namespace APLICACION.Interfaz
             this.txtCodigo.Enabled = true;
             this.txtCodigo.Clear();
             this.txtNombre.Clear();
-            this.txtApelido.Clear();
-            this.txtPeso.Clear();
+            this.cbxFrecuencia.Text = "";
+            this.cbxModalidad.Text = "";
             //this.cbxCiudad.SelectedIndex = 0 ;//FALTA CIUDAD
         }
         private void showSomeComponets()
@@ -43,15 +43,11 @@ namespace APLICACION.Interfaz
             this.lblNombre.Visible = false;
             this.txtNombre.Visible = false;
 
-            this.lblApellido.Visible = false;
-            this.txtApelido.Visible = false;
+            this.lblModalidad.Visible = false;
+            this.cbxModalidad.Visible = false;
 
-            this.lblPeso.Visible = false;
-            this.txtPeso.Visible = false;
-
-            this.lblCiudad.Visible = false;
-            this.cbxCiudad.Visible = false;
-
+            this.lblFrecuencia.Visible = false;
+            this.cbxFrecuencia.Visible = false;
 
         }
         private void showAllComponets()
@@ -60,14 +56,11 @@ namespace APLICACION.Interfaz
             this.lblNombre.Visible = true;
             this.txtNombre.Visible = true;
 
-            this.lblApellido.Visible = true;
-            this.txtApelido.Visible = true;
+            this.lblModalidad.Visible = true;
+            this.cbxModalidad.Visible = true;
 
-            this.lblPeso.Visible = true;
-            this.txtPeso.Visible = true;
-
-            this.lblCiudad.Visible = true;
-            this.cbxCiudad.Visible = true;
+            this.lblFrecuencia.Visible = true;
+            this.cbxFrecuencia.Visible = true;
 
 
 
@@ -84,8 +77,8 @@ namespace APLICACION.Interfaz
         private void viewRecorder()
         {
             showAllComponets();
-            this.ClientSize = new System.Drawing.Size(330, 300);
-            this.btnOkKarateka.Location = new System.Drawing.Point(106, 261); ;
+            this.ClientSize = new System.Drawing.Size(356, 256);
+            this.btnOkKarateka.Location = new System.Drawing.Point(124, 205);
            
         }
       
@@ -94,7 +87,7 @@ namespace APLICACION.Interfaz
             if (newMode == currentMode)
                 return;
             this.currentMode = newMode;
-            this.lblDecription.Text = currentMode + " KARATECA";
+            this.lblDecription.Text = currentMode + " TORNEO";
             if (newMode == FormGestion.OPCION_ELIMINAR)
             {
                 viewDrop();
@@ -106,7 +99,7 @@ namespace APLICACION.Interfaz
             
         }
 
-        private Boolean getData(ref int codigo, ref String nombre, ref String apellido, ref int peso, ref int ciudad)
+        private Boolean getData(ref int codigo, ref String nombre, ref String modalidad, ref String frecuencia)
         {
             codigo = getCode();
             if (codigo == -1)
@@ -115,9 +108,9 @@ namespace APLICACION.Interfaz
             try
             {
                 nombre = txtNombre.Text.ToString().Trim();
-                apellido = txtApelido.Text.ToString().Trim();
-                peso = getPeso();
-                ciudad = (int)(cbxCiudad.SelectedItem as dynamic).Codigo;
+                modalidad = cbxModalidad.SelectedItem.ToString().Trim();
+
+                frecuencia = cbxFrecuencia.SelectedItem.ToString().Trim();
 
             }
             catch
@@ -140,69 +133,48 @@ namespace APLICACION.Interfaz
                 return -1;
             }
         }
-        private int getPeso()
-        {
-            try
-            {
-                int peso= Int32.Parse(txtPeso.Text);
-                return peso;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
+        
 
-        private void fillOutAllInputs(DataTable table)
-        {
-            txtCodigo.Text = table.Rows[0]["CODIGO"].ToString().Trim();
-            txtNombre.Text = table.Rows[0]["NOMBRE"].ToString().Trim();
-
-        }
-
-
-        private string actrualizarKarateca()
+        private string actrualizarTorneo()
         {
 
-            int codigo = 0, edad = 0, ciudad = 0;
-            string nombre = "", apellido = "";
-            if (getData(ref codigo, ref nombre, ref apellido, ref edad, ref ciudad))
-                return Logica.Karateca.actualizar(codigo, nombre, apellido, edad, ciudad);
+            int codigo = 0;
+            string nombre = "", modalidad = "",frecuencia = "";
+            if (getData(ref codigo, ref nombre, ref modalidad, ref frecuencia))
+                return Logica.Torneo.actualizar(codigo, nombre, modalidad, frecuencia);
             return "Error: todas las casillas son obligatorias";
         }
-        private string crearKarateca()
+        private string crearTorneo()
         {
-            int codigo = 0, edad = 0, ciudad = 0;
-            string nombre = "", apellido = "";
-            if (getData(ref codigo, ref nombre, ref apellido, ref edad, ref ciudad))
+            int codigo = 0;
+            string nombre = "", modalidad = "", frecuencia = "";
+            if (getData(ref codigo, ref nombre, ref modalidad, ref frecuencia))
             {
                 clearInputs();
-                return Logica.Karateca.crear(codigo, nombre, apellido, edad, ciudad);
+                return Logica.Torneo.crear(codigo, nombre, modalidad, frecuencia);
             }
             return "Error: Las casillas marcadas son obligatorias";
         }
-        private string eliminarKarateca()
+        private string eliminarTorneo()
         {
             int codigo = getCode();
             if (codigo < 0)
                 return "Error: tienes que digitar un codigo";
 
-            return Logica.Karateca.eliminar(codigo);
+            return Logica.Torneo.eliminar(codigo);
         }
-        private string buscarKarateca()
+        private string buscarTorneo()
         {
             int codigo = getCode();
             if (codigo<0)
                 return "Error: Formato del codigo no valido.";
-            DataRow karateca = Logica.Karateca.buscar(codigo);
-            karatecaEncontrado = karateca != null;
-            if (!karatecaEncontrado)
-                return "No existe el carateca";
-            txtNombre.Text = karateca.Field<String>("NOMBRE");
-            txtApelido.Text = karateca.Field<String>("APELLIDO");
-            Single peso = karateca.Field<Single>("PESO");
-            txtPeso.Text =String.Format("{0}",peso);
-            cbxCiudad.SelectedValue = karateca.Field<Decimal>("CIUDAD").ToString();
+            DataRow torneo = Logica.Torneo.buscar(codigo);
+            torneoaEncontrado = torneo != null;
+            if (!torneoaEncontrado)
+                return "No existe el torneo";
+            txtNombre.Text = torneo.Field<String>("NOMBRE");
+            cbxModalidad.Text = torneo.Field<String>("MODALIDAD");
+            cbxFrecuencia.Text = torneo.Field<String>("Frecuencia");
             return null;
         }
 
@@ -211,49 +183,33 @@ namespace APLICACION.Interfaz
             String msg;
             if (currentMode == FormGestion.OPCION_ACTUALIZAR)
             {
-                if (karatecaEncontrado)
+                if (torneoaEncontrado)
                 {
-                    msg = actrualizarKarateca();
+                    msg = actrualizarTorneo();
                     clearInputs();
                 }
                 else
-                    msg = "Debes ingresar el codigo del karateca y presionar ENTER.";
+                    msg = "Debes ingresar el codigo del torneo y presionar ENTER.";
             }
             else if (currentMode == FormGestion.OPCION_CREAR)
             {
-                msg = crearKarateca();
+                msg = crearTorneo();
                 
             }
             else if (currentMode == FormGestion.OPCION_ELIMINAR)
             {
-                msg = eliminarKarateca();
+                msg = eliminarTorneo();
                 clearInputs();
             }
             else
             {
-                msg = buscarKarateca();
+                msg = buscarTorneo();
                 clearInputs();
             }
             if (msg != null)
                 MessageBox.Show(msg);
         }
-        private void btnOk_Move(object sender, EventArgs e)
-        {
-            if (currentMode == FormGestion.OPCION_ELIMINAR)
-            {
-                this.lblNombre.Text = "Eliminar inscripciones asociadas.";
-                //this.lblNameEst.Text = "ELIMINAR INSCRIPCIONES ASOCIADAS.";
-
-                this.lblNombre.Location = new Point(58, 90);
-            }
-            else
-            {
-                this.lblNombre.Text = "NOMBRE";
-                this.lblNombre.Location = new Point(38, 90);
-            }
-
-        }
-
+       
         private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
         {
             char keypress = e.KeyChar;
@@ -275,19 +231,18 @@ namespace APLICACION.Interfaz
                                    //rerecoder, update, drup, find
         private FormTable aFormTable;
 
-        private Boolean karatecaEncontrado = false;
+        private Boolean torneoaEncontrado = false;
 
-        private void FormKarateca_Load(object sender, EventArgs e)
+        private void FormTorneo_Load(object sender, EventArgs e)
         {
-            //cargar informacion de las ciudades
-            cbxCiudad.DisplayMember = "Nombre";
-            cbxCiudad.ValueMember = "Codigo";
-            DataTable ciudades = Logica.Ciudad.listar();
-            foreach (DataRow ciudad in ciudades.Rows)
-            {
-                cbxCiudad.Items.Add(new { Codigo = ciudad["CODIGO"] , Nombre = ciudad["NOMBRE"] });
+            //QUEMAR informacion MODALIDADES
+            cbxModalidad.Items.Add("infantil" );
+            cbxModalidad.Items.Add("juvenil");
+            cbxModalidad.Items.Add("adultos");
+            //QUEMAR informacion MODALIDADES
+            cbxFrecuencia.Items.Add("anual");
+            cbxFrecuencia.Items.Add("semestral");
 
-            }
         }
 
 
@@ -297,7 +252,7 @@ namespace APLICACION.Interfaz
                 return;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                String msg = buscarKarateca();
+                String msg = buscarTorneo();
                 if(msg != null)
                     MessageBox.Show(msg);
             }

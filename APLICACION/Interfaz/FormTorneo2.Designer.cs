@@ -1,6 +1,6 @@
 ﻿namespace APLICACION.Interfaz
 {
-    partial class FormKarateca
+    partial class FormTorneo2
     {
         /// <summary>
         /// Required designer variable.
@@ -35,12 +35,10 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblEstorbo = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.txtApelido = new System.Windows.Forms.TextBox();
-            this.lblPeso = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.lblCiudad = new System.Windows.Forms.Label();
-            this.cbxCiudad = new System.Windows.Forms.ComboBox();
+            this.lblModalidad = new System.Windows.Forms.Label();
+            this.lblFrecuencia = new System.Windows.Forms.Label();
+            this.cbxFrecuencia = new System.Windows.Forms.ComboBox();
+            this.cbxModalidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblDecription
@@ -59,19 +57,19 @@
             this.btnOkKarateka.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOkKarateka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnOkKarateka.ForeColor = System.Drawing.Color.Black;
-            this.btnOkKarateka.Location = new System.Drawing.Point(106, 261);
+            this.btnOkKarateka.Location = new System.Drawing.Point(124, 205);
             this.btnOkKarateka.Name = "btnOkKarateka";
             this.btnOkKarateka.Size = new System.Drawing.Size(120, 30);
             this.btnOkKarateka.TabIndex = 33;
             this.btnOkKarateka.Text = "OK";
             this.btnOkKarateka.UseVisualStyleBackColor = false;
             this.btnOkKarateka.Click += new System.EventHandler(this.btnOk_Click);
-            this.btnOkKarateka.Move += new System.EventHandler(this.btnOk_Move);
+            
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtNombre.Location = new System.Drawing.Point(129, 86);
+            this.txtNombre.Location = new System.Drawing.Point(149, 86);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(169, 22);
             this.txtNombre.TabIndex = 30;
@@ -79,7 +77,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtCodigo.Location = new System.Drawing.Point(129, 45);
+            this.txtCodigo.Location = new System.Drawing.Point(149, 45);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(169, 22);
             this.txtCodigo.TabIndex = 26;
@@ -117,75 +115,54 @@
             this.lblEstorbo.TabIndex = 47;
             this.lblEstorbo.Visible = false;
             // 
-            // lblApellido
+            // lblModalidad
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblApellido.Location = new System.Drawing.Point(35, 125);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(84, 16);
-            this.lblApellido.TabIndex = 49;
-            this.lblApellido.Text = "APELLIDO:";
-            this.lblApellido.Visible = false;
+            this.lblModalidad.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.lblModalidad.AutoSize = true;
+            this.lblModalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblModalidad.Location = new System.Drawing.Point(35, 125);
+            this.lblModalidad.Name = "lblModalidad";
+            this.lblModalidad.Size = new System.Drawing.Size(100, 16);
+            this.lblModalidad.TabIndex = 49;
+            this.lblModalidad.Text = "MODALIDAD:";
+            this.lblModalidad.Visible = false;
             // 
-            // txtApelido
+            // lblFrecuencia
             // 
-            this.txtApelido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtApelido.Location = new System.Drawing.Point(129, 124);
-            this.txtApelido.Name = "txtApelido";
-            this.txtApelido.Size = new System.Drawing.Size(169, 22);
-            this.txtApelido.TabIndex = 48;
+            this.lblFrecuencia.AutoSize = true;
+            this.lblFrecuencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblFrecuencia.Location = new System.Drawing.Point(37, 168);
+            this.lblFrecuencia.Name = "lblFrecuencia";
+            this.lblFrecuencia.Size = new System.Drawing.Size(108, 16);
+            this.lblFrecuencia.TabIndex = 51;
+            this.lblFrecuencia.Text = "FRECUENCIA:";
             // 
-            // lblPeso
+            // cbxFrecuencia
             // 
-            this.lblPeso.AutoSize = true;
-            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblPeso.Location = new System.Drawing.Point(37, 168);
-            this.lblPeso.Name = "lblPeso";
-            this.lblPeso.Size = new System.Drawing.Size(53, 16);
-            this.lblPeso.TabIndex = 51;
-            this.lblPeso.Text = "PESO:";
+            this.cbxFrecuencia.FormattingEnabled = true;
+            this.cbxFrecuencia.Location = new System.Drawing.Point(149, 163);
+            this.cbxFrecuencia.Name = "cbxFrecuencia";
+            this.cbxFrecuencia.Size = new System.Drawing.Size(169, 21);
+            this.cbxFrecuencia.TabIndex = 55;
             // 
-            // txtPeso
+            // cbxModalidad
             // 
-            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtPeso.Location = new System.Drawing.Point(129, 162);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(169, 22);
-            this.txtPeso.TabIndex = 50;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
+            this.cbxModalidad.FormattingEnabled = true;
+            this.cbxModalidad.Location = new System.Drawing.Point(149, 125);
+            this.cbxModalidad.Name = "cbxModalidad";
+            this.cbxModalidad.Size = new System.Drawing.Size(169, 21);
+            this.cbxModalidad.TabIndex = 56;
             // 
-            // lblCiudad
-            // 
-            this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblCiudad.Location = new System.Drawing.Point(40, 203);
-            this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(69, 16);
-            this.lblCiudad.TabIndex = 52;
-            this.lblCiudad.Text = "CIUDAD:";
-            // 
-            // cbxCiudad
-            // 
-            this.cbxCiudad.FormattingEnabled = true;
-            this.cbxCiudad.Location = new System.Drawing.Point(129, 203);
-            this.cbxCiudad.Name = "cbxCiudad";
-            this.cbxCiudad.Size = new System.Drawing.Size(169, 21);
-            this.cbxCiudad.TabIndex = 54;
-            this.cbxCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
-            // 
-            // FormKarateca
+            // FormTorneo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(330, 303);
-            this.Controls.Add(this.cbxCiudad);
-            this.Controls.Add(this.lblCiudad);
-            this.Controls.Add(this.lblPeso);
-            this.Controls.Add(this.txtPeso);
-            this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.txtApelido);
+            this.ClientSize = new System.Drawing.Size(356, 256);
+            this.Controls.Add(this.cbxModalidad);
+            this.Controls.Add(this.cbxFrecuencia);
+            this.Controls.Add(this.lblFrecuencia);
+            this.Controls.Add(this.lblModalidad);
             this.Controls.Add(this.lblEstorbo);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
@@ -193,10 +170,10 @@
             this.Controls.Add(this.btnOkKarateka);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
-            this.Name = "FormKarateca";
+            this.Name = "FormTorneo2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Karateca";
-            this.Load += new System.EventHandler(this.FormKarateca_Load);
+            this.Load += new System.EventHandler(this.FormTorneo_Load);
             this.VisibleChanged += new System.EventHandler(this.Form_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,11 +189,9 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblEstorbo;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.TextBox txtApelido;
-        private System.Windows.Forms.Label lblPeso;
-        private System.Windows.Forms.TextBox txtPeso;
-        private System.Windows.Forms.Label lblCiudad;
-        private System.Windows.Forms.ComboBox cbxCiudad;
+        private System.Windows.Forms.Label lblModalidad;
+        private System.Windows.Forms.Label lblFrecuencia;
+        private System.Windows.Forms.ComboBox cbxFrecuencia;
+        private System.Windows.Forms.ComboBox cbxModalidad;
     }
 }

@@ -23,8 +23,10 @@ namespace APLICACION.Interfaz
         { 
             FormTable formTable = new FormTable();
             this.childDiplomado = new FromCiudad();
-            this.childKarateca = new Interfaz.FormTorneo1(formTable);
-            this.childnscripcion = new FormInscripcion(formTable);
+            this.childKarateca = new Interfaz.FormKarateca(formTable);
+            this.childTorneo = new Interfaz.FormTorneo2(formTable);
+
+            //this.childnscripcion = new FormInscripcion(formTable);
         }
         private void pasarAForm(Form form)
         {
@@ -38,17 +40,7 @@ namespace APLICACION.Interfaz
                 return;
             aModoGestion = newMode;
             this.lblMode.Text =  newMode;
-            if(aModoGestion == MOD0_TORNEO)
-            {
-                this.btnUpdate.Enabled = false;
-                this.btnRemove.Enabled = false;
-            }
-            else
-            {
-                this.btnUpdate.Enabled = true;
-                this.btnRemove.Enabled = true;
-
-            }
+            
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -60,8 +52,8 @@ namespace APLICACION.Interfaz
             }
             else
             {
-                this.childnscripcion.setModo(OPCION_CREAR);
-                nuevoForm = this.childnscripcion;
+                this.childTorneo.setModo(OPCION_CREAR);
+                nuevoForm = this.childTorneo;
             }
             pasarAForm(nuevoForm);
         }
@@ -75,6 +67,11 @@ namespace APLICACION.Interfaz
                 this.childKarateca.setModo(OPCION_ACTUALIZAR);
                 nuevoForm = this.childKarateca;
             }
+            else if (aModoGestion == MODO_TORNEO)
+            {
+                this.childTorneo.setModo(OPCION_ACTUALIZAR);
+                nuevoForm = this.childTorneo;
+            }
             pasarAForm(nuevoForm);
         }
         private void btnRemove_Click(object sender, EventArgs e)
@@ -84,6 +81,11 @@ namespace APLICACION.Interfaz
             {
                 this.childKarateca.setModo(OPCION_ELIMINAR);
                 nuevoForm = this.childKarateca;
+            }
+            else
+            {
+                this.childTorneo.setModo(OPCION_ELIMINAR);
+                nuevoForm = this.childTorneo;
             }
             pasarAForm(nuevoForm);
         }
@@ -95,11 +97,12 @@ namespace APLICACION.Interfaz
 
      
         private FromCiudad childDiplomado;
-        private Interfaz.FormTorneo1 childKarateca;
+        private Interfaz.FormKarateca childKarateca;
+        private FormTorneo2 childTorneo;
         private FormInscripcion childnscripcion;
         private string aModoGestion;
         public static string MODO_KARATECA = "KARATECA";
-        public static string MOD0_TORNEO=  "TORNEO";
+        public static string MODO_TORNEO=  "TORNEO";
 
         public static string OPCION_CREAR = "REGISTRAR";
         public static string OPCION_ACTUALIZAR = "ACTUAIZAR";

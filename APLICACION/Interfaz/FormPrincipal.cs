@@ -38,7 +38,7 @@ namespace APLICACION.Interfaz
 
         private void btnInscribe_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MOD0_TORNEO);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.MODO_TORNEO);
             pasarAForm(aFormGestion);
         }
 
