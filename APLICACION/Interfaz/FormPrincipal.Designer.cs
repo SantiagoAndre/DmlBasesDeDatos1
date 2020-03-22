@@ -52,7 +52,7 @@
             this.btnCiudad.TabIndex = 0;
             this.btnCiudad.Text = "Crear Ciudad";
             this.btnCiudad.UseVisualStyleBackColor = false;
-            this.btnCiudad.Click += new System.EventHandler(this.btnDiplomado_Click);
+            this.btnCiudad.Click += new System.EventHandler(this.btnCiudad_Click);
             // 
             // btnKarateca
             // 
@@ -116,7 +116,7 @@
             this.btnParticipar.TabIndex = 4;
             this.btnParticipar.Text = "Registrar Karateca en torneo";
             this.btnParticipar.UseVisualStyleBackColor = false;
-            this.btnParticipar.Click += new System.EventHandler(this.btnFindInscripcion_Click);
+            this.btnParticipar.Click += new System.EventHandler(this.btnParticipacion_Click);
             // 
             // btnCoutEst
             // 

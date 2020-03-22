@@ -99,7 +99,7 @@ namespace APLICACION.Interfaz
         private FromCiudad childDiplomado;
         private Interfaz.FormKarateca childKarateca;
         private FormTorneo2 childTorneo;
-        private FormInscripcion childnscripcion;
+        private FormParticipa childnscripcion;
         private string aModoGestion;
         public static string MODO_KARATECA = "KARATECA";
         public static string MODO_TORNEO=  "TORNEO";

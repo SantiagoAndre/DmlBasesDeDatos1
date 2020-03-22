@@ -20,10 +20,10 @@ namespace APLICACION.Interfaz
             aFormGestion = new FormGestion();
             aFromCiudad = new FromCiudad();
             aFormTable = new FormTable();
-
+            aFromParicipacion = new FormParticipa();
         }
 
-        private void btnDiplomado_Click(object sender, EventArgs e)
+        private void btnCiudad_Click(object sender, EventArgs e)
         {
             pasarAForm(aFromCiudad);
         }
@@ -50,8 +50,9 @@ namespace APLICACION.Interfaz
             pasarAForm(aFormTable);
 
         }
-        private void btnFindInscripcion_Click(object sender, EventArgs e)
+        private void btnParticipacion_Click(object sender, EventArgs e)
         {
+            pasarAForm(aFromParicipacion);
 
         }
         
@@ -64,6 +65,7 @@ namespace APLICACION.Interfaz
         private FormGestion aFormGestion;
         private FromCiudad aFromCiudad;
         private FormTable aFormTable;
+        private FormParticipa aFromParicipacion;
 
         private void btnCoutEst_Click(object sender, EventArgs e)
         {
