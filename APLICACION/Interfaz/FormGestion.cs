@@ -23,7 +23,7 @@ namespace APLICACION.Interfaz
         { 
             FormTable formTable = new FormTable();
             this.childDiplomado = new FromCiudad();
-            this.childKarateca = new Interfaz.FormKarateca(formTable);
+            this.childKarateca = new Interfaz.FormTorneo1(formTable);
             this.childnscripcion = new FormInscripcion(formTable);
         }
         private void pasarAForm(Form form)
@@ -38,7 +38,7 @@ namespace APLICACION.Interfaz
                 return;
             aModoGestion = newMode;
             this.lblMode.Text =  newMode;
-            if(aModoGestion == MOD0_INSCRIBIR)
+            if(aModoGestion == MOD0_TORNEO)
             {
                 this.btnUpdate.Enabled = false;
                 this.btnRemove.Enabled = false;
@@ -95,11 +95,11 @@ namespace APLICACION.Interfaz
 
      
         private FromCiudad childDiplomado;
-        private Interfaz.FormKarateca childKarateca;
+        private Interfaz.FormTorneo1 childKarateca;
         private FormInscripcion childnscripcion;
         private string aModoGestion;
-        public static string MODO_KARATECA = "ESTILISTA";
-        public static string MOD0_INSCRIBIR=  "INSCRIBIR";
+        public static string MODO_KARATECA = "KARATECA";
+        public static string MOD0_TORNEO=  "TORNEO";
 
         public static string OPCION_CREAR = "REGISTRAR";
         public static string OPCION_ACTUALIZAR = "ACTUAIZAR";

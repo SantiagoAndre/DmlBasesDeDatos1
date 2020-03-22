@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace APLICACION.Interfaz
 {
-    public partial class FormKarateca : Form
+    public partial class FormTorneo1 : Form
     {
-        public FormKarateca(FormTable formTable)
+        public FormTorneo1(FormTable formTable)
         {
             InitializeComponent();
             this.aFormTable = formTable;
@@ -78,14 +78,14 @@ namespace APLICACION.Interfaz
         private void viewDrop()
         {
             showSomeComponets();
-            this.btnOkEstilista.Location = new Point(105, 125);
+            this.btnOkKarateka.Location = new Point(105, 125);
             this.ClientSize = new System.Drawing.Size(330, 170);
         }
         private void viewRecorder()
         {
             showAllComponets();
             this.ClientSize = new System.Drawing.Size(330, 300);
-            this.btnOkEstilista.Location = new System.Drawing.Point(106, 261); ;
+            this.btnOkKarateka.Location = new System.Drawing.Point(106, 261); ;
            
         }
       
@@ -161,7 +161,7 @@ namespace APLICACION.Interfaz
         }
 
 
-        private string updateEstilista()
+        private string actrualizarKarateca()
         {
 
             int codigo = 0, edad = 0, ciudad = 0;
@@ -181,7 +181,7 @@ namespace APLICACION.Interfaz
             }
             return "Error: Las casillas marcadas son obligatorias";
         }
-        private string dropEstilista()
+        private string eliminarKarateca()
         {
             int codigo = getCode();
             if (codigo < 0)
@@ -195,7 +195,8 @@ namespace APLICACION.Interfaz
             if (codigo<0)
                 return "Error: Formato del codigo no valido.";
             DataRow karateca = Logica.Karateca.buscar(codigo);
-            if (karateca == null)
+            karatecaEncontrado = karateca != null;
+            if (!karatecaEncontrado)
                 return "No existe el carateca";
             txtNombre.Text = karateca.Field<String>("NOMBRE");
             txtApelido.Text = karateca.Field<String>("APELLIDO");
@@ -205,18 +206,18 @@ namespace APLICACION.Interfaz
             return null;
         }
 
-        private void btnOkEstilista_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             String msg;
             if (currentMode == FormGestion.OPCION_ACTUALIZAR)
             {
-                if (isInFullView())
+                if (karatecaEncontrado)
                 {
-                    msg = updateEstilista();
+                    msg = actrualizarKarateca();
                     clearInputs();
                 }
                 else
-                    msg = "";//updateFindEstilista(); //TODO: FALTA
+                    msg = "Debes ingresar el codigo del karateca y presionar ENTER.";
             }
             else if (currentMode == FormGestion.OPCION_CREAR)
             {
@@ -225,7 +226,7 @@ namespace APLICACION.Interfaz
             }
             else if (currentMode == FormGestion.OPCION_ELIMINAR)
             {
-                msg = dropEstilista();
+                msg = eliminarKarateca();
                 clearInputs();
             }
             else
@@ -236,7 +237,7 @@ namespace APLICACION.Interfaz
             if (msg != null)
                 MessageBox.Show(msg);
         }
-        private void btnOkEstilista_Move(object sender, EventArgs e)
+        private void btnOk_Move(object sender, EventArgs e)
         {
             if (currentMode == FormGestion.OPCION_ELIMINAR)
             {
@@ -261,7 +262,7 @@ namespace APLICACION.Interfaz
         }
 
 
-        private void FormEstilista_VisibleChanged(object sender, EventArgs e)
+        private void Form_VisibleChanged(object sender, EventArgs e)
         {
             if (!Visible)
             {

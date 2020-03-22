@@ -1,6 +1,6 @@
 ﻿namespace APLICACION.Interfaz
 {
-    partial class FormKarateca
+    partial class FormTorneo1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblDecription = new System.Windows.Forms.Label();
-            this.btnOkEstilista = new System.Windows.Forms.Button();
+            this.btnOkKarateka = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -53,20 +53,20 @@
             this.lblDecription.TabIndex = 34;
             this.lblDecription.Text = "ACTUALIZAR KARATECA";
             // 
-            // btnOkEstilista
+            // btnOkKarateka
             // 
-            this.btnOkEstilista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
-            this.btnOkEstilista.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOkEstilista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnOkEstilista.ForeColor = System.Drawing.Color.Black;
-            this.btnOkEstilista.Location = new System.Drawing.Point(106, 261);
-            this.btnOkEstilista.Name = "btnOkEstilista";
-            this.btnOkEstilista.Size = new System.Drawing.Size(120, 30);
-            this.btnOkEstilista.TabIndex = 33;
-            this.btnOkEstilista.Text = "OK";
-            this.btnOkEstilista.UseVisualStyleBackColor = false;
-            this.btnOkEstilista.Click += new System.EventHandler(this.btnOkEstilista_Click);
-            this.btnOkEstilista.Move += new System.EventHandler(this.btnOkEstilista_Move);
+            this.btnOkKarateka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
+            this.btnOkKarateka.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOkKarateka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnOkKarateka.ForeColor = System.Drawing.Color.Black;
+            this.btnOkKarateka.Location = new System.Drawing.Point(106, 261);
+            this.btnOkKarateka.Name = "btnOkKarateka";
+            this.btnOkKarateka.Size = new System.Drawing.Size(120, 30);
+            this.btnOkKarateka.TabIndex = 33;
+            this.btnOkKarateka.Text = "OK";
+            this.btnOkKarateka.UseVisualStyleBackColor = false;
+            this.btnOkKarateka.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOkKarateka.Move += new System.EventHandler(this.btnOk_Move);
             // 
             // txtNombre
             // 
@@ -153,6 +153,7 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(169, 22);
             this.txtPeso.TabIndex = 50;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
             // lblCiudad
             // 
@@ -171,6 +172,7 @@
             this.cbxCiudad.Name = "cbxCiudad";
             this.cbxCiudad.Size = new System.Drawing.Size(169, 21);
             this.cbxCiudad.TabIndex = 54;
+            this.cbxCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_onlyNumbers_KeyPerss);
             // 
             // FormKarateca
             // 
@@ -188,14 +190,14 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblDecription);
-            this.Controls.Add(this.btnOkEstilista);
+            this.Controls.Add(this.btnOkKarateka);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
             this.Name = "FormKarateca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Estilista";
+            this.Text = "Karateca";
             this.Load += new System.EventHandler(this.FormKarateca_Load);
-            this.VisibleChanged += new System.EventHandler(this.FormEstilista_VisibleChanged);
+            this.VisibleChanged += new System.EventHandler(this.Form_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,7 +206,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblDecription;
-        private System.Windows.Forms.Button btnOkEstilista;
+        private System.Windows.Forms.Button btnOkKarateka;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
