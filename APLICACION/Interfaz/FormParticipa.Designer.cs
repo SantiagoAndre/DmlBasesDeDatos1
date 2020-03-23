@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblDecription = new System.Windows.Forms.Label();
-            this.btnOkInscripcion = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.txtCodigoKarateca = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.dtpHora = new System.Windows.Forms.DateTimePicker();
@@ -52,17 +52,17 @@
             // 
             // btnOkInscripcion
             // 
-            this.btnOkInscripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
-            this.btnOkInscripcion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOkInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnOkInscripcion.ForeColor = System.Drawing.Color.Black;
-            this.btnOkInscripcion.Location = new System.Drawing.Point(53, 220);
-            this.btnOkInscripcion.Name = "btnOkInscripcion";
-            this.btnOkInscripcion.Size = new System.Drawing.Size(200, 45);
-            this.btnOkInscripcion.TabIndex = 33;
-            this.btnOkInscripcion.Text = "OK";
-            this.btnOkInscripcion.UseVisualStyleBackColor = false;
-            this.btnOkInscripcion.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnOk.ForeColor = System.Drawing.Color.Black;
+            this.btnOk.Location = new System.Drawing.Point(53, 220);
+            this.btnOk.Name = "btnOkInscripcion";
+            this.btnOk.Size = new System.Drawing.Size(200, 45);
+            this.btnOk.TabIndex = 33;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtCodigoKarateca
             // 
@@ -155,12 +155,12 @@
             this.Controls.Add(this.dtpHora);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.lblDecription);
-            this.Controls.Add(this.btnOkInscripcion);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtCodigoTorneo);
             this.Controls.Add(this.txtCodigoKarateca);
             this.Name = "FormParticipa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Inscripcion";
+            this.Text = "Participacion";
             this.VisibleChanged += new System.EventHandler(this.FormInscripcion_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,7 +169,7 @@
 
         #endregion
         private System.Windows.Forms.Label lblDecription;
-        private System.Windows.Forms.Button btnOkInscripcion;
+        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox txtCodigoKarateca;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.DateTimePicker dtpHora;

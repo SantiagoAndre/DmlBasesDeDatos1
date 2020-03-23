@@ -44,9 +44,9 @@ namespace APLICACION.Interfaz
 
         private void btnShowInscripciones_Click(object sender, EventArgs e)
         {
-            DataTable dt = Logica.Inscripcion.getAllInscriptions();
+            DataTable dt = Logica.Participacion.obtenerTodas();
             
-            aFormTable.setTable("Inscripciones", dt);
+            aFormTable.setTable("Participaciones", dt);
             pasarAForm(aFormTable);
 
         }

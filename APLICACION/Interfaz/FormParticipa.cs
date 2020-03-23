@@ -43,7 +43,7 @@ namespace APLICACION.Interfaz
             int codigoKarateca = 0, codigoTorneo = 0;
             string fecha = "", hora = "";
             if (getData(ref  codigoKarateca, ref  codigoTorneo, ref  fecha, ref  hora))
-                return Logica.Participacion.registrat( codigoKarateca,  codigoTorneo,  fecha,  hora);
+                return Logica.Participacion.registrar( codigoKarateca,  codigoTorneo,  fecha,  hora);
             else
                 return "Error: todos los campos  son obligatorios";
 
