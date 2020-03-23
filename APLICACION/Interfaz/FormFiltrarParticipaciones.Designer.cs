@@ -60,11 +60,11 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.CustomFormat = "yyyy/mm/dd";
+            this.dtpFecha.CustomFormat = "";
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecha.Location = new System.Drawing.Point(133, 50);
-            this.dtpFecha.MaxDate = new System.DateTime(2020, 3, 22, 0, 0, 0, 0);
+            this.dtpFecha.MaxDate = System.DateTime.Now;
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(152, 22);
             this.dtpFecha.TabIndex = 36;
@@ -93,7 +93,6 @@
             this.Name = "FormFiltrarParticipaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Participacion";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 

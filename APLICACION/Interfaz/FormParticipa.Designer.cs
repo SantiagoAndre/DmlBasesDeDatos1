@@ -50,14 +50,14 @@
             this.lblDecription.TabIndex = 34;
             this.lblDecription.Text = "REGISTRAR PARTICIPACION";
             // 
-            // btnOkInscripcion
+            // btnOk
             // 
             this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnOk.ForeColor = System.Drawing.Color.Black;
             this.btnOk.Location = new System.Drawing.Point(53, 220);
-            this.btnOk.Name = "btnOkInscripcion";
+            this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(200, 45);
             this.btnOk.TabIndex = 33;
             this.btnOk.Text = "OK";
@@ -75,10 +75,11 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.CustomFormat = "yyyy/mm/dd";
+            this.dtpFecha.CustomFormat = "";
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecha.Location = new System.Drawing.Point(141, 124);
+            this.dtpFecha.MaxDate = System.DateTime.Now;
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(152, 22);
             this.dtpFecha.TabIndex = 36;
@@ -88,6 +89,7 @@
             this.dtpHora.CustomFormat = "HH:mm:ss";
             this.dtpHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHora.MaxDate = System.DateTime.Now;
             this.dtpHora.Location = new System.Drawing.Point(141, 164);
             this.dtpHora.Name = "dtpHora";
             this.dtpHora.Size = new System.Drawing.Size(152, 22);
