@@ -21,6 +21,7 @@ namespace APLICACION.Interfaz
         }
         private void pasarAForm(Form form)
         {
+            //pasa de un formulario o otro
             this.Visible = false;
             form.ShowDialog(this);
             this.Show();
@@ -28,19 +29,29 @@ namespace APLICACION.Interfaz
 
         private String obtenerFecha()
         {
+            //obtiene la fecha
             return  dtpFecha.Value.ToShortDateString();
                
         }
         private void filtrarParticipaciones()
         {
+            //metodo principal que se comunica con la capa logica
+            //obtiene los datos de las entradas y se los manda a la logica
             string fecha = obtenerFecha();
             DataTable dt = Logica.Participacion.filtrarPorFecha(fecha);
-
-            aFormTable.setTable("Participaciones", dt);
-            pasarAForm(aFormTable);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay coincidencias de busqueda");
+            }
+            else
+            {
+                aFormTable.setTable("Participaciones", dt);
+                pasarAForm(aFormTable);
+            }
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
+            //se ejecuta cuando se oprime el boton OK
             filtrarParticipaciones();
             
             

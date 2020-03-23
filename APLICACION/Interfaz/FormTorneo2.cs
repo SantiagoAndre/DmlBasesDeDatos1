@@ -17,6 +17,10 @@ namespace APLICACION.Interfaz
         {
             InitializeComponent();
             this.aFormTable = formTable;
+            //QUEMAR informacion MODALIDADES
+            cbxModalidad.Items.Add("infantil");
+            cbxModalidad.Items.Add("juvenil");
+            cbxModalidad.Items.Add("adultos");
         }
         private void moveToForm(Form form)
         {
@@ -29,16 +33,16 @@ namespace APLICACION.Interfaz
 
             return true;
         }
-        private void clearInputs()
+        private void limpiarEntradas()
         {
             this.txtCodigo.Enabled = true;
             this.txtCodigo.Clear();
             this.txtNombre.Clear();
-            this.cbxFrecuencia.Text = "";
             this.cbxModalidad.Text = "";
             //this.cbxCiudad.SelectedIndex = 0 ;//FALTA CIUDAD
         }
-        private void showSomeComponets()
+        //FUNCIONES QUE CAMBIAN LA INTERFAZ
+        private void mostrarAlgunosComponentes()
         {
             this.lblNombre.Visible = false;
             this.txtNombre.Visible = false;
@@ -47,10 +51,11 @@ namespace APLICACION.Interfaz
             this.cbxModalidad.Visible = false;
 
             this.lblFrecuencia.Visible = false;
-            this.cbxFrecuencia.Visible = false;
+            this.rbSemestral.Visible = false;
+            this.rbAnual.Visible = false;
 
         }
-        private void showAllComponets()
+        private void mostrarTodoslosComponentes()
         {
 
             this.lblNombre.Visible = true;
@@ -60,48 +65,49 @@ namespace APLICACION.Interfaz
             this.cbxModalidad.Visible = true;
 
             this.lblFrecuencia.Visible = true;
-            this.cbxFrecuencia.Visible = true;
-
+            this.rbSemestral.Visible = true;
+            this.rbAnual.Visible = true;
 
 
 
         }
-
-
-        private void viewDrop()
+        private void vistaEliminar()
         {
-            showSomeComponets();
+            mostrarAlgunosComponentes();
             this.btnOkKarateka.Location = new Point(105, 125);
             this.ClientSize = new System.Drawing.Size(330, 170);
         }
-        private void viewRecorder()
+        private void vistaCompleta()
         {
-            showAllComponets();
+            mostrarTodoslosComponentes();
             this.ClientSize = new System.Drawing.Size(356, 256);
             this.btnOkKarateka.Location = new System.Drawing.Point(124, 205);
            
         }
       
-        public void setModo(string newMode)
-        {
-            if (newMode == currentMode)
+        public void cambiarAccion(string nuevaAccion)
+        {//esta funcion cambia la accion de la interfaz, esa accion cambia el comportamiento 
+        // de la iterfaz cuando se oprime el boton OK
+        // si se selecciona elimianar, entonces se cambia la interfaz  a la vista eliminar
+        //cuando se oprima el boton OK  se ejecutara ela funcion elimianr torneo.
+            if (nuevaAccion == accionActual)
                 return;
-            this.currentMode = newMode;
-            this.lblDecription.Text = currentMode + " TORNEO";
-            if (newMode == FormGestion.OPCION_ELIMINAR)
+            this.accionActual = nuevaAccion;
+            this.lblDecription.Text = accionActual + " TORNEO";
+            if (nuevaAccion == FormGestion.OPCION_ELIMINAR)
             {
-                viewDrop();
+                vistaEliminar();
             }
             else
             {
-                viewRecorder();
+                vistaCompleta();
             }
             
         }
-
-        private Boolean getData(ref int codigo, ref String nombre, ref String modalidad, ref String frecuencia)
+        // FUNCIONES QUE OBTIENEN LOS DATOS DE LA INTERFAZ
+        private Boolean obtenerDatos(ref int codigo, ref String nombre, ref String modalidad, ref String frecuencia)
         {
-            codigo = getCode();
+            codigo = obtenerCodigo();
             if (codigo == -1)
                 return false;
 
@@ -109,8 +115,10 @@ namespace APLICACION.Interfaz
             {
                 nombre = txtNombre.Text.ToString().Trim();
                 modalidad = cbxModalidad.SelectedItem.ToString().Trim();
-
-                frecuencia = cbxFrecuencia.SelectedItem.ToString().Trim();
+                if(this.rbAnual.Checked)
+                    frecuencia = "anual";
+                else
+                    frecuencia = "semestral";
 
             }
             catch
@@ -121,7 +129,7 @@ namespace APLICACION.Interfaz
                 return false;
             return true;
         }
-        private int getCode()
+        private int obtenerCodigo()
         {
             try
             {
@@ -133,14 +141,15 @@ namespace APLICACION.Interfaz
                 return -1;
             }
         }
-        
 
-        private string actrualizarTorneo()
+        // FNCIONES CONTROLADORAS: SE COMUNICAN CON LA CAPA LOGICA
+
+        private string actualizarTorneo()
         {
 
             int codigo = 0;
             string nombre = "", modalidad = "",frecuencia = "";
-            if (getData(ref codigo, ref nombre, ref modalidad, ref frecuencia))
+            if (obtenerDatos(ref codigo, ref nombre, ref modalidad, ref frecuencia))
                 return Logica.Torneo.actualizar(codigo, nombre, modalidad, frecuencia);
             return "Error: todas las casillas son obligatorias";
         }
@@ -148,16 +157,16 @@ namespace APLICACION.Interfaz
         {
             int codigo = 0;
             string nombre = "", modalidad = "", frecuencia = "";
-            if (getData(ref codigo, ref nombre, ref modalidad, ref frecuencia))
+            if (obtenerDatos(ref codigo, ref nombre, ref modalidad, ref frecuencia))
             {
-                clearInputs();
+                limpiarEntradas();
                 return Logica.Torneo.crear(codigo, nombre, modalidad, frecuencia);
             }
             return "Error: Las casillas marcadas son obligatorias";
         }
         private string eliminarTorneo()
         {
-            int codigo = getCode();
+            int codigo = obtenerCodigo();
             if (codigo < 0)
                 return "Error: tienes que digitar un codigo";
 
@@ -165,7 +174,7 @@ namespace APLICACION.Interfaz
         }
         private string buscarTorneo()
         {
-            int codigo = getCode();
+            int codigo = obtenerCodigo();
             if (codigo<0)
                 return "Error: Formato del codigo no valido.";
             DataRow torneo = Logica.Torneo.buscar(codigo);
@@ -174,37 +183,42 @@ namespace APLICACION.Interfaz
                 return "No existe el torneo";
             txtNombre.Text = torneo.Field<String>("NOMBRE");
             cbxModalidad.Text = torneo.Field<String>("MODALIDAD");
-            cbxFrecuencia.Text = torneo.Field<String>("Frecuencia");
+            String frecuencia = torneo.Field<String>("Frecuencia");
+            if (frecuencia == "semestral")
+                this.rbSemestral.Checked = true;
+            else
+                this.rbAnual.Checked = true;
             return null;
         }
+        // FUNCIONES QUE CONTROLAN EL COMPORTAMIENTO DE LOS COMPONENTES DE LA INTERFAZ
 
         private void btnOk_Click(object sender, EventArgs e)
-        {
+        {// SE EJECUTA CUANDO SE OPRIME EL BOTON 'OK'
             String msg;
-            if (currentMode == FormGestion.OPCION_ACTUALIZAR)
+            if (accionActual == FormGestion.OPCION_ACTUALIZAR)
             {
                 if (torneoaEncontrado)
                 {
-                    msg = actrualizarTorneo();
-                    clearInputs();
+                    msg = actualizarTorneo();
+                    limpiarEntradas();
                 }
                 else
                     msg = "Debes ingresar el codigo del torneo y presionar ENTER.";
             }
-            else if (currentMode == FormGestion.OPCION_CREAR)
+            else if (accionActual == FormGestion.OPCION_CREAR)
             {
                 msg = crearTorneo();
                 
             }
-            else if (currentMode == FormGestion.OPCION_ELIMINAR)
+            else if (accionActual == FormGestion.OPCION_ELIMINAR)
             {
                 msg = eliminarTorneo();
-                clearInputs();
+                limpiarEntradas();
             }
             else
             {
                 msg = buscarTorneo();
-                clearInputs();
+                limpiarEntradas();
             }
             if (msg != null)
                 MessageBox.Show(msg);
@@ -222,12 +236,12 @@ namespace APLICACION.Interfaz
         {
             if (!Visible)
             {
-                clearInputs();
-                currentMode = null;
+                limpiarEntradas();
+                accionActual = null;
             }
         }
 
-        private string currentMode;// when the interface is visible, this is working in a  specific mode
+        private string accionActual;// when the interface is visible, this is working in a  specific mode
                                    //rerecoder, update, drup, find
         private FormTable aFormTable;
 
@@ -235,20 +249,14 @@ namespace APLICACION.Interfaz
 
         private void FormTorneo_Load(object sender, EventArgs e)
         {
-            //QUEMAR informacion MODALIDADES
-            cbxModalidad.Items.Add("infantil" );
-            cbxModalidad.Items.Add("juvenil");
-            cbxModalidad.Items.Add("adultos");
-            //QUEMAR informacion MODALIDADES
-            cbxFrecuencia.Items.Add("anual");
-            cbxFrecuencia.Items.Add("semestral");
+           
 
         }
 
 
         private void txtBuscarCodigo(object sender, KeyEventArgs e)
         {
-            if (currentMode != FormGestion.OPCION_ACTUALIZAR)
+            if (accionActual != FormGestion.OPCION_ACTUALIZAR)
                 return;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
@@ -257,6 +265,7 @@ namespace APLICACION.Interfaz
                     MessageBox.Show(msg);
             }
         }
+
     }
 }
 

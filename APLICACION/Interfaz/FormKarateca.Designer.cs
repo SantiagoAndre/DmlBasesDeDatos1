@@ -66,7 +66,6 @@
             this.btnOkKarateka.Text = "OK";
             this.btnOkKarateka.UseVisualStyleBackColor = false;
             this.btnOkKarateka.Click += new System.EventHandler(this.btnOk_Click);
-            this.btnOkKarateka.Move += new System.EventHandler(this.btnOk_Move);
             // 
             // txtNombre
             // 

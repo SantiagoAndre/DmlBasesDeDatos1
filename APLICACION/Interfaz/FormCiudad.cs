@@ -14,9 +14,10 @@ namespace APLICACION.Interfaz
     {
         public FromCiudad()
         {
+            //CONSTRUCTOR
             InitializeComponent();
         }      
-        private void clearAllInputs()
+        private void limpiarEntradas()
         {
             this.txtCodeDip.Enabled = true;
             this.txtCodeDip.Clear();
@@ -68,19 +69,12 @@ namespace APLICACION.Interfaz
         }
       
 
-        private void fillOutAllInputs(DataTable tabla)
-        {
-            txtCodeDip.Text = tabla.Rows[0]["CODIGO"].ToString().Trim();
-            txtNameDip.Text = tabla.Rows[0]["NOMBRE"].ToString().Trim();
-            
-        }
-
         private void btnOk_Click(object sender, EventArgs e)
         {
             String msg = guardarCiudad();
             if (msg != null)
                 MessageBox.Show(msg);
-            clearAllInputs();
+            limpiarEntradas();
             
         }
 
@@ -88,6 +82,7 @@ namespace APLICACION.Interfaz
               
         private void txt_onlyNumbers_KeyPerss(object sender, KeyPressEventArgs e)
         {
+            //esta funcion controla que solo se agregen numeros en un texbox
             char keypress = e.KeyChar;
             if (!char.IsDigit(keypress) && e.KeyChar != Convert.ToChar(Keys.Back))
                 e.Handled = true;

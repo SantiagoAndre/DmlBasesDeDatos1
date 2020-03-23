@@ -14,6 +14,7 @@ namespace APLICACION.Logica
         
         public static string crear(int codigo, string nombre, string apellido, int peso, int ciuCodigo)
         {
+            //REGISTRA UN KARATECA RN LA BASE DE DATOS
             string query = System.String.Format("INSERT INTO KARATECA(karatCodigo,karatNombre,karatApellido,karatPeso,ciuCodigo) VALUES ({0},'{1}','{2}',{3},{4})", codigo,nombre,apellido,peso,ciuCodigo);
             try
             {
@@ -27,6 +28,7 @@ namespace APLICACION.Logica
         }
         public static  string actualizar(int codigo, string nombre, string apellido, int peso, int ciuCodigo)
         {
+            //ACTUALIZA LA INFORMACION DE UN KARATECA EN LA BASE DE DATOS
             string query = System.String.Format("UPDATE KARATECA SET karatNombre = '{1}', karatApellido = '{2}', karatPeso = {3}, ciuCodigo = {4}  WHERE karatCodigo = {0}", codigo, nombre, apellido, peso,ciuCodigo);
             try
             {
@@ -43,6 +45,7 @@ namespace APLICACION.Logica
         }
         public static string eliminar(int codigo)
         {
+            //ELIMINA UN KARATECA DE LA BASE DE DATOS
             try
             {
                 String respuesta = "";
@@ -60,6 +63,7 @@ namespace APLICACION.Logica
         }
         public static DataRow buscar(int codigo)
         {
+            //BUSCA UN CARATECA EN LA BASE DE DATOS
             try
             {
                 
@@ -81,14 +85,23 @@ namespace APLICACION.Logica
                 return null;
             }
         }
-
+        internal static int contarParticipanModalidadAnio(string modalidad,int anio)
+        {
+            /*Buscar por fecha de participación: Se solicitará al usuario que ingrese (seleccione)
+            la fecha de participación, se desplegará el nombre torneo, código, nombre, apellido del Karateca
+              nombre ciudad de donde es oriundo y hora participación.*/
+            string query = System.String.Format("select count(karateca.karatcodigo) as \"CANTIDAD\" from karateca inner join participa on karateca.karatcodigo = participa.karatcodigo inner join torneo on torneo.torcodigo = participa.karatcodigo where TORMODALIDAD= '{0}' and extract (year from participa.partfecha) = {1}", modalidad,anio);
+            DataTable dt = Datos.Datos.executeQuery(query);
+            string cantidad = dt.Rows[0]["CANTIDAD"].ToString();
+            return Int32.Parse(cantidad);
+        }
         private static string processException(Exception ex)
         {
             string msg = ex.Message;
-            if (msg.IndexOf("PRIMARY") != -1)
-                return "ya existe un diplomado con ese codigo.";
+            if (msg.IndexOf("PK_KARATECA") != -1)
+                return "ya existe un karateca con ese codigo.";
             if (msg.IndexOf("CKC_KARATPESO") != -1)
-                return "El peso del carateca debe estar entre 30kg y 60kg.";
+                return "El peso del karateca debe estar entre 30kg y 60kg.";
             return msg;
         }
 

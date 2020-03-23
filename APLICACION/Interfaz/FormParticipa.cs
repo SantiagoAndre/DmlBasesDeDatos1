@@ -12,6 +12,7 @@ namespace APLICACION.Interfaz
 {
     public partial class FormParticipa : Form
     {
+        
         public FormParticipa()
         {
             InitializeComponent();
@@ -24,9 +25,11 @@ namespace APLICACION.Interfaz
     
        
 
-        private Boolean getData(ref int codigoKarateca, ref int codigoTorneo, ref string fecha , ref string hora)
+        private Boolean obtenerDatos(ref int codigoKarateca, ref int codigoTorneo, ref string fecha , ref string hora)
         {
-            try {
+            //recoje los datos de la interfaz, ref significa que el parametro es de salida
+            try
+            {
                
                     codigoTorneo = Int32.Parse(txtCodigoTorneo.Text);
                     codigoKarateca = Int32.Parse(txtCodigoKarateca.Text);
@@ -38,18 +41,21 @@ namespace APLICACION.Interfaz
                 return false;
             }
         }
+        // FNCIONES CONTROLADORAS: SE COMUNICAN CON LA CAPA LOGICA
+
         private string registrarParticipacion()
         {
             int codigoKarateca = 0, codigoTorneo = 0;
             string fecha = "", hora = "";
-            if (getData(ref  codigoKarateca, ref  codigoTorneo, ref  fecha, ref  hora))
+            if (obtenerDatos(ref  codigoKarateca, ref  codigoTorneo, ref  fecha, ref  hora))
                 return Logica.Participacion.registrar( codigoKarateca,  codigoTorneo,  fecha,  hora);
             else
                 return "Error: todos los campos  son obligatorios";
 
         }
+        // FUNCIONES QUE CONTROLAN EL COMPORTAMIENTO DE LOS COMPONENTES DE LA INTERFAZ
         private void btnOk_Click(object sender, EventArgs e)
-        {
+        {// SE EJECUTA CUANDO SE OPRIME EL BOTON 'OK'
             String msg = registrarParticipacion();
             if(msg != null)
                 MessageBox.Show(msg);

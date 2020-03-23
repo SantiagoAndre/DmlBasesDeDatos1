@@ -37,8 +37,10 @@
             this.lblEstorbo = new System.Windows.Forms.Label();
             this.lblModalidad = new System.Windows.Forms.Label();
             this.lblFrecuencia = new System.Windows.Forms.Label();
-            this.cbxFrecuencia = new System.Windows.Forms.ComboBox();
             this.cbxModalidad = new System.Windows.Forms.ComboBox();
+            this.rbAnual = new System.Windows.Forms.RadioButton();
+            this.rbSemestral = new System.Windows.Forms.RadioButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // lblDecription
@@ -57,14 +59,13 @@
             this.btnOkKarateka.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOkKarateka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnOkKarateka.ForeColor = System.Drawing.Color.Black;
-            this.btnOkKarateka.Location = new System.Drawing.Point(124, 205);
+            this.btnOkKarateka.Location = new System.Drawing.Point(111, 202);
             this.btnOkKarateka.Name = "btnOkKarateka";
             this.btnOkKarateka.Size = new System.Drawing.Size(120, 30);
             this.btnOkKarateka.TabIndex = 33;
             this.btnOkKarateka.Text = "OK";
             this.btnOkKarateka.UseVisualStyleBackColor = false;
             this.btnOkKarateka.Click += new System.EventHandler(this.btnOk_Click);
-            
             // 
             // txtNombre
             // 
@@ -137,14 +138,6 @@
             this.lblFrecuencia.TabIndex = 51;
             this.lblFrecuencia.Text = "FRECUENCIA:";
             // 
-            // cbxFrecuencia
-            // 
-            this.cbxFrecuencia.FormattingEnabled = true;
-            this.cbxFrecuencia.Location = new System.Drawing.Point(149, 163);
-            this.cbxFrecuencia.Name = "cbxFrecuencia";
-            this.cbxFrecuencia.Size = new System.Drawing.Size(169, 21);
-            this.cbxFrecuencia.TabIndex = 55;
-            // 
             // cbxModalidad
             // 
             this.cbxModalidad.FormattingEnabled = true;
@@ -153,14 +146,38 @@
             this.cbxModalidad.Size = new System.Drawing.Size(169, 21);
             this.cbxModalidad.TabIndex = 56;
             // 
+            // rbAnual
+            // 
+            this.rbAnual.AutoSize = true;
+            this.rbAnual.Checked = true;
+            this.rbAnual.Location = new System.Drawing.Point(253, 168);
+            this.rbAnual.Name = "rbAnual";
+            this.rbAnual.Size = new System.Drawing.Size(51, 17);
+            this.rbAnual.TabIndex = 57;
+            this.rbAnual.TabStop = true;
+            this.rbAnual.Text = "anual";
+            this.rbAnual.UseVisualStyleBackColor = true;
+            // 
+            // rbSemestral
+            // 
+            this.rbSemestral.AutoSize = true;
+            this.rbSemestral.Location = new System.Drawing.Point(162, 168);
+            this.rbSemestral.Name = "rbSemestral";
+            this.rbSemestral.Size = new System.Drawing.Size(69, 17);
+            this.rbSemestral.TabIndex = 58;
+            this.rbSemestral.TabStop = true;
+            this.rbSemestral.Text = "semestral";
+            this.rbSemestral.UseVisualStyleBackColor = true;
+            // 
             // FormTorneo2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(356, 256);
+            this.ClientSize = new System.Drawing.Size(338, 239);
+            this.Controls.Add(this.rbSemestral);
+            this.Controls.Add(this.rbAnual);
             this.Controls.Add(this.cbxModalidad);
-            this.Controls.Add(this.cbxFrecuencia);
             this.Controls.Add(this.lblFrecuencia);
             this.Controls.Add(this.lblModalidad);
             this.Controls.Add(this.lblEstorbo);
@@ -191,7 +208,9 @@
         private System.Windows.Forms.Label lblEstorbo;
         private System.Windows.Forms.Label lblModalidad;
         private System.Windows.Forms.Label lblFrecuencia;
-        private System.Windows.Forms.ComboBox cbxFrecuencia;
         private System.Windows.Forms.ComboBox cbxModalidad;
+        private System.Windows.Forms.RadioButton rbAnual;
+        private System.Windows.Forms.RadioButton rbSemestral;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

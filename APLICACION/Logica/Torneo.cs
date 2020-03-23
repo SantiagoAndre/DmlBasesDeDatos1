@@ -14,6 +14,7 @@ namespace APLICACION.Logica
         
         public static string crear(int codigo, String nombre, String modalidad, String frecuencia)
         {
+            //CREA UN TORNEO EN LA BASE DE DATOS
             string query = System.String.Format("INSERT INTO TORNEO(torCodigo,torNombre,torFrecuencia,torModalidad) VALUES ({0},'{1}','{2}','{3}')", codigo,nombre,frecuencia,modalidad);
             try
             {
@@ -27,6 +28,7 @@ namespace APLICACION.Logica
         }
         public static  string actualizar(int codigo, String nombre, String modalidad, String frecuencia)
         {
+            //ACTUALIZA UN TORNEO EN LA BASE DE DATOS
             string query = System.String.Format("UPDATE TORNEO SET torNombre = '{1}', torFrecuencia = '{2}', torModalidad = '{3}' WHERE torCodigo = {0}", codigo, nombre, frecuencia, modalidad);
             try
             {
@@ -43,6 +45,7 @@ namespace APLICACION.Logica
         }
         public static string eliminar(int codigo)
         {
+            //ELMINA UN TORNEO DE LA BASE DE DATOS
             try
             {
                 String respuesta = "";
@@ -60,6 +63,7 @@ namespace APLICACION.Logica
         }
         public static DataRow buscar(int codigo)
         {
+            //BUSCA UN TORNEO EN LA BASE DE DATOS
             try
             {
                 

@@ -21,6 +21,7 @@ namespace APLICACION.Interfaz
             aFromCiudad = new FromCiudad();
             aFormTable = new FormTable();
             aFromParicipacion = new FormParticipa();
+            aFromFiltarParticipaciones = new FormFiltrarParticipaciones();
         }
 
         private void btnCiudad_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace APLICACION.Interfaz
 
         private void btnEstilista_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODO_KARATECA);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.TABLA_KARATECA);
             pasarAForm(aFormGestion);
         }
 
@@ -38,7 +39,7 @@ namespace APLICACION.Interfaz
 
         private void btnInscribe_Click(object sender, EventArgs e)
         {
-            aFormGestion.setModoGestion(Interfaz.FormGestion.MODO_TORNEO);
+            aFormGestion.setModoGestion(Interfaz.FormGestion.TABLA_TORNEO);
             pasarAForm(aFormGestion);
         }
 
@@ -66,21 +67,27 @@ namespace APLICACION.Interfaz
         private FromCiudad aFromCiudad;
         private FormTable aFormTable;
         private FormParticipa aFromParicipacion;
+        private FormFiltrarParticipaciones aFromFiltarParticipaciones;
 
         private void btnCoutEst_Click(object sender, EventArgs e)
         {
-            int count = 10; // Logica.Karateca.counterEstilistasOfMaleGender();
-            string msg;
-            if (count == 0)
-                msg = "No hay estilistas de genero masculino";
-            else
-                msg = String.Format("Hay {0} estilistas de genero masculino", count);
-            MessageBox.Show(msg);
+            pasarAForm(aFromFiltarParticipaciones);
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int count = Logica.Karateca.contarParticipanModalidadAnio("infantil", 2019);
+            string msg;
+            if (count == 0)
+                msg = "No coincidencias con la busqueda";
+            else
+                msg = String.Format("Participaron {0} karatecas en la modalidad infantil en el año 2019. ", count);
+            MessageBox.Show(msg);
         }
     }
 }
